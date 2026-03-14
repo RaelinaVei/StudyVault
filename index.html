@@ -3,37 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudyVault | Neon Mountains</title>
+    <title>English Vault | StudyVault</title>
     <style>
         :root {
             --primary: #bc13fe; 
+            --accent-gold: #ffb400;
+            --accent-teal: #00f2ff;
             --text: #ffffff;
             --subtext: #cbd5e1;
             --bg-image: url('https://w0.peakpx.com/wallpaper/700/152/HD-wallpaper-mountains-in-dark-night-background-dark.jpg');
-            --card-bg: rgba(255, 255, 255, 0.07); 
-            --link-bg: rgba(255, 255, 255, 0.1);
-            --glow: 0 0 15px rgba(188, 19, 254, 0.8);
+            --card-bg: rgba(255, 255, 255, 0.05); 
+            --glow: 0 0 20px rgba(188, 19, 254, 0.6);
         }
 
         [data-theme="dark"] {
             --primary: #df16ff;
-            --card-bg: rgba(0, 0, 0, 0.5);
-            --link-bg: rgba(255, 255, 255, 0.05);
+            --card-bg: rgba(0, 0, 0, 0.4);
         }
 
         #starfield {
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: -1;
-            pointer-events: none;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; pointer-events: none;
         }
 
         body { 
             font-family: 'Segoe UI', sans-serif; 
             color: var(--text); 
-            margin: 0; 
-            padding: 20px; 
+            margin: 0; padding: 20px; 
             min-height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), var(--bg-image);
             background-size: cover;
@@ -43,317 +40,382 @@
             overflow-x: hidden;
         }
 
-        .logo-box {
-            position: fixed;
-            top: 25px;
-            left: 25px;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .flash-icon {
-            font-size: 1.8rem;
-            text-shadow: var(--glow);
-            filter: drop-shadow(0 0 5px var(--primary));
-            transition: transform 0.3s ease;
-        }
-
-        .logo-box:hover .flash-icon {
-            transform: scale(1.2) rotate(10deg);
-        }
-
-        .logo-text {
-            font-weight: 800;
-            letter-spacing: 2px;
-            font-size: 1.1rem;
-            color: white;
-            text-transform: uppercase;
-        }
-
         .container { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
 
-        header { text-align: center; padding: 60px 0 20px 0; }
+        header { text-align: center; padding: 20px 0 40px 0; }
         
+        .back-nav { margin-bottom: 30px; }
+        .back-btn { 
+            text-decoration: none; color: white; background: rgba(0,0,0,0.3); 
+            padding: 8px 24px; border-radius: 20px; font-size: 0.85rem; 
+            border: 1px solid rgba(255,255,255,0.4); transition: 0.3s;
+        }
+        .back-btn:hover { border-color: var(--primary); box-shadow: var(--glow); }
+
         h1 { 
-            margin: 0; 
-            font-size: 3.5rem; 
+            margin: 10px 0; font-size: 3.8rem; 
             color: var(--primary); 
             text-transform: uppercase;
-            letter-spacing: 5px;
-            text-shadow: var(--glow), 0 0 30px rgba(188, 19, 254, 0.4);
+            letter-spacing: 3px;
+            text-shadow: var(--glow);
         }
 
-        .search-wrapper {
-            margin: 30px auto;
-            max-width: 500px;
-        }
-
-        #subjectSearch {
+        .section-title {
+            font-size: 2.2rem;
+            color: #fff;
+            text-align: center;
+            margin: 50px 0 30px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            padding-bottom: 10px;
             width: 100%;
-            padding: 15px 25px;
-            border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            color: white;
-            font-size: 1.1rem;
-            outline: none;
-            transition: all 0.3s ease;
-            box-sizing: border-box;
-            text-align: center;
         }
 
-        #subjectSearch:focus {
-            border-color: var(--primary);
-            box-shadow: var(--glow);
-        }
-
-        #noResults {
-            display: none;
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--subtext);
-            margin-top: 50px;
-            padding: 40px;
-            background: var(--card-bg);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
+        .divider {
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            margin: 60px 0;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
         }
 
         .theme-toggle {
-            position: fixed; top: 25px; right: 25px;
+            position: fixed; top: 20px; right: 20px;
             background: var(--primary); color: white;
-            border: none; padding: 10px 20px; border-radius: 30px;
+            border: none; padding: 10px 18px; border-radius: 30px;
             cursor: pointer; font-weight: bold;
             box-shadow: var(--glow); z-index: 1000;
-            font-size: 0.9rem;
         }
 
-        .subject-grid { 
+        .teacher-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 25px; 
-            margin-top: 20px;
+            gap: 30px; 
         }
 
-        .subject-card { 
+        .teacher-card { 
             background: var(--card-bg); 
-            backdrop-filter: blur(15px);
-            padding: 25px; 
-            border-radius: 20px; 
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
-            transition: all 0.3s ease;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 45px 30px; 
+            border-radius: 25px; 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: 0.4s ease;
         }
 
-        .subject-card.hidden { display: none; }
-
-        .subject-card:hover { 
-            transform: translateY(-10px); 
+        .teacher-card:hover { 
+            transform: translateY(-12px); 
             border-color: var(--primary);
             box-shadow: var(--glow);
         }
 
-        .subject-card h2 { 
-            margin-top: 0; color: var(--primary); 
-            font-size: 1.4rem; text-shadow: var(--glow);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
-            padding-bottom: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .avatar { 
+            width: 70px; height: 70px; 
+            background: rgba(188, 19, 254, 0.15); 
+            border: 2px solid var(--primary);
+            border-radius: 50%; margin: 0 auto 25px; 
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; font-weight: bold; color: var(--primary);
+            box-shadow: var(--glow);
         }
 
-        .subject-code {
-            font-size: 0.85rem;
-            background: rgba(188, 19, 254, 0.15);
-            padding: 4px 10px;
-            border-radius: 8px;
-            color: #fff;
-            border: 1px solid var(--primary);
+        .premium-card {
+            border: 2px solid var(--accent-gold) !important;
+            background: rgba(255, 180, 0, 0.08) !important;
+        }
+        .premium-card:hover {
+            box-shadow: 0 0 30px rgba(255, 180, 0, 0.4) !important;
+            border-color: var(--accent-gold) !important;
+        }
+        .avatar-premium {
+            border-color: var(--accent-gold) !important;
+            color: var(--accent-gold) !important;
+            background: rgba(255, 180, 0, 0.1) !important;
+        }
+        .btn-premium {
+            background: rgba(255, 180, 0, 0.15) !important;
+            border-color: var(--accent-gold) !important;
+            color: var(--accent-gold) !important;
+        }
+        .btn-premium:hover {
+            background: var(--accent-gold) !important;
+            color: #000 !important;
         }
 
-        .links { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
-        
-        .links a { 
-            text-decoration: none; color: white; 
-            background: var(--link-bg); 
-            padding: 12px 15px; border-radius: 10px; 
-            font-weight: 500; display: flex; justify-content: space-between;
-            transition: 0.3s;
+        .ai-card {
+            border: 2px solid var(--accent-teal) !important;
+            background: rgba(0, 242, 255, 0.08) !important;
+        }
+        .ai-card:hover {
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.4) !important;
+            border-color: var(--accent-teal) !important;
+        }
+        .avatar-ai {
+            border-color: var(--accent-teal) !important;
+            color: var(--accent-teal) !important;
+            background: rgba(0, 242, 255, 0.1) !important;
+        }
+        .btn-ai {
+            background: rgba(0, 242, 255, 0.15) !important;
+            border-color: var(--accent-teal) !important;
+            color: var(--accent-teal) !important;
+        }
+        .btn-ai:hover {
+            background: var(--accent-teal) !important;
+            color: #000 !important;
         }
 
-        .links a:hover { background: var(--primary); box-shadow: var(--glow); }
+        .teacher-card h2 { margin: 15px 0; font-size: 1.7rem; color: var(--primary); text-shadow: var(--glow); }
+        .teacher-card p { font-size: 0.95rem; color: var(--subtext); line-height: 1.6; margin-bottom: 30px; }
 
-        footer { text-align: center; margin-top: 60px; padding-bottom: 40px; }
-
-        .scrolling-banner {
-            width: 100%; background: var(--primary); padding: 15px 0;
-            overflow: hidden; border-radius: 12px; display: flex;
+        .access-btn {
+            display: block; text-decoration: none; color: white;
+            background: rgba(188, 19, 254, 0.2); border: 1px solid var(--primary);
+            padding: 14px; border-radius: 12px; font-weight: bold; transition: 0.3s;
         }
 
-        .scrolling-text {
-            display: inline-block; white-space: nowrap; font-weight: 800;
-            text-transform: uppercase; letter-spacing: 5px; color: white;
-            animation: marquee 20s linear infinite;
-        }
+        .access-btn:hover { background: var(--primary); box-shadow: var(--glow); color: #fff; }
 
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); } 
-        }
+        footer { text-align: center; margin-top: 80px; color: var(--subtext); padding-bottom: 40px; }
     </style>
 </head>
 <body>
 
 <canvas id="starfield"></canvas>
 
-<div class="logo-box">
-    <span class="flash-icon">⚡</span>
-    <span class="logo-text">StudyVault</span>
-</div>
-
 <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark Mode</button>
 
 <div class="container">
     <header>
-        <h1>StudyVault</h1>
-        <div class="search-wrapper">
-            <input type="text" id="subjectSearch" placeholder="Search by name or code (e.g. 5054)..." onkeyup="filterSubjects()">
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">← Back to Dashboard</a>
         </div>
+        <h1>English Vault 📖</h1>
     </header>
 
-    <div id="noResults">
-        <span style="font-size: 3rem;">🕵️‍♂️</span>
-        <p>No subjects found. Try searching for a different code!</p>
+    <h2 class="section-title">📂 Essential Resources</h2>
+    <div class="teacher-grid">
+        <div class="teacher-card">
+            <div class="avatar">R1</div>
+            <h2>IGCSE Syllabus</h2>
+            <p>Understand the official curriculum and assessment requirements.</p>
+            <a href="https://drive.google.com/drive/folders/1YHvXgahzgsFwkcg3vzpHSrVdj_GnCq7E?usp=sharing" class="access-btn" target="_blank">Access</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">R2</div>
+            <h2>Synonyms Lists</h2>
+            <p>Elevate your diction with these curated high-tier word alternatives.</p>
+            <a href="https://drive.google.com/drive/folders/1DBGAR1pgEAFgcA9smQT1Ri87NK_25rK1?usp=drive_link" class="access-btn" target="_blank">Access</a>
+        </div>
+
+        <div class="teacher-card ai-card">
+            <div class="avatar avatar-ai">AI</div>
+            <h2 style="color: var(--accent-teal); text-shadow: 0 0 10px rgba(0, 242, 255, 0.3);">English GPT</h2>
+            <p>AI-powered assistant for instant essay marking, grammar checks, and creative feedback.</p>
+            <a href="https://englishgpt.org/" class="access-btn btn-ai" target="_blank">Launch AI</a>
+        </div>
+
+        <div class="teacher-card">
+            <div class="avatar">R3</div>
+            <h2>Idioms</h2>
+            <p>Add flair and cultural depth to your creative writing pieces.</p>
+            <a href="https://drive.google.com/drive/folders/1DBGAR1pgEAFgcA9smQT1Ri87NK_25rK1?usp=drive_link" class="access-btn" target="_blank">Access</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">R4</div>
+            <h2>Vocabulary Bank</h2>
+            <p>A comprehensive repository of words to sharpen your expression.</p>
+            <a href="https://drive.google.com/drive/folders/1xji3e5t6XHWR79be6Q5bDU-N0T0fK3fT?usp=sharing" class="access-btn" target="_blank">Access</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">R5</div>
+            <h2>Taughtly's Resources</h2>
+            <p>Expert-approved teaching materials for efficient revision.</p>
+            <a href="https://taughtly-my.sharepoint.com/:f:/g/personal/tech_taughtly_onmicrosoft_com/ErT-ApvtmGRHnFDaf00OwJYBYHN5YfHmrD5k_-rBORP9Ww?e=S9lT22" class="access-btn" target="_blank">Access</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">R6</div>
+            <h2>Narratives Topics List</h2>
+            <p>Spark your imagination with a variety of storytelling prompts.</p>
+            <a href="https://drive.google.com/drive/folders/1flkqznksI4UgLpnuEW1pzv6JEgMA6art?usp=sharing" class="access-btn" target="_blank">Access</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">R7</div>
+            <h2>Language Analysis</h2>
+            <p>Critical frameworks for deconstructing text and writer’s effect.</p>
+            <a href="https://drive.google.com/file/d/1aVbY8wtC1Pv71D5FtCMA8YwF9zjQsQBt/view?usp=sharing" class="access-btn" target="_blank">Access</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">R8</div>
+            <h2>Ramzan Qadir English Resource Pack</h2>
+            <p>A premium, all-in-one bundle for top-tier exam preparation.</p>
+            <a href="https://drive.google.com/file/d/1_Wkxz6g8LjxT88qJFs1_RqZO3-ZzUm7f/view?usp=sharing" class="access-btn" target="_blank">Access</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">R9</div>
+            <h2>English Resource Pack 2024</h2>
+            <p>The latest updated guide for the current academic session.</p>
+            <a href="https://drive.google.com/file/d/1Yk9uRW3wa9jXVnwBYpCW6DEBHO4Wq8Do/view?usp=sharing" class="access-btn" target="_blank">Access</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">R10</div>
+            <h2>Language Devices</h2>
+            <p>A cheat sheet for similes, metaphors, and advanced rhetorical tools.</p>
+            <a href="https://drive.google.com/file/d/1nV56aFTZN620--r2O0Cgk8-JKYxVbo8Q/view?usp=sharing" class="access-btn" target="_blank">Access</a>
+        </div>
+        <div class="teacher-card premium-card">
+            <div class="avatar avatar-premium">R11</div>
+            <h2 style="color: var(--accent-gold); text-shadow: 0 0 10px rgba(255, 180, 0, 0.3);">IGCSE Compiled Syllabus</h2>
+            <p>A specialized collection of organized curriculum guides for quick reference.</p>
+            <a href="https://drive.google.com/file/d/1JHie66W8CSLnHb56twhsSDU2uxdHfDS1/view?usp=sharing" class="access-btn btn-premium" target="_blank">Access</a>
+        </div>
     </div>
 
-    <div class="subject-grid" id="subjectGrid">
-        <div class="subject-card">
-            <h2>English <span class="subject-code">1123</span></h2>
-            <div class="links">
-                <a href="english-notes.html">Notes <span>📖</span></a>
-                <a href="#">Past Papers <span>📄</span></a>
-                <a href="#">Books <span>📚</span></a>
-            </div>
+    <div class="divider"></div>
+
+    <h2 class="section-title">📚 Other Notes</h2>
+    <div class="teacher-grid">
+        <div class="teacher-card">
+            <div class="avatar">O1</div>
+            <h2>Student Base</h2>
+            <p>Community-driven caie o-level resources.</p>
+            <a href="https://studentbase.app/caie/o-level/english-language" class="access-btn" target="_blank">Access</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">O2</div>
+            <h2>O/A Level Notes</h2>
+            <p>Direct drive link for comprehensive english notes.</p>
+            <a href="https://drive.google.com/file/d/1myDZKcOJHZqxPTamAxq-GGZV6NQHvsiV/view?usp=sharing" class="access-btn" target="_blank">Access</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">O3</div>
+            <h2>Mojza</h2>
+            <p>Reliable notes for o-level and igcse english.</p>
+            <a href="https://mojza.org/olevels/o-level-igcse-english/" class="access-btn" target="_blank">Access</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">O4</div>
+            <h2>Save My Exams</h2>
+            <p>Topic questions and structured revision notes.</p>
+            <a href="https://www.savemyexams.com/subjects/english-language/" class="access-btn" target="_blank">Access</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">O5</div>
+            <h2>Overmugged</h2>
+            <p>High quality notes based on the latest syllabus.</p>
+            <a href="https://www.overmugged.com/english#:~:text=Find%20high%20quality%20free%20notes%20for%20every,latest%20Cambridge%20syllabus%2C%20with%20all%20the%20notes" class="access-btn" target="_blank">Access</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">O6</div>
+            <h2>Nerdcafe</h2>
+            <p>Interactive study materials and guides.</p>
+            <a href="https://nerdcafe.org/notes/ig-computerscience/" class="access-btn" target="_blank">Access</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">O7</div>
+            <h2>ZNotes</h2>
+            <p>Summarized, high-yield student revision notes.</p>
+            <a href="https://znotes.org/caie/o-level/english-language-1123/" class="access-btn" target="_blank">Access</a>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h2 class="section-title">📏 Layouts & Formats</h2>
+    <div class="teacher-grid">
+        <div class="teacher-card">
+            <div class="avatar">F1</div>
+            <h2>Letter Writing</h2>
+            <p>Structure for both Formal and Informal correspondence.</p>
+            <a href="https://drive.google.com/drive/folders/1b5GyCKmQDSakqBKSDBQne8Lp0jTFFN-4?usp=drive_link" class="access-btn" target="_blank">Access</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">F2</div>
+            <h2>Magazine Article</h2>
+            <p>Headlines, sub-headings, and engaging layouts.</p>
+            <a href="https://drive.google.com/drive/folders/1iShcxjaGH3deWreu4IyVhRWVa8uQjKFG?usp=sharing" class="access-btn" target="_blank">Access</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">F3</div>
+            <h2>Speech Writing</h2>
+            <p>Opening hooks and persuasive rhetorical structures.</p>
+            <a href="https://drive.google.com/drive/folders/1gM9v9d3Qqxi0T4koN3raAEckO0ei6MmJ?usp=drive_link" class="access-btn" target="_blank">Access</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">F4</div>
+            <h2>Email Writing</h2>
+            <p>Subject lines and appropriate digital register.</p>
+            <a href="https://drive.google.com/drive/folders/1QfDQOerKUXrUyYwnMJQtBB26A_HnIHq9?usp=drive_link" class="access-btn" target="_blank">Access</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">F5</div>
+            <h2>Article Writing</h2>
+            <p>Structuring broadsheet or tabloid style articles.</p>
+            <a href="https://drive.google.com/drive/folders/1iShcxjaGH3deWreu4IyVhRWVa8uQjKFG?usp=sharing" class="access-btn" target="_blank">Access</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">F6</div>
+            <h2>Report Writing</h2>
+            <p>Clear headings and objective factual presentation.</p>
+            <a href="https://drive.google.com/drive/folders/1UJUT31aUkARm_vKDTYh5kZSrZrznsXdc?usp=drive_link" class="access-btn" target="_blank">Access</a>
+        </div>
+        
+        <div class="teacher-card premium-card">
+            <div class="avatar avatar-premium">F7</div>
+            <h2 style="color: var(--accent-gold); text-shadow: 0 0 10px rgba(255, 180, 0, 0.3);">Samples & Examples</h2>
+            <p>A-grade student samples and examiner-marked responses.</p>
+            <a href="https://drive.google.com/drive/folders/13U2bmJv3nZKKADDCWBEKDHOZB50MXuvp?usp=sharing" class="access-btn btn-premium" target="_blank">View Samples</a>
         </div>
 
-        <div class="subject-card">
-            <h2>Pak Studies <span class="subject-code">2059</span></h2>
-            <div class="links">
-                <a href="pakstudies-notes.html">Notes <span>📖</span></a>
-                <a href="#">Past Papers <span>📄</span></a>
-                <a href="#">Books <span>📚</span></a>
-            </div>
-        </div>
-
-        <div class="subject-card">
-            <h2>Islamiat <span class="subject-code">2058</span></h2>
-            <div class="links">
-                <a href="islamiat-notes.html">Notes <span>📖</span></a>
-                <a href="#">Past Papers <span>📄</span></a>
-                <a href="#">Books <span>📚</span></a>
-            </div>
-        </div>
-
-        <div class="subject-card">
-            <h2>Mathematics <span class="subject-code">4024</span></h2>
-            <div class="links">
-                <a href="maths-notes.html">Notes <span>📖</span></a>
-                <a href="#">Past Papers <span>📄</span></a>
-                <a href="#">Books <span>📚</span></a>
-            </div>
-        </div>
-
-        <div class="subject-card">
-            <h2>Biology <span class="subject-code">5090</span></h2>
-            <div class="links">
-                <a href="biology-notes.html">Notes <span>📖</span></a>
-                <a href="#">Past Papers <span>📄</span></a>
-                <a href="#">Books <span>📚</span></a>
-            </div>
-        </div>
-
-        <div class="subject-card">
-            <h2>Chemistry <span class="subject-code">5070</span></h2>
-            <div class="links">
-                <a href="chemistry-notes.html">Notes <span>📖</span></a>
-                <a href="#">Past Papers <span>📄</span></a>
-                <a href="#">Books <span>📚</span></a>
-            </div>
-        </div>
-
-        <div class="subject-card">
-            <h2>Physics <span class="subject-code">5054</span></h2>
-            <div class="links">
-                <a href="physics-notes.html">Notes <span>📖</span></a>
-                <a href="#">Past Papers <span>📄</span></a>
-                <a href="#">Books <span>📚</span></a>
-            </div>
+        <div class="teacher-card premium-card">
+            <div class="avatar avatar-premium">F8</div>
+            <h2 style="color: var(--accent-gold); text-shadow: 0 0 10px rgba(255, 180, 0, 0.3);">P1 Short Guide</h2>
+            <p>Quick reference guide for Paper 1 reading techniques.</p>
+            <a href="https://drive.google.com/file/d/1hLbOGgQiUCY4k5-EgwzM20NbyE2RAots/view?usp=sharing" class="access-btn btn-premium" target="_blank">Access</a>
         </div>
     </div>
 
     <footer>
-        <div class="scrolling-banner">
-            <div class="scrolling-text">
-                FREENOTES AND RESOURCES &nbsp;&nbsp; • &nbsp;&nbsp; 
-                FREENOTES AND RESOURCES &nbsp;&nbsp; • &nbsp;&nbsp;
-                FREENOTES AND RESOURCES &nbsp;&nbsp; • &nbsp;&nbsp;
-                FREENOTES AND RESOURCES &nbsp;&nbsp; • &nbsp;&nbsp;
-            </div>
-        </div>
+        <p>Stay Bright. Study Hard. ⚡</p>
     </footer>
 </div>
 
 <script>
-    function filterSubjects() {
-        let input = document.getElementById('subjectSearch').value.toLowerCase();
-        let cards = document.getElementsByClassName('subject-card');
-        let noResults = document.getElementById('noResults');
-        let visibleCount = 0;
-
-        for (let i = 0; i < cards.length; i++) {
-            let titleText = cards[i].getElementsByTagName('h2')[0].innerText.toLowerCase();
-            if (titleText.includes(input)) {
-                cards[i].classList.remove('hidden');
-                visibleCount++;
-            } else {
-                cards[i].classList.add('hidden');
-            }
-        }
-        noResults.style.display = (visibleCount === 0) ? 'block' : 'none';
-    }
-
     function toggleTheme() {
         const body = document.documentElement;
         const btn = document.getElementById('themeBtn');
         if (body.getAttribute('data-theme') === 'dark') {
             body.removeAttribute('data-theme');
+            localStorage.setItem('studyvault-theme', 'light');
             btn.innerHTML = "🌙 Dark Mode";
         } else {
             body.setAttribute('data-theme', 'dark');
+            localStorage.setItem('studyvault-theme', 'dark');
             btn.innerHTML = "☀️ Light Mode";
         }
+    }
+
+    if (localStorage.getItem('studyvault-theme') === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.getElementById('themeBtn').innerHTML = "☀️ Light Mode";
     }
 
     const canvas = document.getElementById('starfield');
     const ctx = canvas.getContext('2d');
     let width, height, stars = [];
-    const numStars = 400;
 
     function init() {
-        width = window.innerWidth; height = window.innerHeight;
-        canvas.width = width; canvas.height = height;
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
         stars = [];
-        for (let i = 0; i < numStars; i++) {
+        for (let i = 0; i < 400; i++) {
             stars.push({
-                x: Math.random() * width - width/2,
-                y: Math.random() * height - height/2,
+                x: Math.random() * width - width / 2,
+                y: Math.random() * height - height / 2,
                 z: Math.random() * width,
                 opacity: Math.random()
             });
@@ -362,7 +424,7 @@
 
     function draw() {
         ctx.clearRect(0, 0, width, height);
-        for (let i = 0; i < numStars; i++) {
+        for (let i = 0; i < 400; i++) {
             let star = stars[i];
             star.z -= 1.2;
             if (star.z <= 0) star.z = width;
@@ -378,7 +440,8 @@
     }
 
     window.addEventListener('resize', init);
-    init(); draw();
+    init();
+    draw();
 </script>
 
 </body>

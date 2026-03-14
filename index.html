@@ -5,17 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudyVault | My Notes Hub</title>
     <style>
+        /* Color Variables */
         :root {
-            --primary: #6366f1; /* Cool Indigo color */
+            --primary: #6366f1;
             --bg: #f8fafc;
             --card: #ffffff;
             --text: #1e293b;
+            --subtext: #64748b;
+            --link-bg: #f1f5f9;
         }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; line-height: 1.6; }
+
+        /* Dark Mode Colors */
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #f1f5f9;
+            --subtext: #94a3b8;
+            --link-bg: #334155;
+        }
+
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; line-height: 1.6; transition: 0.3s; }
         .container { max-width: 1000px; margin: 0 auto; }
         header { text-align: center; padding: 40px 0; }
         h1 { margin: 0; font-size: 2.5rem; color: var(--primary); }
-        p.subtitle { color: #64748b; margin-top: 5px; }
+        p.subtitle { color: var(--subtext); margin-top: 5px; }
+
+        /* Dark Mode Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
 
         /* The Grid */
         .subject-grid { 
@@ -30,18 +58,18 @@
             padding: 20px; 
             border-radius: 12px; 
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--link-bg);
             transition: transform 0.2s;
         }
         .subject-card:hover { transform: translateY(-5px); }
-        .subject-card h2 { margin-top: 0; color: var(--primary); border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; }
+        .subject-card h2 { margin-top: 0; color: var(--primary); border-bottom: 2px solid var(--link-bg); padding-bottom: 10px; }
 
         /* Links inside cards */
         .links { display: flex; flex-direction: column; gap: 8px; margin-top: 15px; }
         .links a { 
             text-decoration: none; 
-            color: #475569; 
-            background: #f1f5f9; 
+            color: var(--text); 
+            background: var(--link-bg); 
             padding: 8px 12px; 
             border-radius: 6px; 
             font-size: 0.9rem;
@@ -51,10 +79,12 @@
         .links a:hover { background: var(--primary); color: white; }
         .links a::after { content: '→'; opacity: 0.5; }
 
-        footer { text-align: center; margin-top: 50px; color: #94a3b8; font-size: 0.8rem; }
+        footer { text-align: center; margin-top: 50px; color: var(--subtext); font-size: 0.8rem; }
     </style>
 </head>
 <body>
+
+<button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark Mode</button>
 
 <div class="container">
     <header>
@@ -73,51 +103,6 @@
         </div>
 
         <div class="subject-card">
-            <h2>Pak Studies</h2>
-            <div class="links">
-                <a href="pak-studies-notes.html">Notes</a>
-                <a href="pak-studies-papers.html">Past Papers</a>
-                <a href="pak-studies-books.html">Books</a>
-            </div>
-        </div>
-
-        <div class="subject-card">
-            <h2>Islamiat</h2>
-            <div class="links">
-                <a href="islamiat-notes.html">Notes</a>
-                <a href="islamiat-papers.html">Past Papers</a>
-                <a href="islamiat-books.html">Books</a>
-            </div>
-        </div>
-
-        <div class="subject-card">
-            <h2>Mathematics</h2>
-            <div class="links">
-                <a href="maths-notes.html">Notes</a>
-                <a href="maths-papers.html">Past Papers</a>
-                <a href="maths-books.html">Books</a>
-            </div>
-        </div>
-
-        <div class="subject-card">
-            <h2>Biology</h2>
-            <div class="links">
-                <a href="biology-notes.html">Notes</a>
-                <a href="biology-papers.html">Past Papers</a>
-                <a href="biology-books.html">Books</a>
-            </div>
-        </div>
-
-        <div class="subject-card">
-            <h2>Chemistry</h2>
-            <div class="links">
-                <a href="chemistry-notes.html">Notes</a>
-                <a href="chemistry-papers.html">Past Papers</a>
-                <a href="chemistry-books.html">Books</a>
-            </div>
-        </div>
-
-        <div class="subject-card">
             <h2>Physics</h2>
             <div class="links">
                 <a href="physics-notes.html">Notes</a>
@@ -125,12 +110,28 @@
                 <a href="physics-books.html">Books</a>
             </div>
         </div>
-    </div>
+        
+        </div>
 
     <footer>
         <p>Made with ❤️ for Students</p>
     </footer>
 </div>
+
+<script>
+    function toggleTheme() {
+        const body = document.documentElement;
+        const btn = document.getElementById('themeBtn');
+        
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.removeAttribute('data-theme');
+            btn.innerHTML = "🌙 Dark Mode";
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            btn.innerHTML = "☀️ Light Mode";
+        }
+    }
+</script>
 
 </body>
 </html>

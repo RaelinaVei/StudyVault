@@ -7,11 +7,13 @@
     <style>
         :root {
             --primary: #bc13fe; 
+            --yellow: #ffd700;
             --text: #ffffff;
             --subtext: #cbd5e1;
             --bg-image: url('https://w0.peakpx.com/wallpaper/700/152/HD-wallpaper-mountains-in-dark-night-background-dark.jpg');
             --card-bg: rgba(255, 255, 255, 0.07); 
             --glow: 0 0 15px rgba(188, 19, 254, 0.8);
+            --glow-yellow: 0 0 15px rgba(255, 215, 0, 0.6);
         }
 
         #starfield { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
@@ -51,18 +53,17 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
             gap: 20px; 
             margin-bottom: 20px;
-            /* For automatic numbering */
             counter-reset: card-counter;
         }
 
         .teacher-card {
             background: var(--card-bg); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px; padding: 25px; text-align: center; transition: 0.3s;
-            position: relative;
+            position: relative; display: flex; flex-direction: column; justify-content: space-between;
         }
         .teacher-card:hover { border-color: var(--primary); box-shadow: var(--glow); transform: translateY(-8px); }
 
-        /* Numbering Circle */
+        /* Numbering Circle for Specific Sections */
         .numbered .teacher-card::before {
             counter-increment: card-counter;
             content: counter(card-counter);
@@ -78,8 +79,8 @@
             font-size: 1.5rem; font-weight: bold; box-shadow: var(--glow);
         }
 
-        .teacher-card h2 { margin: 10px 0; font-size: 1.1rem; color: var(--primary); }
-        .teacher-card p { font-size: 0.85rem; color: var(--subtext); line-height: 1.5; margin-bottom: 20px; }
+        .teacher-card h2 { margin: 10px 0; font-size: 1.1rem; color: var(--primary); height: 2.4em; display: flex; align-items: center; justify-content: center; }
+        .teacher-card p { font-size: 0.85rem; color: var(--subtext); line-height: 1.5; margin-bottom: 20px; flex-grow: 1; }
 
         .access-btn {
             width: 100%; text-decoration: none; color: white; background: rgba(188, 19, 254, 0.2);
@@ -87,6 +88,21 @@
             box-sizing: border-box; font-size: 0.9rem;
         }
         .access-btn:hover { background: var(--primary); color: black; box-shadow: var(--glow); }
+
+        /* Yellow Box Specific Styles */
+        .yellow-card { border-color: var(--yellow) !important; background: rgba(255, 215, 0, 0.05) !important; }
+        .yellow-card:hover { box-shadow: var(--glow-yellow) !important; }
+        .yellow-card .avatar { background: linear-gradient(45deg, var(--yellow), #ffa500) !important; color: black !important; box-shadow: var(--glow-yellow) !important; }
+        .yellow-card h2 { color: var(--yellow) !important; }
+        .yellow-card .access-btn { 
+            border-color: var(--yellow) !important; 
+            background: rgba(255, 215, 0, 0.1) !important; 
+            color: var(--yellow) !important; 
+        }
+        .yellow-card .access-btn:hover { 
+            background: var(--yellow) !important; 
+            color: black !important; 
+        }
     </style>
 </head>
 <body>
@@ -101,47 +117,93 @@
 
     <div class="section-title">Theory & MCQs (P1 & P2)</div>
     <div class="teacher-grid numbered">
-        <div class="teacher-card"><div class="avatar">B</div><h2>Cell Biology</h2><p>Structure and functions of animal and plant cells.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">B</div><h2>Movement in Cells</h2><p>Diffusion, Osmosis, and Active Transport.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">B</div><h2>Biological Molecules</h2><p>Tests for starch, reducing sugars, and proteins.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">B</div><h2>Enzymes</h2><p>Properties and factors affecting enzyme action.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">B</div><h2>Plant Nutrition</h2><p>Photosynthesis, leaf structure, and mineral requirements.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">B</div><h2>Animal Nutrition</h2><p>Diet, digestion, and chemical processes.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">B</div><h2>Transport in Plants</h2><p>Xylem, Phloem, and Transpiration.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">B</div><h2>Transport in Humans</h2><p>Circulatory system, heart, and blood vessels.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">B</div><h2>Gas Exchange</h2><p>The human breathing system and ventilation.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">B</div><h2>Coordination</h2><p>Nervous system, sense organs, and hormones.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">1</div><h2>Cell Biology</h2><p>Structure and functions of animal and plant cells.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">2</div><h2>Movement in Cells</h2><p>Diffusion, Osmosis, and Active Transport.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">3</div><h2>Biological Molecules</h2><p>Tests for starch, reducing sugars, and proteins.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">4</div><h2>Enzymes</h2><p>Properties and factors affecting enzyme action.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">5</div><h2>Plant Nutrition</h2><p>Photosynthesis and leaf structure.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">6</div><h2>Animal Nutrition</h2><p>Diet, digestion, and chemical processes.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">7</div><h2>Transport in Plants</h2><p>Xylem, Phloem, and Transpiration.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">8</div><h2>Transport in Humans</h2><p>Circulatory system and heart functions.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">9</div><h2>Gas Exchange</h2><p>The human breathing system and ventilation.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">10</div><h2>Coordination</h2><p>Nervous system and sense organs.</p><a href="#" class="access-btn">Access</a></div>
     </div>
 
     <div class="section-title">Alternative to Practical (P4)</div>
     <div class="teacher-grid">
         <div class="teacher-card">
             <div class="avatar">L</div>
-            <h2>Practical Skills</h2>
-            <p>Experimental design and identification of variables.</p>
-            <a href="#" class="access-btn">Access</a>
+            <h2>Practical Skills Guide</h2>
+            <p>Experimental design, drawing techniques, and variables for Paper 4.</p>
+            <a href="#" class="access-btn">Access P4</a>
         </div>
     </div>
 
     <div class="section-title">Other Notes</div>
     <div class="teacher-grid numbered">
-        <div class="teacher-card"><div class="avatar">N</div><h2>Ecology</h2><p>Energy flow and nutrient cycles.</p><a href="#" class="access-btn">View</a></div>
-        <div class="teacher-card"><div class="avatar">N</div><h2>Human Impact</h2><p>Pollution and conservation efforts.</p><a href="#" class="access-btn">View</a></div>
-        <div class="teacher-card"><div class="avatar">N</div><h2>Inheritance</h2><p>DNA, genes, and genetic crosses.</p><a href="#" class="access-btn">View</a></div>
-        <div class="teacher-card"><div class="avatar">N</div><h2>Reproduction</h2><p>Sexual and asexual reproduction in organisms.</p><a href="#" class="access-btn">View</a></div>
-        <div class="teacher-card"><div class="avatar">N</div><h2>Excretion</h2><p>Removal of metabolic waste from the body.</p><a href="#" class="access-btn">View</a></div>
-        <div class="teacher-card"><div class="avatar">N</div><h2>Homeostasis</h2><p>Maintaining a stable internal environment.</p><a href="#" class="access-btn">View</a></div>
-        <div class="teacher-card"><div class="avatar">N</div><h2>Microorganisms</h2><p>Bacteria, fungi, and viruses in industry.</p><a href="#" class="access-btn">View</a></div>
-        <div class="teacher-card"><div class="avatar">N</div><h2>Glossary</h2><p>Key terms and definitions for revision.</p><a href="#" class="access-btn">View</a></div>
+        <div class="teacher-card">
+            <div class="avatar">M</div>
+            <h2>Mojza</h2>
+            <p>Hand-picked specialized revision resource for final prep.</p>
+            <a href="https://drive.google.com/file/d/1-oaIiepoGC9e2SrhMHEfm8eHJ6OdlXVm/view?usp=sharing" target="_blank" class="access-btn">View Note</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">C</div>
+            <h2>Cook Your Exams Notes</h2>
+            <p>A comprehensive strategy guide to mastering exam techniques.</p>
+            <a href="https://drive.google.com/file/d/1ygMFEtVocZSw5p9iATmboeTgI0mGUrDl/view?usp=sharing" target="_blank" class="access-btn">View Note</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">S</div>
+            <h2>Shinglee</h2>
+            <p>Full folder of textbook-aligned resources and materials.</p>
+            <a href="https://drive.google.com/drive/folders/1dFHVmYm2BhVRo2Lqbc4MW1D8pGmeXj2h?usp=sharing" target="_blank" class="access-btn">View Note</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">G</div>
+            <h2>Sir Ghulam Rasool Notes</h2>
+            <p>Detailed notes compiled by Sir Ghulam Rasool.</p>
+            <a href="https://drive.google.com/file/d/10vj7QcIZaKDAqZc9sST5X6GggSEmfsnk/view?usp=sharing" target="_blank" class="access-btn">View Note</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">V</div>
+            <h2>Veda Notes</h2>
+            <p>Best resource for high-quality summarized biological concepts.</p>
+            <a href="https://drive.google.com/file/d/1pMUkA92JwcQbuOLsOJrLD493RWp8fYiw/view?usp=sharing" target="_blank" class="access-btn">View Note</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">O</div>
+            <h2>Best Notes (by Onion)</h2>
+            <p>Highly recommended notes. Credits to Onion.</p>
+            <a href="https://docs.google.com/document/d/1N81fuUzth8KA_HJxjsepscoRkHJtUM5RVdmMt0HQLoc/edit?usp=sharing" target="_blank" class="access-btn">View Note</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">A</div>
+            <h2>R/IGCSE Notes (Ayesha)</h2>
+            <p>Comprehensive community notes for IGCSE prep.</p>
+            <a href="https://drive.google.com/file/d/1bR6AbmAdFTYFNxIROPzbwZsPHiUgqbBn/view?usp=sharing" target="_blank" class="access-btn">View Note</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">N</div>
+            <h2>Nerd Cafe Notes</h2>
+            <p>Excellent web-based study resource for Biology.</p>
+            <a href="https://nerdcafe.super.site/igcse/biology/" target="_blank" class="access-btn">View Note</a>
+        </div>
     </div>
 
     <div class="section-title">Practice Questions</div>
     <div class="teacher-grid">
+        <div class="teacher-card yellow-card">
+            <div class="avatar">MS</div>
+            <h2>According to MS Q&A</h2>
+            <p>Questions and answers structured specifically based on Mark Schemes.</p>
+            <a href="https://docs.google.com/document/d/15q0oPAus3qDNEU1fSEFQoNKmYeCCeK-W9oyh39JZlIA/edit?usp=sharing" target="_blank" class="access-btn">Practice</a>
+        </div>
+        
         <div class="teacher-card"><div class="avatar">P</div><h2>Topical MCQ Set</h2><p>Categorized Paper 1 questions.</p><a href="#" class="access-btn">Practice</a></div>
         <div class="teacher-card"><div class="avatar">P</div><h2>Theory Drill</h2><p>Challenging Paper 2 structured questions.</p><a href="#" class="access-btn">Practice</a></div>
-        <div class="teacher-card"><div class="avatar">P</div><h2>P4 Mock Lab</h2><p>Simulated practical scenarios.</p><a href="#" class="access-btn">Practice</a></div>
-        <div class="teacher-card"><div class="avatar">P</div><h2>Full Past Papers</h2><p>Official board examination papers.</p><a href="#" class="access-btn">Practice</a></div>
-        <div class="teacher-card"><div class="avatar">P</div><h2>Mark Schemes</h2><p>Detailed solutions and examiner tips.</p><a href="#" class="access-btn">Practice</a></div>
+        <div class="teacher-card"><div class="avatar">P</div><h2>P4 Mock Lab</h2><p>Simulated practical scenarios and calculations.</p><a href="#" class="access-btn">Practice</a></div>
+        <div class="teacher-card"><div class="avatar">P</div><h2>Full Past Papers</h2><p>Official board examination papers for final testing.</p><a href="#" class="access-btn">Practice</a></div>
     </div>
 </div>
 

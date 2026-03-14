@@ -3,38 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subject Notes | StudyVault</title>
+    <title>Physics Vault | StudyVault</title>
     <style>
         :root {
-            --primary: #bc13fe; 
+            --primary: #bc13fe; /* Neon Purple */
             --text: #ffffff;
             --subtext: #cbd5e1;
             --bg-image: url('https://w0.peakpx.com/wallpaper/700/152/HD-wallpaper-mountains-in-dark-night-background-dark.jpg');
             --card-bg: rgba(255, 255, 255, 0.07); 
+            --link-bg: rgba(255, 255, 255, 0.1);
             --glow: 0 0 15px rgba(188, 19, 254, 0.8);
+        }
+
+        [data-theme="dark"] {
+            --primary: #df16ff;
+            --card-bg: rgba(0, 0, 0, 0.5);
+            --link-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        /* LIVE BACKGROUND CANVAS */
+        #starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
         }
 
         body { 
             font-family: 'Segoe UI', sans-serif; 
-            color: var(--text); margin: 0; padding: 20px; min-height: 100vh;
+            color: var(--text); 
+            margin: 0; 
+            padding: 20px; 
+            min-height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), var(--bg-image);
-            background-size: cover; background-position: center; background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            transition: all 0.4s ease;
+            overflow-x: hidden;
         }
 
-        .container { max-width: 1000px; margin: 0 auto; }
+        .container { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+
         header { text-align: center; padding: 40px 0; }
-        h1 { font-size: 3rem; color: var(--primary); text-transform: uppercase; text-shadow: var(--glow); margin: 0; }
         
-        .back-btn { 
-            text-decoration: none; color: white; background: rgba(255,255,255,0.1); 
-            padding: 10px 20px; border-radius: 30px; font-size: 0.9rem; border: 1px solid var(--primary);
-            transition: 0.3s; display: inline-block; margin-bottom: 20px;
+        h1 { 
+            margin: 0; 
+            font-size: 3.5rem; 
+            color: var(--primary); 
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: var(--glow), 0 0 30px rgba(188, 19, 254, 0.4);
         }
-        .back-btn:hover { background: var(--primary); box-shadow: var(--glow); color: black; }
+
+        .back-btn { 
+            text-decoration: none; 
+            color: white; 
+            background: rgba(255,255,255,0.1); 
+            padding: 10px 25px; 
+            border-radius: 30px; 
+            font-size: 0.9rem; 
+            border: 1px solid var(--primary);
+            transition: 0.3s; 
+            display: inline-block; 
+            margin-bottom: 20px;
+            backdrop-filter: blur(5px);
+        }
+        .back-btn:hover { background: var(--primary); box-shadow: var(--glow); color: black; font-weight: bold; }
+
+        .subtitle { color: var(--subtext); margin-top: 10px; font-weight: 500; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
+
+        .theme-toggle {
+            position: fixed; top: 20px; right: 20px;
+            background: var(--primary); color: white;
+            border: none; padding: 12px 20px; border-radius: 30px;
+            cursor: pointer; font-weight: bold;
+            box-shadow: var(--glow); z-index: 1000;
+        }
 
         .teacher-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
             margin-top: 30px;
         }
@@ -43,17 +95,23 @@
             background: var(--card-bg);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 20px;
             padding: 30px;
             text-align: center;
-            transition: 0.3s;
+            transition: 0.3s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
         }
 
-        .teacher-card:hover { border-color: var(--primary); box-shadow: var(--glow); transform: translateY(-8px); }
+        .teacher-card:hover { 
+            border-color: var(--primary); 
+            box-shadow: var(--glow); 
+            transform: translateY(-8px); 
+            background: rgba(188, 19, 254, 0.05);
+        }
 
         .avatar {
             width: 70px; height: 70px;
@@ -63,63 +121,126 @@
             font-size: 1.8rem; font-weight: bold; box-shadow: var(--glow);
         }
 
-        .teacher-card h2 { margin: 10px 0; font-size: 1.5rem; color: var(--primary); text-shadow: var(--glow); }
-        .teacher-card p { font-size: 0.9rem; color: var(--subtext); line-height: 1.6; margin-bottom: 20px; }
+        .teacher-card h2 { margin: 10px 0; font-size: 1.6rem; color: var(--primary); text-shadow: var(--glow); }
+        .teacher-card p { font-size: 0.95rem; color: var(--subtext); line-height: 1.6; margin-bottom: 25px; }
 
         .access-btn {
-            width: 100%; text-decoration: none; color: white;
-            background: rgba(188, 19, 254, 0.2); border: 1px solid var(--primary);
-            padding: 12px; border-radius: 12px; font-weight: bold; transition: 0.3s;
+            width: 100%; 
+            text-decoration: none; 
+            color: white;
+            background: var(--link-bg); 
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 12px; 
+            border-radius: 12px; 
+            font-weight: bold; 
+            transition: 0.3s;
         }
-        .access-btn:hover { background: var(--primary); color: black; box-shadow: var(--glow); }
+        .access-btn:hover { background: var(--primary); color: white; box-shadow: var(--glow); transform: scale(1.05); }
 
-        footer { text-align: center; margin-top: 60px; color: var(--subtext); padding-bottom: 30px; }
+        footer { text-align: center; margin-top: 60px; color: var(--subtext); padding-bottom: 40px; }
     </style>
 </head>
 <body>
 
+<canvas id="starfield"></canvas>
+
+<button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark Mode</button>
+
 <div class="container">
     <header>
         <a href="index.html" class="back-btn">← Back to Dashboard</a>
-        <h1>Subject Vault ⚡</h1> 
-        <p style="margin-top:10px; opacity:0.8;">Premium resources curated for O-Levels</p>
+        <h1>Physics Vault ⚡</h1>
+        <p class="subtitle">Dynamics, Waves, and Atomic Theory</p>
     </header>
 
     <div class="teacher-grid">
         <div class="teacher-card">
-            <div class="avatar">L</div>
-            <h2>Lorem Ipsum</h2>
-            <p>Comprehensive syllabus notes with worked examples and exam tips.</p>
+            <div class="avatar">M</div>
+            <h2>Mechanics</h2>
+            <p>Master Newton's Laws, Kinematics, and Terminal Velocity with detailed visual diagrams.</p>
             <a href="#" class="access-btn">Access Notes</a>
         </div>
 
         <div class="teacher-card">
-            <div class="avatar">D</div>
-            <h2>Dolor Sit</h2>
-            <p>Summarized quick-revision guides and topical practice papers.</p>
-            <a href="#" class="access-btn">Access Notes</a>
-        </div>
-
-        <div class="teacher-card">
-            <div class="avatar">A</div>
-            <h2>Amet Consectetur</h2>
-            <p>Detailed conceptual explanations and advanced level notes.</p>
+            <div class="avatar">W</div>
+            <h2>Waves & Light</h2>
+            <p>Comprehensive guides on Reflection, Refraction, and the EM Spectrum for O-Levels.</p>
             <a href="#" class="access-btn">Access Notes</a>
         </div>
 
         <div class="teacher-card">
             <div class="avatar">E</div>
-            <h2>Elit Adipiscing</h2>
-            <p>Simplified notes with focus on keywords for the marking scheme.</p>
+            <h2>Electricity</h2>
+            <p>Circuit logic, Ohm's Law, and electromagnetic induction simplified for revision.</p>
             <a href="#" class="access-btn">Access Notes</a>
         </div>
-        
-        </div>
+    </div>
 
     <footer>
         <p>Stay Bright. Study Hard. ⚡</p>
     </footer>
 </div>
+
+<script>
+    // THEME TOGGLE logic
+    function toggleTheme() {
+        const body = document.documentElement;
+        const btn = document.getElementById('themeBtn');
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.removeAttribute('data-theme');
+            btn.innerHTML = "🌙 Dark Mode";
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            btn.innerHTML = "☀️ Light Mode";
+        }
+    }
+
+    // STARFIELD ENGINE (Warp Speed Effect)
+    const canvas = document.getElementById('starfield');
+    const ctx = canvas.getContext('2d');
+
+    let width, height, stars = [];
+    const numStars = 400; 
+
+    function init() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+        stars = [];
+        for (let i = 0; i < numStars; i++) {
+            stars.push({
+                x: Math.random() * width - width / 2,
+                y: Math.random() * height - height / 2,
+                z: Math.random() * width,
+                opacity: Math.random()
+            });
+        }
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, width, height);
+        for (let i = 0; i < numStars; i++) {
+            let star = stars[i];
+            star.z -= 1.2; 
+            if (star.z <= 0) { star.z = width; }
+
+            const sx = (star.x / star.z) * (width / 2) + width / 2;
+            const sy = (star.y / star.z) * (height / 2) + height / 2;
+            const size = (1 - star.z / width) * 2.5;
+
+            ctx.beginPath();
+            ctx.fillStyle = `rgba(188, 19, 254, ${star.opacity})`; 
+            ctx.arc(sx, sy, size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        requestAnimationFrame(draw);
+    }
+
+    window.addEventListener('resize', init);
+    init();
+    draw();
+</script>
 
 </body>
 </html>

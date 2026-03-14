@@ -87,6 +87,33 @@
             text-shadow: var(--glow), 0 0 30px rgba(188, 19, 254, 0.4);
         }
 
+        /* --- TYPEWRITER GREETING STYLES --- */
+        .greeting-container {
+            margin-top: 10px;
+            min-height: 30px; /* Prevents layout jump */
+        }
+
+        #dynamicGreeting {
+            font-size: 1.3rem;
+            font-weight: 300;
+            color: var(--subtext);
+            letter-spacing: 1.5px;
+            font-style: italic;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            background-color: var(--primary);
+            margin-left: 5px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
         .search-wrapper {
             margin: 30px auto;
             max-width: 500px;
@@ -190,124 +217,58 @@
 
         .links a:hover { background: var(--primary); box-shadow: var(--glow); }
 
-        /* --- SYNCED POMODORO STYLING --- */
         .section-divider {
-            height: 1px;
-            width: 100%;
+            height: 1px; width: 100%;
             background: linear-gradient(90deg, transparent, var(--primary), transparent);
-            margin: 60px 0;
-            opacity: 0.6;
-            box-shadow: var(--glow);
-            position: relative;
+            margin: 60px 0; opacity: 0.6; box-shadow: var(--glow); position: relative;
         }
 
         .section-divider::after {
             content: 'LIVE FOCUS SESSION';
-            position: absolute;
-            top: 50%; left: 50%;
+            position: absolute; top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            background: #0d0d0d;
-            padding: 0 15px;
-            color: var(--primary);
-            font-size: 0.7rem;
-            letter-spacing: 4px;
-            font-weight: 900;
+            background: #0d0d0d; padding: 0 15px;
+            color: var(--primary); font-size: 0.7rem;
+            letter-spacing: 4px; font-weight: 900;
         }
 
         .pomodoro-container {
-            max-width: 450px;
-            margin: 0 auto 40px auto;
+            max-width: 450px; margin: 0 auto 40px auto;
             background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
+            backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            padding: 40px;
-            text-align: center;
+            border-radius: 30px; padding: 40px; text-align: center;
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            position: relative;
-            overflow: hidden;
+            position: relative; overflow: hidden;
         }
 
         .pomo-header {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-bottom: 20px;
-            text-shadow: var(--glow);
+            font-size: 1.2rem; font-weight: 700;
+            color: var(--primary); text-transform: uppercase;
+            letter-spacing: 4px; margin-bottom: 20px; text-shadow: var(--glow);
         }
 
         .pomo-label {
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.7rem;
-            color: var(--subtext);
-            opacity: 0.8;
+            text-transform: uppercase; letter-spacing: 2px;
+            font-size: 0.7rem; color: var(--subtext); opacity: 0.8;
         }
 
         .pomo-time {
-            font-size: 4.5rem;
-            font-weight: 800;
-            color: #ffffff;
-            margin: 15px 0;
-            font-family: 'Segoe UI', sans-serif;
-            font-variant-numeric: tabular-nums;
-            text-shadow: var(--glow);
+            font-size: 4.5rem; font-weight: 800; color: #ffffff;
+            margin: 15px 0; font-family: 'Segoe UI', sans-serif;
+            font-variant-numeric: tabular-nums; text-shadow: var(--glow);
         }
 
-        .pomo-controls {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 25px;
-        }
+        .pomo-controls { display: flex; justify-content: center; gap: 20px; margin-top: 25px; }
 
         .pomo-btn {
-            background: transparent;
-            border: 1.5px solid var(--primary);
-            color: white;
-            padding: 12px 35px;
-            border-radius: 15px;
-            cursor: pointer;
-            font-weight: 600;
-            letter-spacing: 1px;
+            background: transparent; border: 1.5px solid var(--primary);
+            color: white; padding: 12px 35px; border-radius: 15px;
+            cursor: pointer; font-weight: 600; letter-spacing: 1px;
             transition: all 0.3s ease;
         }
 
-        .pomo-btn:hover {
-            background: var(--primary);
-            box-shadow: var(--glow);
-            transform: translateY(-3px);
-        }
-
-        .pomo-btn.reset {
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .pomo-btn.reset:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: white;
-            box-shadow: none;
-        }
-
-        .pomo-link {
-            display: inline-block;
-            margin-top: 30px;
-            color: var(--subtext);
-            text-decoration: none;
-            font-size: 0.8rem;
-            padding: 8px 15px;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.05);
-            transition: 0.3s;
-        }
-
-        .pomo-link:hover {
-            color: var(--primary);
-            background: rgba(188, 19, 254, 0.1);
-        }
+        .pomo-btn:hover { background: var(--primary); box-shadow: var(--glow); transform: translateY(-3px); }
 
         footer { text-align: center; margin-top: 20px; padding-bottom: 40px; }
 
@@ -342,6 +303,10 @@
 <div class="container">
     <header>
         <h1>StudyVault</h1>
+        <div class="greeting-container">
+            <span id="dynamicGreeting"></span><span class="cursor">|</span>
+        </div>
+        
         <div class="search-wrapper">
             <input type="text" id="subjectSearch" placeholder="Search by name or code (e.g. 5054)..." onkeyup="filterSubjects()">
         </div>
@@ -443,8 +408,37 @@
 </div>
 
 <script>
+    // --- TYPEWRITER GREETING LOGIC ---
+    function initGreeting() {
+        const greetingElement = document.getElementById('dynamicGreeting');
+        const hour = new Date().getHours();
+        let message = "Ready to conquer your goals? 🚀"; // Default
+
+        if (hour >= 5 && hour < 11) {
+            message = "Rise and Grind, Student. ☕";
+        } else if (hour >= 23 || hour < 3) {
+            message = "Burning the midnight oil? 🌙";
+        } else if (hour >= 11 && hour < 17) {
+            message = "Making progress, one page at a time. 📖";
+        } else if (hour >= 17 && hour < 23) {
+            message = "Evening focus mode activated. ⚡";
+        }
+
+        let i = 0;
+        function typeWriter() {
+            if (i < message.length) {
+                greetingElement.innerHTML += message.charAt(i);
+                i++;
+                setTimeout(typeWriter, 80); // Speed of typing
+            }
+        }
+        typeWriter();
+    }
+
+    // Run greeting on load
+    window.addEventListener('DOMContentLoaded', initGreeting);
+
     // --- GLOBAL SYNCED TIMER LOGIC ---
-    // This logic communicates with the other page via localStorage
     let timerInterval = null;
 
     function updateDisplay(seconds) {
@@ -491,13 +485,11 @@
     function toggleTimer() {
         const isRunning = localStorage.getItem('timerRunning') === 'true';
         if (!isRunning) {
-            // Start
             const mins = localStorage.getItem('customStudyMin') || 25;
             const expiryTime = Date.now() + (mins * 60 * 1000);
             localStorage.setItem('timerExpiry', expiryTime);
             localStorage.setItem('timerRunning', 'true');
         } else {
-            // Pause (simplification: resets for sync, or could store remaining)
             localStorage.setItem('timerRunning', 'false');
         }
     }
@@ -509,7 +501,6 @@
         updateDisplay(mins * 60);
     }
 
-    // --- Search Functionality ---
     function filterSubjects() {
         let input = document.getElementById('subjectSearch').value.toLowerCase();
         let cards = document.getElementsByClassName('subject-card');
@@ -528,7 +519,6 @@
         noResults.style.display = (visibleCount === 0) ? 'block' : 'none';
     }
 
-    // --- Theme Toggle Functionality ---
     function toggleTheme() {
         const body = document.documentElement;
         const btn = document.getElementById('themeBtn');
@@ -541,7 +531,6 @@
         }
     }
 
-    // --- Starfield Animation ---
     const canvas = document.getElementById('starfield');
     const ctx = canvas.getContext('2d');
     let width, height, stars = [];

@@ -6,9 +6,10 @@
     <title>StudyVault | Neon Mountains</title>
     <style>
         :root {
-            --primary: #bc13fe; 
+            --primary: #bc13fe; /* Neon Purple */
             --text: #ffffff;
             --subtext: #cbd5e1;
+            /* Your Mountain Wallpaper */
             --bg-image: url('https://w0.peakpx.com/wallpaper/700/152/HD-wallpaper-mountains-in-dark-night-background-dark.jpg');
             --card-bg: rgba(255, 255, 255, 0.07); 
             --link-bg: rgba(255, 255, 255, 0.1);
@@ -23,47 +24,90 @@
 
         body { 
             font-family: 'Segoe UI', sans-serif; 
-            color: var(--text); margin: 0; padding: 20px; min-height: 100vh;
+            color: var(--text); 
+            margin: 0; 
+            padding: 20px; 
+            min-height: 100vh;
+            /* Background Image Setup */
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), var(--bg-image);
-            background-size: cover; background-position: center; background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             transition: all 0.4s ease; 
         }
 
         .container { max-width: 1100px; margin: 0 auto; }
-        header { text-align: center; padding: 40px 0 20px 0; }
-        h1 { margin: 0; font-size: 3.5rem; color: var(--primary); text-transform: uppercase; letter-spacing: 4px; text-shadow: var(--glow); }
 
-        /* Timer Section */
-        .countdown-container {
-            background: var(--card-bg); backdrop-filter: blur(15px); border: 1px solid var(--primary);
-            border-radius: 20px; padding: 20px; margin-bottom: 30px; text-align: center; box-shadow: var(--glow);
+        header { text-align: center; padding: 60px 0 40px 0; }
+        
+        h1 { 
+            margin: 0; 
+            font-size: 3.5rem; 
+            color: var(--primary); 
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: var(--glow), 0 0 30px rgba(188, 19, 254, 0.4);
         }
-        #timer { display: flex; justify-content: center; gap: 15px; }
-        .time-box span { font-size: 1.8rem; font-weight: bold; display: block; color: var(--primary); }
-        .time-box p { margin: 0; font-size: 0.7rem; text-transform: uppercase; color: var(--subtext); }
+
+        p.subtitle { color: var(--subtext); margin-top: 10px; font-weight: 500; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
 
         .theme-toggle {
-            position: fixed; top: 20px; right: 20px; background: var(--primary); color: white;
-            border: none; padding: 10px 18px; border-radius: 30px; cursor: pointer; font-weight: bold; z-index: 1000;
+            position: fixed; top: 20px; right: 20px;
+            background: var(--primary); color: white;
+            border: none; padding: 12px 20px; border-radius: 30px;
+            cursor: pointer; font-weight: bold;
+            box-shadow: var(--glow); z-index: 1000;
         }
 
-        .subject-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .subject-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 25px; 
+        }
 
+        /* Glassmorphism Effect */
         .subject-card { 
-            background: var(--card-bg); backdrop-filter: blur(15px); padding: 25px; border-radius: 20px; 
-            border: 1px solid rgba(255, 255, 255, 0.15); transition: all 0.3s ease;
+            background: var(--card-bg); 
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 25px; 
+            border-radius: 20px; 
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+            transition: all 0.3s ease;
         }
-        .subject-card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: var(--glow); }
-        .subject-card h2 { margin-top: 0; color: var(--primary); font-size: 1.6rem; text-shadow: var(--glow); border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 12px; }
 
-        /* Highlight the Hub Card */
-        .hub-card { border: 2px solid var(--primary); background: rgba(188, 19, 254, 0.15); }
+        .subject-card:hover { 
+            transform: translateY(-10px); 
+            border-color: var(--primary);
+            box-shadow: var(--glow);
+            background: rgba(188, 19, 254, 0.05);
+        }
 
+        .subject-card h2 { 
+            margin-top: 0; color: var(--primary); 
+            font-size: 1.6rem; text-shadow: var(--glow);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+            padding-bottom: 12px; 
+        }
+
+        .links { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+        
         .links a { 
-            text-decoration: none; color: white; background: var(--link-bg); padding: 12px 15px; 
-            border-radius: 10px; font-weight: 500; display: flex; justify-content: space-between; transition: 0.3s; margin-bottom: 8px;
+            text-decoration: none; color: white; 
+            background: var(--link-bg); 
+            padding: 12px 15px; border-radius: 10px; 
+            font-weight: 500; display: flex; justify-content: space-between;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
         }
-        .links a:hover { background: var(--primary); box-shadow: var(--glow); transform: scale(1.02); }
+
+        .links a:hover { 
+            background: var(--primary); 
+            box-shadow: var(--glow);
+            transform: scale(1.02);
+            color: #fff;
+        }
 
         footer { text-align: center; margin-top: 60px; color: var(--subtext); padding-bottom: 40px; }
     </style>
@@ -75,38 +119,77 @@
 <div class="container">
     <header>
         <h1>⚡ StudyVault</h1>
-        <p style="color:var(--subtext)">Peak Learning • Neon Vibes</p>
+        <p class="subtitle">Peak Learning • Neon Vibes</p>
     </header>
 
-    <div class="countdown-container">
-        <p style="margin-bottom:10px; font-weight:bold; letter-spacing:1px;">⚡ O-LEVEL EXAMS START IN ⚡</p>
-        <div id="timer">
-            <div class="time-box"><span id="days">00</span><p>Days</p></div>
-            <div class="time-box"><span id="hours">00</span><p>Hours</p></div>
-            <div class="time-box"><span id="minutes">00</span><p>Mins</p></div>
-            <div class="time-box"><span id="seconds">00</span><p>Secs</p></div>
-        </div>
-    </div>
-
     <div class="subject-grid">
-        <div class="subject-card hub-card">
-            <h2>⚡ Paper Timers</h2>
-            <p style="font-size:0.8rem; color:var(--subtext)">Practice papers with real-time exam clocks.</p>
-            <div class="links">
-                <a href="timers.html" style="background: var(--primary); color: #000; font-weight: bold;">OPEN TIMER HUB ⏱️</a>
-            </div>
-        </div>
-
         <div class="subject-card">
             <h2>English</h2>
             <div class="links">
                 <a href="english-notes.html">Notes <span>📖</span></a>
                 <a href="english-papers.html">Past Papers <span>📄</span></a>
+                <a href="english-books.html">Books <span>📚</span></a>
             </div>
         </div>
+
+        <div class="subject-card">
+            <h2>Pak Studies</h2>
+            <div class="links">
+                <a href="pakstudies-notes.html">Notes <span>📖</span></a>
+                <a href="pakstudies-papers.html">Past Papers <span>📄</span></a>
+                <a href="pakstudies-books.html">Books <span>📚</span></a>
+            </div>
         </div>
 
-    <footer><p>Stay Bright. Study Hard. ⚡</p></footer>
+        <div class="subject-card">
+            <h2>Islamiat</h2>
+            <div class="links">
+                <a href="islamiat-notes.html">Notes <span>📖</span></a>
+                <a href="islamiat-papers.html">Past Papers <span>📄</span></a>
+                <a href="islamiat-books.html">Books <span>📚</span></a>
+            </div>
+        </div>
+
+        <div class="subject-card">
+            <h2>Mathematics</h2>
+            <div class="links">
+                <a href="maths-notes.html">Notes <span>📖</span></a>
+                <a href="maths-papers.html">Past Papers <span>📄</span></a>
+                <a href="maths-books.html">Books <span>📚</span></a>
+            </div>
+        </div>
+
+        <div class="subject-card">
+            <h2>Biology</h2>
+            <div class="links">
+                <a href="biology-notes.html">Notes <span>📖</span></a>
+                <a href="biology-papers.html">Past Papers <span>📄</span></a>
+                <a href="biology-books.html">Books <span>📚</span></a>
+            </div>
+        </div>
+
+        <div class="subject-card">
+            <h2>Chemistry</h2>
+            <div class="links">
+                <a href="chemistry-notes.html">Notes <span>📖</span></a>
+                <a href="chemistry-papers.html">Past Papers <span>📄</span></a>
+                <a href="chemistry-books.html">Books <span>📚</span></a>
+            </div>
+        </div>
+
+        <div class="subject-card">
+            <h2>Physics</h2>
+            <div class="links">
+                <a href="physics-notes.html">Notes <span>📖</span></a>
+                <a href="physics-papers.html">Past Papers <span>📄</span></a>
+                <a href="physics-books.html">Books <span>📚</span></a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Stay Bright. Study Hard. ⚡</p>
+    </footer>
 </div>
 
 <script>
@@ -114,22 +197,14 @@
         const body = document.documentElement;
         const btn = document.getElementById('themeBtn');
         if (body.getAttribute('data-theme') === 'dark') {
-            body.removeAttribute('data-theme'); btn.innerHTML = "🌙 Dark Mode";
+            body.removeAttribute('data-theme');
+            btn.innerHTML = "🌙 Dark Mode";
         } else {
-            body.setAttribute('data-theme', 'dark'); btn.innerHTML = "☀️ Light Mode";
+            body.setAttribute('data-theme', 'dark');
+            btn.innerHTML = "☀️ Light Mode";
         }
     }
-
-    // Global Countdown Script
-    const examDate = new Date("May 4, 2026 09:00:00").getTime();
-    setInterval(function() {
-        const now = new Date().getTime();
-        const distance = examDate - now;
-        document.getElementById("days").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24));
-        document.getElementById("hours").innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        document.getElementById("minutes").innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        document.getElementById("seconds").innerHTML = Math.floor((distance % (1000 * 60)) / 1000);
-    }, 1000);
 </script>
+
 </body>
 </html>

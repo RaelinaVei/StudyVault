@@ -26,63 +26,29 @@
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             color: var(--text); 
-            margin: 0; 
-            padding: 20px; 
+            margin: 0; padding: 20px; 
             min-height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), var(--bg-image);
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            transition: all 0.4s ease;
-            overflow-x: hidden;
+            background-size: cover; background-position: center; background-attachment: fixed;
+            transition: all 0.4s ease; overflow-x: hidden;
         }
 
         /* --- NAVIGATION --- */
-        .nav-panel {
-            position: fixed;
-            top: 34px;
-            right: 190px;
-            z-index: 1000;
-            display: flex;
-            gap: 25px;
-        }
-
+        .nav-panel { position: fixed; top: 34px; right: 190px; z-index: 1000; display: flex; gap: 25px; }
         .nav-link {
-            color: var(--text);
-            text-decoration: none;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            transition: 0.3s;
-            opacity: 0.7;
+            color: var(--text); text-decoration: none; font-size: 0.75rem;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px;
+            transition: 0.3s; opacity: 0.7;
         }
-
         .nav-link:hover { color: var(--primary); opacity: 1; text-shadow: var(--glow); }
 
-        .logo-box {
-            position: fixed;
-            top: 25px;
-            left: 25px;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
+        .logo-box { position: fixed; top: 25px; left: 25px; z-index: 1000; display: flex; align-items: center; gap: 10px; }
         .flash-icon { font-size: 1.8rem; text-shadow: var(--glow); }
-
         .logo-text { font-weight: 800; letter-spacing: 2px; font-size: 1.1rem; text-transform: uppercase; }
 
         .container { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
-
         header { text-align: center; padding: 60px 0 20px 0; }
-        
-        h1 { 
-            margin: 0; font-size: 3.5rem; color: var(--primary); 
-            text-transform: uppercase; letter-spacing: 5px;
-            text-shadow: var(--glow);
-        }
+        h1 { margin: 0; font-size: 3.5rem; color: var(--primary); text-transform: uppercase; letter-spacing: 5px; text-shadow: var(--glow); }
 
         /* --- SEARCH & GRID --- */
         .search-wrapper { margin: 30px auto; max-width: 500px; }
@@ -100,18 +66,39 @@
             transition: 0.3s;
         }
         .subject-card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: var(--glow); }
+        .subject-card h2 { color: var(--primary); margin-top: 0; font-size: 1.4rem; display: flex; justify-content: space-between; }
+        .subject-code { font-size: 0.8rem; opacity: 0.6; border: 1px solid var(--primary); padding: 2px 8px; border-radius: 5px; }
+        
+        .links { display: flex; flex-direction: column; gap: 8px; margin-top: 15px; }
+        .links a { text-decoration: none; color: white; background: var(--link-bg); padding: 10px; border-radius: 8px; font-size: 0.9rem; transition: 0.3s; }
+        .links a:hover { background: var(--primary); }
 
-        /* --- AI ASSISTANT STYLES --- */
+        /* --- ACCOUNTABILITY LIST --- */
+        .accountability-box {
+            max-width: 600px; margin: 40px auto;
+            background: var(--card-bg); backdrop-filter: blur(15px);
+            padding: 30px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .task-input-group { display: flex; gap: 10px; margin-bottom: 20px; }
+        .task-input-group input { 
+            flex: 1; background: rgba(255,255,255,0.05); border: 1px solid var(--primary); 
+            padding: 12px; border-radius: 10px; color: white; outline: none; 
+        }
+        .task-item { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); 
+        }
+        .task-item.completed { text-decoration: line-through; opacity: 0.5; }
+
+        /* --- AI ASSISTANT --- */
         .ai-fab {
             position: fixed; bottom: 30px; right: 30px;
             width: 60px; height: 60px; background: var(--primary);
             border-radius: 50%; display: flex; align-items: center;
             justify-content: center; cursor: pointer; z-index: 2000;
             box-shadow: var(--glow); transition: 0.3s;
-            font-weight: 900; color: white; border: none;
+            font-weight: 900; color: white; border: none; font-size: 0.8rem;
         }
-        .ai-fab:hover { transform: scale(1.1) rotate(5deg); }
-
         .ai-panel {
             position: fixed; bottom: 100px; right: 30px;
             width: 350px; height: 500px; background: rgba(15, 15, 15, 0.95);
@@ -120,27 +107,14 @@
             display: none; flex-direction: column; overflow: hidden;
             box-shadow: 0 10px 40px rgba(0,0,0,0.8);
         }
-
-        .ai-header {
-            padding: 15px; background: var(--primary); display: flex;
-            justify-content: space-between; align-items: center;
-        }
-
+        .ai-header { padding: 15px; background: var(--primary); display: flex; justify-content: space-between; align-items: center; }
         .ai-messages { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
-        
-        .msg { padding: 10px 14px; border-radius: 12px; max-width: 80%; font-size: 0.9rem; line-height: 1.4; }
+        .msg { padding: 10px 14px; border-radius: 12px; max-width: 80%; font-size: 0.85rem; }
         .msg-user { align-self: flex-end; background: var(--primary); color: white; }
-        .msg-ai { align-self: flex-start; background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.1); }
-
+        .msg-ai { align-self: flex-start; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.1); }
         .ai-input-area { padding: 15px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; gap: 10px; }
-        .ai-input { 
-            flex: 1; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2);
-            padding: 8px 12px; border-radius: 8px; color: white; outline: none;
-        }
+        .ai-input { flex: 1; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); padding: 8px; border-radius: 8px; color: white; outline: none; }
 
-        .history-btn { font-size: 0.7rem; background: rgba(0,0,0,0.3); border: none; color: white; padding: 4px 8px; border-radius: 4px; cursor: pointer; }
-
-        /* Existing utility styles */
         .theme-toggle { position: fixed; top: 25px; right: 25px; background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 30px; cursor: pointer; z-index: 1000; font-weight: bold; }
         .hidden { display: none; }
         #starfield { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
@@ -157,7 +131,7 @@
 
 <div class="nav-panel">
     <a href="#" class="nav-link">Pomodoro</a>
-    <a href="#" class="nav-link">Accountability</a>
+    <a href="#accountability" class="nav-link">Accountability</a>
 </div>
 
 <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark Mode</button>
@@ -165,7 +139,7 @@
 <div class="container">
     <header>
         <h1>StudyVault</h1>
-        <p id="dynamicGreeting" style="font-style: italic; color: var(--subtext);"></p>
+        <p id="dynamicGreeting" style="font-style: italic; color: var(--subtext); min-height: 1.2em;"></p>
     </header>
 
     <div class="search-wrapper">
@@ -175,30 +149,72 @@
     <div class="subject-grid" id="subjectGrid">
         <div class="subject-card">
             <h2>English <span class="subject-code">1123</span></h2>
-            <p>Resources for O-Level English Language.</p>
+            <div class="links">
+                <a href="#">Notes 📖</a><a href="#">Syllabus 📋</a><a href="#">Books 📚</a>
+            </div>
+        </div>
+        <div class="subject-card">
+            <h2>Pak Studies <span class="subject-code">2059</span></h2>
+            <div class="links">
+                <a href="#">Notes 📖</a><a href="#">Syllabus 📋</a><a href="#">Books 📚</a>
+            </div>
+        </div>
+        <div class="subject-card">
+            <h2>Islamiat <span class="subject-code">2058</span></h2>
+            <div class="links">
+                <a href="#">Notes 📖</a><a href="#">Syllabus 📋</a><a href="#">Books 📚</a>
+            </div>
+        </div>
+        <div class="subject-card">
+            <h2>Mathematics <span class="subject-code">4024</span></h2>
+            <div class="links">
+                <a href="#">Notes 📖</a><a href="#">Syllabus 📋</a><a href="#">Books 📚</a>
+            </div>
+        </div>
+        <div class="subject-card">
+            <h2>Biology <span class="subject-code">5090</span></h2>
+            <div class="links">
+                <a href="#">Notes 📖</a><a href="#">Syllabus 📋</a><a href="#">Books 📚</a>
+            </div>
+        </div>
+        <div class="subject-card">
+            <h2>Chemistry <span class="subject-code">5070</span></h2>
+            <div class="links">
+                <a href="#">Notes 📖</a><a href="#">Syllabus 📋</a><a href="#">Books 📚</a>
+            </div>
         </div>
         <div class="subject-card">
             <h2>Physics <span class="subject-code">5054</span></h2>
-            <p>Notes for O-Level Physics.</p>
+            <div class="links">
+                <a href="#">Notes 📖</a><a href="#">Syllabus 📋</a><a href="#">Books 📚</a>
+            </div>
         </div>
+    </div>
+
+    <div id="accountability" class="accountability-box">
+        <h2 style="color: var(--primary); text-align: center; letter-spacing: 3px; font-size: 1rem;">ACCOUNTABILITY LIST</h2>
+        <div class="task-input-group">
+            <input type="text" id="taskInput" placeholder="What's the goal?">
+            <button onclick="addTask()" style="background: var(--primary); border: none; color: white; padding: 0 15px; border-radius: 10px; cursor: pointer;">Add</button>
         </div>
+        <ul id="taskList" style="list-style: none; padding: 0;"></ul>
+    </div>
 </div>
 
 <button class="ai-fab" onclick="toggleAI()">AI</button>
 
 <div class="ai-panel" id="aiPanel">
     <div class="ai-header">
-        <span style="font-weight: bold; font-size: 0.8rem;">STUDY AI v1.0</span>
+        <span style="font-weight: bold; font-size: 0.7rem; letter-spacing: 1px;">STUDY AI v1.0</span>
         <div style="display: flex; gap: 5px;">
-            <button class="history-btn" onclick="clearChat()">New Chat</button>
-            <button class="history-btn" onclick="toggleAI()">✕</button>
+            <button onclick="clearChat()" style="font-size: 0.6rem; background: rgba(0,0,0,0.3); border: none; color: white; padding: 3px 7px; border-radius: 4px; cursor: pointer;">New Chat</button>
+            <button onclick="toggleAI()" style="font-size: 0.6rem; background: rgba(0,0,0,0.3); border: none; color: white; padding: 3px 7px; border-radius: 4px; cursor: pointer;">✕</button>
         </div>
     </div>
-    <div class="ai-messages" id="aiMessages">
-        </div>
+    <div class="ai-messages" id="aiMessages"></div>
     <div class="ai-input-area">
-        <input type="text" class="ai-input" id="aiInput" placeholder="Ask anything..." onkeypress="if(event.key === 'Enter') sendMessage()">
-        <button onclick="sendMessage()" style="background: var(--primary); border: none; color: white; border-radius: 8px; padding: 0 12px; cursor: pointer;">→</button>
+        <input type="text" class="ai-input" id="aiInput" placeholder="Ask about your subjects..." onkeypress="if(event.key === 'Enter') sendMessage()">
+        <button onclick="sendMessage()" style="background: var(--primary); border: none; color: white; border-radius: 8px; padding: 0 10px; cursor: pointer;">→</button>
     </div>
 </div>
 
@@ -216,11 +232,8 @@
     function sendMessage() {
         const text = aiInput.value.trim();
         if (!text) return;
-
         appendMessage('user', text);
         aiInput.value = '';
-
-        // Simulate AI Thinking
         setTimeout(() => {
             const response = generateAIResponse(text);
             appendMessage('ai', response);
@@ -238,38 +251,43 @@
 
     function generateAIResponse(input) {
         const query = input.toLowerCase();
-        if (query.includes('hello') || query.includes('hi')) return "Hey there! Ready to crush some study goals today?";
-        if (query.includes('subjects') || query.includes('page')) return "On this page, you have resources for English (1123) and Physics (5054). Need notes for one of them?";
-        if (query.includes('exam')) return "Exams are tough, but consistency is key. Try the Pomodoro timer above to stay focused!";
-        return "That's a great question! I'm here to help you navigate StudyVault. Want me to explain a specific subject code?";
+        // Context Awareness: Check what's actually on the page
+        if (query.includes('subjects') || query.includes('what do you have')) return "You have English (1123), Pak Studies (2059), Islamiat (2058), Maths (4024), Bio (5090), Chem (5070), and Physics (5054).";
+        if (query.includes('math')) return "O-Level Maths (4024) is all about practice. Check out the Notes section above for Past Paper tips!";
+        if (query.includes('physics')) return "Physics (5054) can be tricky. Make sure you understand the formulas before diving into papers!";
+        if (query.includes('hi') || query.includes('hello')) return "Yo! Ready to grind? Ask me about any subject code on your dashboard.";
+        return "I'm still learning, but I know about the 7 subjects on your dashboard. Want tips for one of them?";
     }
 
-    function saveHistory() {
-        localStorage.setItem('study_chat_history', aiMessages.innerHTML);
-    }
-
+    function saveHistory() { localStorage.setItem('study_chat_history', aiMessages.innerHTML); }
     function loadHistory() {
         const history = localStorage.getItem('study_chat_history');
-        if (history) {
-            aiMessages.innerHTML = history;
-        } else {
-            appendMessage('ai', "Welcome to StudyVault AI. Ask me about your subjects or for study tips!");
-        }
+        aiMessages.innerHTML = history ? history : '';
+        if (!history) appendMessage('ai', "Yo. I'm your StudyVault assistant. How can I help you today?");
+    }
+    function clearChat() { localStorage.removeItem('study_chat_history'); aiMessages.innerHTML = ''; appendMessage('ai', "Chat cleared. What's up?"); }
+
+    // --- ACCOUNTABILITY LOGIC ---
+    function addTask() {
+        const input = document.getElementById('taskInput');
+        if (!input.value.trim()) return;
+        const li = document.createElement('li');
+        li.className = 'task-item';
+        li.innerHTML = `<span onclick="this.parentElement.classList.toggle('completed')">${input.value}</span><span style="color:red;cursor:pointer;" onclick="this.parentElement.remove()">✕</span>`;
+        document.getElementById('taskList').appendChild(li);
+        input.value = '';
     }
 
-    function clearChat() {
-        localStorage.removeItem('study_chat_history');
-        aiMessages.innerHTML = '';
-        appendMessage('ai', "New session started. How can I help?");
-    }
-
-    // --- UTILITY LOGIC ---
+    // --- EXISTING UTILS ---
     function toggleTheme() {
         const body = document.documentElement;
+        const btn = document.getElementById('themeBtn');
         if (body.getAttribute('data-theme') === 'dark') {
             body.removeAttribute('data-theme');
+            btn.innerHTML = "🌙 Dark Mode";
         } else {
             body.setAttribute('data-theme', 'dark');
+            btn.innerHTML = "☀️ Light Mode";
         }
     }
 
@@ -277,39 +295,37 @@
         let input = document.getElementById('subjectSearch').value.toLowerCase();
         let cards = document.getElementsByClassName('subject-card');
         for (let card of cards) {
-            card.classList.toggle('hidden', !card.innerText.toLowerCase().includes(input));
+            card.style.display = card.innerText.toLowerCase().includes(input) ? 'block' : 'none';
         }
     }
 
-    // --- STARFIELD CANVAS ---
+    // --- STARFIELD ---
     const canvas = document.getElementById('starfield');
     const ctx = canvas.getContext('2d');
     let width, height, stars = [];
-
     function initStars() {
         width = window.innerWidth; height = window.innerHeight;
         canvas.width = width; canvas.height = height;
-        stars = Array.from({length: 200}, () => ({
-            x: Math.random() * width, y: Math.random() * height,
-            size: Math.random() * 2, speed: Math.random() * 0.5 + 0.2
-        }));
+        stars = Array.from({length: 150}, () => ({ x: Math.random() * width, y: Math.random() * height, size: Math.random() * 1.5, speed: Math.random() * 0.4 + 0.1 }));
     }
-
-    function animateStars() {
+    function animate() {
         ctx.clearRect(0, 0, width, height);
-        ctx.fillStyle = "rgba(188, 19, 254, 0.5)";
+        ctx.fillStyle = "rgba(188, 19, 254, 0.4)";
         stars.forEach(s => {
-            ctx.beginPath();
-            ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
-            ctx.fill();
-            s.y += s.speed;
-            if (s.y > height) s.y = 0;
+            ctx.beginPath(); ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2); ctx.fill();
+            s.y += s.speed; if (s.y > height) s.y = 0;
         });
-        requestAnimationFrame(animateStars);
+        requestAnimationFrame(animate);
     }
-
     window.addEventListener('resize', initStars);
-    initStars(); animateStars();
+    initStars(); animate();
+
+    // Dynamic Greeting
+    const hour = new Date().getHours();
+    const greet = document.getElementById('dynamicGreeting');
+    if (hour < 12) greet.innerText = "Good morning! Time to build the future.";
+    else if (hour < 18) greet.innerText = "Afternoon focus session is live. Let's get it.";
+    else greet.innerText = "Night mode active. Keep pushing.";
 </script>
 
 </body>

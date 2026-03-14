@@ -20,7 +20,7 @@
             --primary: #df16ff;
             --card-bg: rgba(0, 0, 0, 0.6);
             --link-bg: rgba(255, 255, 255, 0.05);
-            --pomo-bg: rgba(0, 0, 0, 0.7); /* Darker background for Pomodoro in Dark Mode */
+            --pomo-bg: rgba(0, 0, 0, 0.7);
         }
 
         #starfield {
@@ -45,11 +45,11 @@
             overflow-x: hidden;
         }
 
-        /* --- UPDATED NAVIGATION PANEL --- */
+        /* --- NAVIGATION --- */
         .nav-panel {
             position: fixed;
             top: 34px;
-            right: 190px; /* Moved further away from Dark Mode button */
+            right: 190px;
             z-index: 1000;
             display: flex;
             gap: 25px;
@@ -58,7 +58,7 @@
         .nav-link {
             color: var(--text);
             text-decoration: none;
-            font-size: 0.75rem; /* Made slightly smaller */
+            font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1.2px;
@@ -91,9 +91,7 @@
             transition: transform 0.3s ease;
         }
 
-        .logo-box:hover .flash-icon {
-            transform: scale(1.2) rotate(10deg);
-        }
+        .logo-box:hover .flash-icon { transform: scale(1.2) rotate(10deg); }
 
         .logo-text {
             font-weight: 800;
@@ -116,10 +114,7 @@
             text-shadow: var(--glow), 0 0 30px rgba(188, 19, 254, 0.4);
         }
 
-        .greeting-container {
-            margin-top: 10px;
-            min-height: 30px;
-        }
+        .greeting-container { margin-top: 10px; min-height: 30px; }
 
         #dynamicGreeting {
             font-size: 1.3rem;
@@ -137,15 +132,9 @@
             animation: blink 1s infinite;
         }
 
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-        .search-wrapper {
-            margin: 30px auto;
-            max-width: 500px;
-        }
+        .search-wrapper { margin: 30px auto; max-width: 500px; }
 
         #subjectSearch {
             width: 100%;
@@ -163,10 +152,7 @@
             text-align: center;
         }
 
-        #subjectSearch:focus {
-            border-color: var(--primary);
-            box-shadow: var(--glow);
-        }
+        #subjectSearch:focus { border-color: var(--primary); box-shadow: var(--glow); }
 
         #noResults {
             display: none;
@@ -177,7 +163,6 @@
             padding: 40px;
             background: var(--card-bg);
             border-radius: 20px;
-            backdrop-filter: blur(10px);
         }
 
         .theme-toggle {
@@ -260,10 +245,9 @@
             letter-spacing: 4px; font-weight: 900;
         }
 
-        /* --- UPDATED POMODORO DARK MODE COMPATIBILITY --- */
         .pomodoro-container {
             max-width: 450px; margin: 0 auto 40px auto;
-            background: var(--pomo-bg); /* Use theme variable */
+            background: var(--pomo-bg);
             backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 30px; padding: 40px; text-align: center;
@@ -301,19 +285,11 @@
         .pomo-btn:hover { background: var(--primary); box-shadow: var(--glow); transform: translateY(-3px); }
 
         .pomo-link {
-            display: inline-block;
-            margin-top: 30px;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.85rem;
+            display: inline-block; margin-top: 30px;
+            color: var(--primary); text-decoration: none;
+            font-weight: 700; font-size: 0.85rem;
             text-shadow: 0 0 10px rgba(188, 19, 254, 0.3);
             transition: 0.3s;
-        }
-
-        .pomo-link:hover {
-            transform: scale(1.05);
-            text-shadow: var(--glow);
         }
 
         footer { text-align: center; margin-top: 20px; padding-bottom: 40px; }
@@ -329,10 +305,52 @@
             animation: marquee 20s linear infinite;
         }
 
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); } 
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* --- AI ASSISTANT STYLES --- */
+        .ai-trigger {
+            position: fixed; bottom: 30px; right: 30px;
+            width: 55px; height: 55px;
+            background: var(--primary); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; box-shadow: var(--glow); z-index: 2000;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+
+        .ai-trigger:hover { transform: scale(1.1) rotate(15deg); }
+
+        .ai-panel {
+            position: fixed; bottom: 100px; right: 30px;
+            width: 320px; height: 420px;
+            background: rgba(13, 13, 13, 0.9); backdrop-filter: blur(20px);
+            border: 1px solid var(--primary); border-radius: 20px;
+            display: none; flex-direction: column; z-index: 1999;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8); overflow: hidden;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+        .ai-header {
+            padding: 12px 15px; background: var(--primary); color: white;
+            font-weight: bold; font-size: 0.8rem; letter-spacing: 1px;
+            display: flex; justify-content: space-between; align-items: center;
+            text-transform: uppercase;
+        }
+
+        .ai-chat-area { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; scroll-behavior: smooth; }
+
+        .chat-bubble { padding: 8px 12px; border-radius: 12px; max-width: 85%; font-size: 0.85rem; line-height: 1.4; }
+        .user-msg { background: rgba(255,255,255,0.1); align-self: flex-end; border-bottom-right-radius: 2px; }
+        .bot-msg { background: rgba(188, 19, 254, 0.2); align-self: flex-start; border-bottom-left-radius: 2px; border: 1px solid rgba(188, 19, 254, 0.3); }
+
+        .ai-input-area { padding: 12px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; gap: 8px; }
+
+        #aiQuery {
+            flex: 1; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px; padding: 8px 12px; color: white; outline: none; font-size: 0.85rem;
+        }
+        #aiQuery:focus { border-color: var(--primary); }
     </style>
 </head>
 <body>
@@ -350,6 +368,23 @@
 </div>
 
 <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark Mode</button>
+
+<div class="ai-trigger" onclick="toggleAI()" title="Open Study Assistant">
+    <span style="font-size: 24px;">✨</span>
+</div>
+
+<div class="ai-panel" id="aiPanel">
+    <div class="ai-header">
+        <span>Assistant Core</span>
+        <span style="cursor:pointer;" onclick="toggleAI()">✕</span>
+    </div>
+    <div class="ai-chat-area" id="chatArea">
+        <div class="chat-bubble bot-msg">System Online. How can I assist your study session today?</div>
+    </div>
+    <div class="ai-input-area">
+        <input type="text" id="aiQuery" placeholder="Ask a question..." onkeypress="if(event.key==='Enter') sendAIQuery()">
+    </div>
+</div>
 
 <div class="container">
     <header>
@@ -459,7 +494,7 @@
 </div>
 
 <script>
-    // Logic remains identical to previous version to maintain stability
+    // --- ORIGINAL LOGIC ---
     function initGreeting() {
         const greetingElement = document.getElementById('dynamicGreeting');
         const hour = new Date().getHours();
@@ -568,12 +603,50 @@
         }
     }
 
+    // --- AI LOGIC ---
+    function toggleAI() {
+        const panel = document.getElementById('aiPanel');
+        panel.style.display = (panel.style.display === 'flex') ? 'none' : 'flex';
+        if(panel.style.display === 'flex') document.getElementById('aiQuery').focus();
+    }
+
+    function sendAIQuery() {
+        const input = document.getElementById('aiQuery');
+        const chatArea = document.getElementById('chatArea');
+        const query = input.value.trim();
+        if (!query) return;
+
+        chatArea.innerHTML += `<div class="chat-bubble user-msg">${query}</div>`;
+        input.value = '';
+        chatArea.scrollTop = chatArea.scrollHeight;
+
+        const typingId = 'typing-' + Date.now();
+        chatArea.innerHTML += `<div class="chat-bubble bot-msg" id="${typingId}">Processing...</div>`;
+        
+        setTimeout(() => {
+            const typingElem = document.getElementById(typingId);
+            typingElem.innerText = getBotResponse(query);
+            chatArea.scrollTop = chatArea.scrollHeight;
+        }, 800);
+    }
+
+    function getBotResponse(q) {
+        const lowQ = q.toLowerCase();
+        if (lowQ.includes('physics')) return "Physics 5054 focuses heavily on Kinematics and Electricity. Have you tried the past papers for Paper 2?";
+        if (lowQ.includes('math')) return "Mathematics 4024 requires mastery of Transformation and Trigonometry. Stick to your practice schedule!";
+        if (lowQ.includes('islamiat')) return "Islamiat 2058 is about precision in references. Make sure your Quranic verses are well-cited.";
+        if (lowQ.includes('pomo') || lowQ.includes('time')) return "The Pomodoro technique is built into the Vault. 25 mins focus, 5 mins rest. Ready to start?";
+        if (lowQ.includes('notes')) return "Notes for all subjects are available in the subject cards above. Just click the 'Notes' link!";
+        return "I am analyzing that. For now, remember that consistent revision is the key to an A*!";
+    }
+
+    // --- STARFIELD ---
     const canvas = document.getElementById('starfield');
     const ctx = canvas.getContext('2d');
     let width, height, stars = [];
     const numStars = 400;
 
-    function init() {
+    function initStars() {
         width = window.innerWidth; height = window.innerHeight;
         canvas.width = width; canvas.height = height;
         stars = [];
@@ -587,7 +660,7 @@
         }
     }
 
-    function draw() {
+    function drawStars() {
         ctx.clearRect(0, 0, width, height);
         for (let i = 0; i < numStars; i++) {
             let star = stars[i];
@@ -601,11 +674,11 @@
             ctx.arc(sx, sy, size, 0, Math.PI * 2);
             ctx.fill();
         }
-        requestAnimationFrame(draw);
+        requestAnimationFrame(drawStars);
     }
 
-    window.addEventListener('resize', init);
-    init(); draw();
+    window.addEventListener('resize', initStars);
+    initStars(); drawStars();
     syncTimer();
 </script>
 

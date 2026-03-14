@@ -21,37 +21,7 @@
             --link-bg: rgba(255, 255, 255, 0.05);
         }
 
-        /* --- FIXED FOOTER SCROLLING BAR --- */
-        .scrolling-footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: var(--primary);
-            box-shadow: 0 -5px 25px rgba(188, 19, 254, 0.6);
-            padding: 15px 0;
-            z-index: 2000;
-            overflow: hidden;
-            border-top: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .scrolling-text {
-            display: inline-block;
-            white-space: nowrap;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            color: white;
-            font-size: 1.2rem;
-            animation: marquee 20s linear infinite;
-        }
-
-        @keyframes marquee {
-            0% { transform: translateX(100vw); }
-            100% { transform: translateX(-100%); }
-        }
-
-        /* --- PAGE STYLES --- */
+        /* LIVE BACKGROUND CANVAS */
         #starfield {
             position: fixed;
             top: 0;
@@ -67,7 +37,6 @@
             color: var(--text); 
             margin: 0; 
             padding: 20px; 
-            padding-bottom: 100px; /* Space for the footer */
             min-height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), var(--bg-image);
             background-size: cover;
@@ -82,8 +51,11 @@
         header { text-align: center; padding: 60px 0 40px 0; }
         
         h1 { 
-            margin: 0; font-size: 3.5rem; color: var(--primary); 
-            text-transform: uppercase; letter-spacing: 4px;
+            margin: 0; 
+            font-size: 3.5rem; 
+            color: var(--primary); 
+            text-transform: uppercase;
+            letter-spacing: 4px;
             text-shadow: var(--glow), 0 0 30px rgba(188, 19, 254, 0.4);
         }
 
@@ -107,7 +79,8 @@
             background: var(--card-bg); 
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            padding: 25px; border-radius: 20px; 
+            padding: 25px; 
+            border-radius: 20px; 
             border: 1px solid rgba(255, 255, 255, 0.15);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
             transition: all 0.3s ease;
@@ -117,6 +90,7 @@
             transform: translateY(-10px); 
             border-color: var(--primary);
             box-shadow: var(--glow);
+            background: rgba(188, 19, 254, 0.05);
         }
 
         .subject-card h2 { 
@@ -129,7 +103,8 @@
         .links { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
         
         .links a { 
-            text-decoration: none; color: white; background: var(--link-bg); 
+            text-decoration: none; color: white; 
+            background: var(--link-bg); 
             padding: 12px 15px; border-radius: 10px; 
             font-weight: 500; display: flex; justify-content: space-between;
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -139,10 +114,46 @@
         .links a:hover { 
             background: var(--primary); 
             box-shadow: var(--glow);
+            transform: scale(1.02);
             color: #fff;
         }
 
-        footer { text-align: center; margin-top: 60px; color: var(--subtext); padding-bottom: 40px; }
+        footer { 
+            text-align: center; 
+            margin-top: 60px; 
+            color: var(--subtext); 
+            padding-bottom: 40px; 
+        }
+
+        /* --- SCROLLING RECTANGLE BANNER --- */
+        .scrolling-banner {
+            width: 100%;
+            background: var(--primary);
+            box-shadow: var(--glow);
+            padding: 15px 0;
+            margin-top: 20px; /* Space immediately below the text */
+            overflow: hidden;
+            border-radius: 12px;
+            position: relative; /* Not fixed, so it scrolls with the page */
+            display: flex;
+            z-index: 1; /* Keeps it behind popups/toggle buttons */
+        }
+
+        .scrolling-text {
+            display: inline-block;
+            white-space: nowrap;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: white;
+            font-size: 1.1rem;
+            animation: marquee 20s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } 
+        }
     </style>
 </head>
 <body>
@@ -224,16 +235,20 @@
 
     <footer>
         <p>Stay Bright. Study Hard. ⚡</p>
+        
+        <div class="scrolling-banner">
+            <div class="scrolling-text">
+                FREENOTES AND RESOURCES &nbsp;&nbsp; • &nbsp;&nbsp; 
+                FREENOTES AND RESOURCES &nbsp;&nbsp; • &nbsp;&nbsp;
+                FREENOTES AND RESOURCES &nbsp;&nbsp; • &nbsp;&nbsp;
+                FREENOTES AND RESOURCES &nbsp;&nbsp; • &nbsp;&nbsp;
+                FREENOTES AND RESOURCES &nbsp;&nbsp; • &nbsp;&nbsp; 
+                FREENOTES AND RESOURCES &nbsp;&nbsp; • &nbsp;&nbsp;
+                FREENOTES AND RESOURCES &nbsp;&nbsp; • &nbsp;&nbsp;
+                FREENOTES AND RESOURCES &nbsp;&nbsp; • &nbsp;&nbsp;
+            </div>
+        </div>
     </footer>
-</div>
-
-<div class="scrolling-footer">
-    <div class="scrolling-text">
-        freenotes and resources &nbsp;&nbsp;&nbsp;&nbsp; • &nbsp;&nbsp;&nbsp;&nbsp; 
-        freenotes and resources &nbsp;&nbsp;&nbsp;&nbsp; • &nbsp;&nbsp;&nbsp;&nbsp;
-        freenotes and resources &nbsp;&nbsp;&nbsp;&nbsp; • &nbsp;&nbsp;&nbsp;&nbsp;
-        freenotes and resources
-    </div>
 </div>
 
 <script>

@@ -8,12 +8,14 @@
         :root {
             --primary: #bc13fe; 
             --yellow: #ffd700;
+            --blue: #00d2ff;
             --text: #ffffff;
             --subtext: #cbd5e1;
             --bg-image: url('https://w0.peakpx.com/wallpaper/700/152/HD-wallpaper-mountains-in-dark-night-background-dark.jpg');
             --card-bg: rgba(255, 255, 255, 0.07); 
             --glow: 0 0 15px rgba(188, 19, 254, 0.8);
             --glow-yellow: 0 0 15px rgba(255, 215, 0, 0.6);
+            --glow-blue: 0 0 15px rgba(0, 210, 255, 0.6);
         }
 
         #starfield { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
@@ -63,7 +65,6 @@
         }
         .teacher-card:hover { border-color: var(--primary); box-shadow: var(--glow); transform: translateY(-8px); }
 
-        /* Numbering Circle for Specific Sections */
         .numbered .teacher-card::before {
             counter-increment: card-counter;
             content: counter(card-counter);
@@ -89,20 +90,20 @@
         }
         .access-btn:hover { background: var(--primary); color: black; box-shadow: var(--glow); }
 
-        /* Yellow Box Specific Styles */
+        /* Color Variations */
         .yellow-card { border-color: var(--yellow) !important; background: rgba(255, 215, 0, 0.05) !important; }
         .yellow-card:hover { box-shadow: var(--glow-yellow) !important; }
         .yellow-card .avatar { background: linear-gradient(45deg, var(--yellow), #ffa500) !important; color: black !important; box-shadow: var(--glow-yellow) !important; }
         .yellow-card h2 { color: var(--yellow) !important; }
-        .yellow-card .access-btn { 
-            border-color: var(--yellow) !important; 
-            background: rgba(255, 215, 0, 0.1) !important; 
-            color: var(--yellow) !important; 
-        }
-        .yellow-card .access-btn:hover { 
-            background: var(--yellow) !important; 
-            color: black !important; 
-        }
+        .yellow-card .access-btn { border-color: var(--yellow) !important; background: rgba(255, 215, 0, 0.1) !important; color: var(--yellow) !important; }
+        .yellow-card .access-btn:hover { background: var(--yellow) !important; color: black !important; }
+
+        .blue-card { border-color: var(--blue) !important; background: rgba(0, 210, 255, 0.05) !important; }
+        .blue-card:hover { box-shadow: var(--glow-blue) !important; }
+        .blue-card .avatar { background: linear-gradient(45deg, var(--blue), #0072ff) !important; color: black !important; box-shadow: var(--glow-blue) !important; }
+        .blue-card h2 { color: var(--blue) !important; }
+        .blue-card .access-btn { border-color: var(--blue) !important; background: rgba(0, 210, 255, 0.1) !important; color: var(--blue) !important; }
+        .blue-card .access-btn:hover { background: var(--blue) !important; color: black !important; }
     </style>
 </head>
 <body>
@@ -114,6 +115,16 @@
         <a href="index.html" class="back-btn">← Back to Dashboard</a>
         <h1>Biology Vault 🧬</h1>
     </header>
+
+    <div class="section-title" style="border-color: var(--blue);">Study Tracker</div>
+    <div class="teacher-grid">
+        <div class="teacher-card blue-card">
+            <div class="avatar">QM</div>
+            <h2>QuickMark Tracker</h2>
+            <p>Monitor your progress and keep track of your revision milestones.</p>
+            <a href="https://www.quickmark.co/" target="_blank" class="access-btn">Open Tracker</a>
+        </div>
+    </div>
 
     <div class="section-title">Theory & MCQs (P1 & P2)</div>
     <div class="teacher-grid numbered">
@@ -141,54 +152,14 @@
 
     <div class="section-title">Other Notes</div>
     <div class="teacher-grid numbered">
-        <div class="teacher-card">
-            <div class="avatar">M</div>
-            <h2>Mojza</h2>
-            <p>Hand-picked specialized revision resource for final prep.</p>
-            <a href="https://drive.google.com/file/d/1-oaIiepoGC9e2SrhMHEfm8eHJ6OdlXVm/view?usp=sharing" target="_blank" class="access-btn">View Note</a>
-        </div>
-        <div class="teacher-card">
-            <div class="avatar">C</div>
-            <h2>Cook Your Exams Notes</h2>
-            <p>A comprehensive strategy guide to mastering exam techniques.</p>
-            <a href="https://drive.google.com/file/d/1ygMFEtVocZSw5p9iATmboeTgI0mGUrDl/view?usp=sharing" target="_blank" class="access-btn">View Note</a>
-        </div>
-        <div class="teacher-card">
-            <div class="avatar">S</div>
-            <h2>Shinglee</h2>
-            <p>Full folder of textbook-aligned resources and materials.</p>
-            <a href="https://drive.google.com/drive/folders/1dFHVmYm2BhVRo2Lqbc4MW1D8pGmeXj2h?usp=sharing" target="_blank" class="access-btn">View Note</a>
-        </div>
-        <div class="teacher-card">
-            <div class="avatar">G</div>
-            <h2>Sir Ghulam Rasool Notes</h2>
-            <p>Detailed notes compiled by Sir Ghulam Rasool.</p>
-            <a href="https://drive.google.com/file/d/10vj7QcIZaKDAqZc9sST5X6GggSEmfsnk/view?usp=sharing" target="_blank" class="access-btn">View Note</a>
-        </div>
-        <div class="teacher-card">
-            <div class="avatar">V</div>
-            <h2>Veda Notes</h2>
-            <p>Best resource for high-quality summarized biological concepts.</p>
-            <a href="https://drive.google.com/file/d/1pMUkA92JwcQbuOLsOJrLD493RWp8fYiw/view?usp=sharing" target="_blank" class="access-btn">View Note</a>
-        </div>
-        <div class="teacher-card">
-            <div class="avatar">O</div>
-            <h2>Best Notes (by Onion)</h2>
-            <p>Highly recommended notes. Credits to Onion.</p>
-            <a href="https://docs.google.com/document/d/1N81fuUzth8KA_HJxjsepscoRkHJtUM5RVdmMt0HQLoc/edit?usp=sharing" target="_blank" class="access-btn">View Note</a>
-        </div>
-        <div class="teacher-card">
-            <div class="avatar">A</div>
-            <h2>R/IGCSE Notes (Ayesha)</h2>
-            <p>Comprehensive community notes for IGCSE prep.</p>
-            <a href="https://drive.google.com/file/d/1bR6AbmAdFTYFNxIROPzbwZsPHiUgqbBn/view?usp=sharing" target="_blank" class="access-btn">View Note</a>
-        </div>
-        <div class="teacher-card">
-            <div class="avatar">N</div>
-            <h2>Nerd Cafe Notes</h2>
-            <p>Excellent web-based study resource for Biology.</p>
-            <a href="https://nerdcafe.super.site/igcse/biology/" target="_blank" class="access-btn">View Note</a>
-        </div>
+        <div class="teacher-card"><div class="avatar">M</div><h2>Mojza</h2><p>Specialized revision resource for final prep.</p><a href="https://drive.google.com/file/d/1-oaIiepoGC9e2SrhMHEfm8eHJ6OdlXVm/view?usp=sharing" target="_blank" class="access-btn">View Note</a></div>
+        <div class="teacher-card"><div class="avatar">C</div><h2>Cook Your Exams Notes</h2><p>Comprehensive strategy guide to mastering exams.</p><a href="https://drive.google.com/file/d/1ygMFEtVocZSw5p9iATmboeTgI0mGUrDl/view?usp=sharing" target="_blank" class="access-btn">View Note</a></div>
+        <div class="teacher-card"><div class="avatar">S</div><h2>Shinglee</h2><p>Textbook-aligned biological resources folder.</p><a href="https://drive.google.com/drive/folders/1dFHVmYm2BhVRo2Lqbc4MW1D8pGmeXj2h?usp=sharing" target="_blank" class="access-btn">View Note</a></div>
+        <div class="teacher-card"><div class="avatar">G</div><h2>Sir Ghulam Rasool Notes</h2><p>Expertly compiled syllabus-specific notes.</p><a href="https://drive.google.com/file/d/10vj7QcIZaKDAqZc9sST5X6GggSEmfsnk/view?usp=sharing" target="_blank" class="access-btn">View Note</a></div>
+        <div class="teacher-card"><div class="avatar">V</div><h2>Veda Notes</h2><p>Summarized concepts for efficient revision.</p><a href="https://drive.google.com/file/d/1pMUkA92JwcQbuOLsOJrLD493RWp8fYiw/view?usp=sharing" target="_blank" class="access-btn">View Note</a></div>
+        <div class="teacher-card"><div class="avatar">O</div><h2>Best Notes (Onion)</h2><p>Highly rated community notes (Creds to Onion).</p><a href="https://docs.google.com/document/d/1N81fuUzth8KA_HJxjsepscoRkHJtUM5RVdmMt0HQLoc/edit?usp=sharing" target="_blank" class="access-btn">View Note</a></div>
+        <div class="teacher-card"><div class="avatar">A</div><h2>R/IGCSE Notes (Ayesha)</h2><p>Detailed IGCSE community notes.</p><a href="https://drive.google.com/file/d/1bR6AbmAdFTYFNxIROPzbwZsPHiUgqbBn/view?usp=sharing" target="_blank" class="access-btn">View Note</a></div>
+        <div class="teacher-card"><div class="avatar">N</div><h2>Nerd Cafe Notes</h2><p>Interactive web-based revision resource.</p><a href="https://nerdcafe.super.site/igcse/biology/" target="_blank" class="access-btn">View Note</a></div>
     </div>
 
     <div class="section-title">Practice Questions</div>
@@ -196,14 +167,33 @@
         <div class="teacher-card yellow-card">
             <div class="avatar">MS</div>
             <h2>According to MS Q&A</h2>
-            <p>Questions and answers structured specifically based on Mark Schemes.</p>
+            <p>Questions and answers structured by Mark Schemes.</p>
             <a href="https://docs.google.com/document/d/15q0oPAus3qDNEU1fSEFQoNKmYeCCeK-W9oyh39JZlIA/edit?usp=sharing" target="_blank" class="access-btn">Practice</a>
         </div>
-        
-        <div class="teacher-card"><div class="avatar">P</div><h2>Topical MCQ Set</h2><p>Categorized Paper 1 questions.</p><a href="#" class="access-btn">Practice</a></div>
-        <div class="teacher-card"><div class="avatar">P</div><h2>Theory Drill</h2><p>Challenging Paper 2 structured questions.</p><a href="#" class="access-btn">Practice</a></div>
-        <div class="teacher-card"><div class="avatar">P</div><h2>P4 Mock Lab</h2><p>Simulated practical scenarios and calculations.</p><a href="#" class="access-btn">Practice</a></div>
-        <div class="teacher-card"><div class="avatar">P</div><h2>Full Past Papers</h2><p>Official board examination papers for final testing.</p><a href="#" class="access-btn">Practice</a></div>
+        <div class="teacher-card">
+            <div class="avatar">PM</div>
+            <h2>PMT Topicals</h2>
+            <p>Topic-wise past paper questions from PMT.</p>
+            <a href="https://www.physicsandmathstutor.com/biology-revision/igcse-cie/" target="_blank" class="access-btn">Practice</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">BG</div>
+            <h2>BestGradez</h2>
+            <p>Premium practice resources for IGCSE students.</p>
+            <a href="https://bestgradez.com/" target="_blank" class="access-btn">Practice</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">SH</div>
+            <h2>StudyHaven</h2>
+            <p>Diverse collection of practice papers and materials.</p>
+            <a href="https://studyhaven.org/" target="_blank" class="access-btn">Practice</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">P</div>
+            <h2>Full Past Papers</h2>
+            <p>Official board examination papers for final testing.</p>
+            <a href="#" class="access-btn">Practice</a>
+        </div>
     </div>
 </div>
 

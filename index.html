@@ -56,7 +56,6 @@
             text-shadow: var(--glow), 0 0 30px rgba(188, 19, 254, 0.4);
         }
 
-        /* --- TRANSLUCENT SEARCH BAR --- */
         .search-wrapper {
             margin: 30px auto;
             max-width: 500px;
@@ -84,7 +83,6 @@
             background: rgba(255, 255, 255, 0.15);
         }
 
-        /* --- NO RESULTS MESSAGE --- */
         #noResults {
             display: none;
             text-align: center;
@@ -132,9 +130,22 @@
 
         .subject-card h2 { 
             margin-top: 0; color: var(--primary); 
-            font-size: 1.6rem; text-shadow: var(--glow);
+            font-size: 1.4rem; text-shadow: var(--glow);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
-            padding-bottom: 12px; 
+            padding-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .subject-code {
+            font-size: 0.9rem;
+            background: rgba(188, 19, 254, 0.2);
+            padding: 4px 10px;
+            border-radius: 8px;
+            color: #fff;
+            letter-spacing: 1px;
+            border: 1px solid var(--primary);
         }
 
         .links { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
@@ -178,18 +189,18 @@
     <header>
         <h1>⚡ StudyVault</h1>
         <div class="search-wrapper">
-            <input type="text" id="subjectSearch" placeholder="Search subjects..." onkeyup="filterSubjects()">
+            <input type="text" id="subjectSearch" placeholder="Search by name or code (e.g. 5054)..." onkeyup="filterSubjects()">
         </div>
     </header>
 
     <div id="noResults">
         <span style="font-size: 3rem;">🕵️‍♂️</span>
-        <p>No subjects found. Try searching for something else!</p>
+        <p>No subjects found. Try searching for a different code!</p>
     </div>
 
     <div class="subject-grid" id="subjectGrid">
         <div class="subject-card">
-            <h2>English</h2>
+            <h2>English <span class="subject-code">1123</span></h2>
             <div class="links">
                 <a href="#">Notes <span>📖</span></a>
                 <a href="#">Past Papers <span>📄</span></a>
@@ -198,7 +209,7 @@
         </div>
 
         <div class="subject-card">
-            <h2>Pak Studies</h2>
+            <h2>Pak Studies <span class="subject-code">2059</span></h2>
             <div class="links">
                 <a href="#">Notes <span>📖</span></a>
                 <a href="#">Past Papers <span>📄</span></a>
@@ -207,7 +218,7 @@
         </div>
 
         <div class="subject-card">
-            <h2>Islamiat</h2>
+            <h2>Islamiat <span class="subject-code">2058</span></h2>
             <div class="links">
                 <a href="#">Notes <span>📖</span></a>
                 <a href="#">Past Papers <span>📄</span></a>
@@ -216,7 +227,7 @@
         </div>
 
         <div class="subject-card">
-            <h2>Mathematics</h2>
+            <h2>Mathematics <span class="subject-code">4024</span></h2>
             <div class="links">
                 <a href="#">Notes <span>📖</span></a>
                 <a href="#">Past Papers <span>📄</span></a>
@@ -225,7 +236,7 @@
         </div>
 
         <div class="subject-card">
-            <h2>Biology</h2>
+            <h2>Biology <span class="subject-code">5090</span></h2>
             <div class="links">
                 <a href="#">Notes <span>📖</span></a>
                 <a href="#">Past Papers <span>📄</span></a>
@@ -234,7 +245,7 @@
         </div>
 
         <div class="subject-card">
-            <h2>Chemistry</h2>
+            <h2>Chemistry <span class="subject-code">5070</span></h2>
             <div class="links">
                 <a href="#">Notes <span>📖</span></a>
                 <a href="#">Past Papers <span>📄</span></a>
@@ -243,7 +254,7 @@
         </div>
 
         <div class="subject-card">
-            <h2>Physics</h2>
+            <h2>Physics <span class="subject-code">5054</span></h2>
             <div class="links">
                 <a href="#">Notes <span>📖</span></a>
                 <a href="#">Past Papers <span>📄</span></a>
@@ -272,16 +283,15 @@
         let visibleCount = 0;
 
         for (let i = 0; i < cards.length; i++) {
-            let title = cards[i].getElementsByTagName('h2')[0].innerText.toLowerCase();
-            if (title.includes(input)) {
+            let titleText = cards[i].getElementsByTagName('h2')[0].innerText.toLowerCase();
+            // This checks both the name and the code inside the H2
+            if (titleText.includes(input)) {
                 cards[i].classList.remove('hidden');
                 visibleCount++;
             } else {
                 cards[i].classList.add('hidden');
             }
         }
-
-        // Toggle "No Results" message
         noResults.style.display = (visibleCount === 0) ? 'block' : 'none';
     }
 
@@ -297,7 +307,7 @@
         }
     }
 
-    // Starfield Background
+    // Starfield Animation
     const canvas = document.getElementById('starfield');
     const ctx = canvas.getContext('2d');
     let width, height, stars = [];

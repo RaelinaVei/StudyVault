@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Physics Vault | StudyVault</title>
+    <title>Mathematics Vault | StudyVault</title>
     <style>
         :root {
             --primary: #bc13fe; /* Neon Purple */
@@ -21,7 +21,7 @@
         [data-theme="light"] {
             --text: #1e1b4b;
             --subtext: #475569;
-            --overlay: rgba(255, 255, 255, 0.8); /* Light overlay for readability */
+            --overlay: rgba(255, 255, 255, 0.8); /* Light overlay */
             --card-bg: rgba(255, 255, 255, 0.4);
             --link-bg: rgba(188, 19, 254, 0.1);
             --star-color: 75, 0, 130; /* Darker stars for light background */
@@ -29,10 +29,8 @@
 
         #starfield {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             z-index: -1;
             pointer-events: none;
         }
@@ -40,8 +38,7 @@
         body { 
             font-family: 'Segoe UI', sans-serif; 
             color: var(--text); 
-            margin: 0; 
-            padding: 20px; 
+            margin: 0; padding: 20px; 
             min-height: 100vh;
             background: linear-gradient(var(--overlay), var(--overlay)), var(--bg-image);
             background-size: cover;
@@ -150,29 +147,29 @@
 <div class="container">
     <header>
         <a href="index.html" class="back-btn">← Back to Dashboard</a>
-        <h1>Physics Vault ⚡</h1>
-        <p class="subtitle">Dynamics, Waves, and Atomic Theory</p>
+        <h1>Maths Vault 📐</h1>
+        <p class="subtitle">Algebra, Geometry, and Trigonometry</p>
     </header>
 
     <div class="teacher-grid">
         <div class="teacher-card">
-            <div class="avatar">M</div>
-            <h2>Mechanics</h2>
-            <p>Master Newton's Laws, Kinematics, and Terminal Velocity with detailed visual diagrams.</p>
+            <div class="avatar">A</div>
+            <h2>Algebra</h2>
+            <p>Quadratic equations, sequences, and complex function mapping simplified for O-Levels.</p>
             <a href="#" class="access-btn">Access Notes</a>
         </div>
 
         <div class="teacher-card">
-            <div class="avatar">W</div>
-            <h2>Waves & Light</h2>
-            <p>Comprehensive guides on Reflection, Refraction, and the EM Spectrum for O-Levels.</p>
+            <div class="avatar">G</div>
+            <h2>Geometry</h2>
+            <p>Circle theorems, trigonometry, and vector geometry with step-by-step solved examples.</p>
             <a href="#" class="access-btn">Access Notes</a>
         </div>
 
         <div class="teacher-card">
-            <div class="avatar">E</div>
-            <h2>Electricity</h2>
-            <p>Circuit logic, Ohm's Law, and electromagnetic induction simplified for revision.</p>
+            <div class="avatar">S</div>
+            <h2>Statistics</h2>
+            <p>Master probability, cumulative frequency, and data analysis for the final exam.</p>
             <a href="#" class="access-btn">Access Notes</a>
         </div>
     </div>
@@ -219,7 +216,6 @@
 
     function draw() {
         ctx.clearRect(0, 0, width, height);
-        // Get the current star color from CSS variable
         const starColor = getComputedStyle(document.documentElement).getPropertyValue('--star-color');
         
         for (let i = 0; i < numStars; i++) {

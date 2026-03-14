@@ -28,35 +28,51 @@
         }
         .container { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
         header { text-align: center; padding: 60px 0 40px 0; }
-        h1 { margin: 0; font-size: 3rem; color: var(--primary); text-transform: uppercase; letter-spacing: 4px; text-shadow: var(--glow); }
+        h1 { margin: 0; font-size: 3.5rem; color: var(--primary); text-transform: uppercase; letter-spacing: 4px; text-shadow: var(--glow); }
         .subtitle { color: var(--subtext); margin-top: 10px; font-size: 1.2rem; font-weight: 600; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
-        .theme-toggle { position: fixed; top: 20px; right: 20px; background: var(--primary); color: white; border: none; padding: 12px 20px; border-radius: 30px; cursor: pointer; font-weight: bold; box-shadow: var(--glow); z-index: 1000; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-        .note-card { background: var(--card-bg); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 40px 20px; border-radius: 15px; text-align: center; border: 1px solid rgba(255, 255, 255, 0.15); transition: all 0.3s ease; text-decoration: none; display: block; }
-        .note-card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: var(--glow); background: rgba(188, 19, 254, 0.1); }
-        .note-card h3 { margin: 0; font-size: 1.3rem; color: var(--primary); text-shadow: 0 0 10px rgba(188, 19, 254, 0.5); }
+        
+        .nav-buttons { position: fixed; top: 20px; right: 20px; display: flex; gap: 10px; z-index: 1000; }
+        .btn { 
+            background: var(--primary); color: white; border: none; padding: 12px 20px; 
+            border-radius: 30px; cursor: pointer; font-weight: bold; box-shadow: var(--glow); 
+            text-decoration: none; font-size: 14px; transition: 0.3s;
+        }
+        .btn:hover { transform: scale(1.05); filter: brightness(1.2); }
+
+        .subject-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 20px; }
+        .subject-card { 
+            background: var(--card-bg); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); 
+            padding: 40px 25px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.15); 
+            transition: all 0.3s ease; text-align: center;
+        }
+        .subject-card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: var(--glow); background: rgba(188, 19, 254, 0.05); }
+        .subject-card h2 { margin: 0; color: var(--primary); font-size: 1.6rem; text-shadow: var(--glow); }
+        
         footer { text-align: center; margin-top: 60px; color: var(--subtext); padding-bottom: 40px; }
     </style>
 </head>
 <body>
 <canvas id="starfield"></canvas>
-<button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark Mode</button>
+<div class="nav-buttons">
+    <a href="index.html" class="btn">🏠 Dashboard</a>
+    <button class="btn" onclick="toggleTheme()" id="themeBtn">🌙 Dark Mode</button>
+</div>
 <div class="container">
     <header>
         <h1>📖 English</h1>
         <p class="subtitle">Notes, And More!</p>
     </header>
-    <div class="grid">
-        <div class="note-card"><h3>Lorem Ipsum</h3></div>
-        <div class="note-card"><h3>Dolor Sit</h3></div>
-        <div class="note-card"><h3>Amet Consectetur</h3></div>
-        <div class="note-card"><h3>Adipiscing Elit</h3></div>
-        <div class="note-card"><h3>Sed Do</h3></div>
-        <div class="note-card"><h3>Eiusmod Tempor</h3></div>
-        <div class="note-card"><h3>Incididunt Ut</h3></div>
-        <div class="note-card"><h3>Labore Et</h3></div>
-        <div class="note-card"><h3>Dolore Magna</h3></div>
-        <div class="note-card"><h3>Aliqua Enim</h3></div>
+    <div class="subject-grid">
+        <div class="subject-card"><h2>Lorem Ipsum</h2></div>
+        <div class="subject-card"><h2>Dolor Sit</h2></div>
+        <div class="subject-card"><h2>Amet Consectetur</h2></div>
+        <div class="subject-card"><h2>Adipiscing Elit</h2></div>
+        <div class="subject-card"><h2>Sed Do</h2></div>
+        <div class="subject-card"><h2>Eiusmod Tempor</h2></div>
+        <div class="subject-card"><h2>Incididunt Ut</h2></div>
+        <div class="subject-card"><h2>Labore Et</h2></div>
+        <div class="subject-card"><h2>Dolore Magna</h2></div>
+        <div class="subject-card"><h2>Aliqua Enim</h2></div>
     </div>
     <footer><p>Stay Bright. Study Hard. ⚡</p></footer>
 </div>

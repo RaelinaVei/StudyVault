@@ -9,350 +9,282 @@
             --primary: #bc13fe; 
             --text: #ffffff;
             --subtext: #cbd5e1;
-            --bg-dark: #0a0a0a;
-            --card-bg: rgba(255, 255, 255, 0.05);
+            --bg-image: url('https://w0.peakpx.com/wallpaper/700/152/HD-wallpaper-mountains-in-dark-night-background-dark.jpg');
+            --card-bg: rgba(255, 255, 255, 0.07); 
             --glow: 0 0 15px rgba(188, 19, 254, 0.6);
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            background: radial-gradient(circle at top right, #1a0b2e, #050505);
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), var(--bg-image);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: var(--text);
             margin: 0;
-            padding: 40px 20px;
+            padding: 20px;
             min-height: 100vh;
         }
 
-        .nav-header {
-            max-width: 1200px;
-            margin: 0 auto 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .back-btn {
-            text-decoration: none;
-            color: var(--subtext);
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.3s;
-        }
-
+        .nav-header { max-width: 1300px; margin: 0 auto 30px; display: flex; justify-content: space-between; align-items: center; }
+        .back-btn { text-decoration: none; color: var(--subtext); font-weight: 600; transition: 0.3s; }
         .back-btn:hover { color: var(--primary); }
 
         .main-layout {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            grid-template-columns: 350px 1fr 350px;
+            gap: 20px;
         }
 
-        /* --- Timer Section --- */
         .glass-card {
             background: var(--card-bg);
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(25px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            padding: 40px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
         }
 
-        .timer-display {
-            font-size: 6rem;
-            font-weight: 800;
-            text-align: center;
-            margin: 30px 0;
-            font-variant-numeric: tabular-nums;
-            text-shadow: var(--glow);
-        }
+        .section-title { font-size: 1rem; color: var(--primary); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 800; }
 
-        .timer-presets {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 30px;
-        }
+        /* --- Legend / Category Sidebar --- */
+        .legend-item { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; background: rgba(0,0,0,0.2); padding: 8px; border-radius: 8px; }
+        .legend-item input[type="color"] { border: none; width: 25px; height: 25px; cursor: pointer; background: none; }
+        .legend-item input[type="text"] { background: none; border: none; color: white; width: 60px; font-size: 0.9rem; text-align: center; }
+        .category-label { flex: 1; background: none; border: none; color: var(--subtext); font-size: 0.8rem; outline: none; }
 
-        .preset-btn {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: white;
-            padding: 10px;
-            border-radius: 12px;
+        /* --- Calendar Styling --- */
+        #calendar { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-top: 15px; }
+        .cal-day { 
+            min-height: 80px; 
+            background: rgba(255,255,255,0.03); 
+            border: 1px solid rgba(255,255,255,0.05); 
+            border-radius: 10px; 
+            font-size: 0.75rem; 
+            padding: 8px; 
+            position: relative; 
             cursor: pointer;
-            transition: 0.3s;
+            transition: 0.2s;
+        }
+        .cal-day:hover { background: rgba(255,255,255,0.08); border-color: var(--primary); }
+        .day-num { font-weight: bold; opacity: 0.5; margin-bottom: 5px; display: block; }
+        .event-bar { 
+            font-size: 0.65rem; 
+            padding: 2px 5px; 
+            border-radius: 4px; 
+            margin-top: 4px; 
+            white-space: nowrap; 
+            overflow: hidden; 
+            text-overflow: ellipsis; 
+            border-left: 3px solid transparent;
         }
 
-        .preset-btn:hover { background: var(--primary); border-color: var(--primary); }
+        /* --- Timer & Others --- */
+        .timer-display { font-size: 4rem; font-weight: 800; text-align: center; margin: 15px 0; text-shadow: var(--glow); font-family: monospace; }
+        .btn { background: var(--primary); border: none; color: white; padding: 12px; border-radius: 10px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.3s; }
+        .btn:hover { box-shadow: var(--glow); transform: translateY(-2px); }
+        
+        input, select { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; color: white; outline: none; }
 
-        .controls {
-            display: flex;
-            gap: 15px;
-        }
+        .list-item { background: rgba(255,255,255,0.03); margin-bottom: 8px; padding: 10px; border-radius: 10px; display: flex; align-items: center; gap: 10px; }
+        .list-item.done span { text-decoration: line-through; color: rgba(255,255,255,0.4); }
 
-        .btn-main {
-            flex: 2;
-            padding: 18px;
-            border-radius: 15px;
-            border: none;
-            background: var(--primary);
-            color: white;
-            font-weight: 800;
-            cursor: pointer;
-            box-shadow: var(--glow);
-            transition: 0.3s;
-        }
-
-        .btn-reset {
-            flex: 1;
-            background: transparent;
-            border: 1px solid rgba(255,255,255,0.2);
-            color: white;
-            border-radius: 15px;
-            cursor: pointer;
-        }
-
-        /* --- Task & Accountability Section --- */
-        .section-title {
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--primary);
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .input-group {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        input[type="text"] {
-            flex: 1;
-            background: rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 12px 20px;
-            border-radius: 12px;
-            color: white;
-            outline: none;
-        }
-
-        .add-btn {
-            background: var(--primary);
-            border: none;
-            color: white;
-            padding: 0 20px;
-            border-radius: 12px;
-            cursor: pointer;
-        }
-
-        .list-container {
-            list-style: none;
-            padding: 0;
-            max-height: 400px;
-            overflow-y: auto;
-        }
-
-        .list-item {
-            background: rgba(255,255,255,0.03);
-            margin-bottom: 10px;
-            padding: 15px;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .list-item input[type="checkbox"] {
-            accent-color: var(--primary);
-            width: 18px;
-            height: 18px;
-        }
-
-        .list-item.done span {
-            text-decoration: line-through;
-            opacity: 0.5;
-        }
-
-        .delete-btn {
-            margin-left: auto;
-            background: none;
-            border: none;
-            color: #ff4d4d;
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @media (max-width: 900px) {
-            .main-layout { grid-template-columns: 1fr; }
-        }
+        @media (max-width: 1100px) { .main-layout { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
     <div class="nav-header">
         <a href="index.html" class="back-btn">← Back to Dashboard</a>
-        <div style="font-weight: 800; letter-spacing: 2px;">STUDYVAULT PRO</div>
+        <div style="font-weight: 800; letter-spacing: 2px; color: var(--primary);">STUDYVAULT PRO</div>
     </div>
 
     <div class="main-layout">
         
-        <div class="glass-card">
-            <div class="section-title">⏱️ Focus Timer</div>
-            <div class="timer-presets">
-                <button class="preset-btn" onclick="setTimer(25)">25m</button>
-                <button class="preset-btn" onclick="setTimer(50)">50m</button>
-                <button class="preset-btn" onclick="setTimer(15)">15m</button>
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="glass-card">
+                <div class="section-title">🎨 Categories</div>
+                <div id="legendContainer">
+                    <div class="legend-item">
+                        <input type="color" id="col1" value="#ff4d4d" onchange="saveLegend()">
+                        <input type="text" id="emoji1" value="🔴" onchange="saveLegend()">
+                        <input type="text" id="lab1" class="category-label" value="Exams" onchange="saveLegend()">
+                    </div>
+                    <div class="legend-item">
+                        <input type="color" id="col2" value="#4dff88" onchange="saveLegend()">
+                        <input type="text" id="emoji2" value="🟢" onchange="saveLegend()">
+                        <input type="text" id="lab2" class="category-label" value="Exercise" onchange="saveLegend()">
+                    </div>
+                    <div class="legend-item">
+                        <input type="color" id="col3" value="#4d94ff" onchange="saveLegend()">
+                        <input type="text" id="emoji3" value="🔵" onchange="saveLegend()">
+                        <input type="text" id="lab3" class="category-label" value="Reading" onchange="saveLegend()">
+                    </div>
+                </div>
             </div>
-            
-            <div class="timer-display" id="display">25:00</div>
-            
-            <div class="controls">
-                <button class="btn-main" id="startBtn" onclick="toggleTimer()">START SESSION</button>
-                <button class="btn-reset" onclick="resetTimer()">RESET</button>
+
+            <div class="glass-card">
+                <div class="section-title">⏱️ Session</div>
+                <div class="timer-display" id="display">25:00</div>
+                <button class="btn" onclick="toggleTimer()" id="startBtn">START</button>
             </div>
         </div>
 
         <div class="glass-card">
-            <div class="section-title">🚀 Study Objectives</div>
+            <div class="section-title">🗓️ Interactive Planner</div>
+            <div id="calendar"></div>
             
-            <div class="input-group">
-                <input type="text" id="taskInput" placeholder="What are we crushing today?">
-                <button class="add-btn" onclick="addTask()">Add</button>
+            <div id="eventEditor" style="margin-top: 20px; display: none; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 12px;">
+                <div style="display:flex; gap: 10px; margin-bottom:10px;">
+                    <select id="catSelect">
+                        <option value="1">Category 1</option>
+                        <option value="2">Category 2</option>
+                        <option value="3">Category 3</option>
+                    </select>
+                    <input type="text" id="eventText" placeholder="Event Name..." style="flex:1">
+                </div>
+                <button class="btn" onclick="saveEvent()">Save to Calendar</button>
             </div>
+        </div>
 
-            <ul class="list-container" id="taskList">
-                </ul>
-
-            <div class="section-title" style="margin-top: 40px;">⚖️ Accountability Checks</div>
-            <div class="list-container">
-                <div class="list-item">
-                    <input type="checkbox" id="water"> <span>Hydrated (1L+)</span>
-                </div>
-                <div class="list-item">
-                    <input type="checkbox" id="phone"> <span>Phone in DND Mode</span>
-                </div>
-                <div class="list-item">
-                    <input type="checkbox" id="desk"> <span>Clean Workspace</span>
-                </div>
+        <div class="glass-card">
+            <div class="section-title">⚖️ Accountability</div>
+            <div style="display:flex; gap:5px; margin-bottom:15px;">
+                <input type="text" id="taskInput" placeholder="Add custom goal..." style="flex:1">
+                <button class="btn" onclick="addTask()" style="width: auto;">Add</button>
             </div>
+            <div id="currentTasks"></div>
+            
+            <div class="section-title" style="margin-top:30px; font-size:0.8rem; opacity:0.6;">History (7 Days)</div>
+            <div id="historyContainer"></div>
         </div>
 
     </div>
 
     <script>
+        // --- DATA PERSISTENCE ---
+        let vaultData = JSON.parse(localStorage.getItem('proVaultData')) || {
+            tasks: [],
+            history: {},
+            calendar: {},
+            legend: [
+                {col: '#ff4d4d', emo: '🔴', lab: 'Exams'},
+                {col: '#4dff88', emo: '🟢', lab: 'Exercise'},
+                {col: '#4d94ff', emo: '🔵', lab: 'Reading'}
+            ]
+        };
+
+        // --- LEGEND LOGIC ---
+        function saveLegend() {
+            for(let i=1; i<=3; i++) {
+                vaultData.legend[i-1] = {
+                    col: document.getElementById(`col${i}`).value,
+                    emo: document.getElementById(`emoji${i}`).value,
+                    lab: document.getElementById(`lab${i}`).value
+                };
+            }
+            saveData();
+            renderCalendar();
+        }
+
+        function loadLegend() {
+            vaultData.legend.forEach((item, i) => {
+                document.getElementById(`col${i+1}`).value = item.col;
+                document.getElementById(`emoji${i+1}`).value = item.emo;
+                document.getElementById(`lab${i+1}`).value = item.lab;
+            });
+        }
+
+        // --- CALENDAR LOGIC ---
+        let selectedDay = null;
+
+        function renderCalendar() {
+            const cal = document.getElementById('calendar');
+            cal.innerHTML = "";
+            for (let i = 1; i <= 28; i++) { // Render 4 weeks for simplicity
+                const dayData = vaultData.calendar[i] || null;
+                let eventHtml = "";
+                if(dayData) {
+                    const cat = vaultData.legend[dayData.cat - 1];
+                    eventHtml = `<div class="event-bar" style="background:${cat.col}33; border-left-color:${cat.col}; color:white;">
+                        ${cat.emo} ${dayData.text}
+                    </div>`;
+                }
+                cal.innerHTML += `<div class="cal-day" onclick="openEditor(${i})">
+                    <span class="day-num">${i}</span>
+                    ${eventHtml}
+                </div>`;
+            }
+        }
+
+        function openEditor(day) {
+            selectedDay = day;
+            document.getElementById('eventEditor').style.display = "block";
+            document.getElementById('eventText').focus();
+        }
+
+        function saveEvent() {
+            const text = document.getElementById('eventText').value;
+            const cat = document.getElementById('catSelect').value;
+            if(!text) return;
+            vaultData.calendar[selectedDay] = { text, cat };
+            saveData();
+            renderCalendar();
+            document.getElementById('eventEditor').style.display = "none";
+            document.getElementById('eventText').value = "";
+        }
+
+        // --- TASK LOGIC ---
+        function addTask() {
+            const input = document.getElementById('taskInput');
+            if(!input.value) return;
+            vaultData.tasks.push({ id: Date.now(), text: input.value, done: false, date: new Date().toLocaleDateString() });
+            input.value = "";
+            saveData();
+            renderTasks();
+        }
+
+        function toggleTask(id) {
+            const task = vaultData.tasks.find(t => t.id === id);
+            if(task) task.done = !task.done;
+            saveData();
+            renderTasks();
+        }
+
+        function renderTasks() {
+            const container = document.getElementById('currentTasks');
+            container.innerHTML = "";
+            vaultData.tasks.forEach(t => {
+                container.innerHTML += `<div class="list-item ${t.done ? 'done' : ''}">
+                    <input type="checkbox" ${t.done ? 'checked' : ''} onchange="toggleTask(${t.id})">
+                    <span style="flex:1">${t.text}</span>
+                </div>`;
+            });
+        }
+
         // --- TIMER LOGIC ---
         let timeLeft = 25 * 60;
         let timerId = null;
-        let isRunning = false;
-
-        function setTimer(mins) {
-            resetTimer();
-            timeLeft = mins * 60;
-            updateDisplay();
-        }
-
-        function updateDisplay() {
-            const m = Math.floor(timeLeft / 60);
-            const s = timeLeft % 60;
-            document.getElementById('display').textContent = 
-                `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
-        }
-
         function toggleTimer() {
-            const btn = document.getElementById('startBtn');
-            if (isRunning) {
-                clearInterval(timerId);
-                btn.textContent = "RESUME SESSION";
-            } else {
+            if(timerId) { clearInterval(timerId); timerId = null; document.getElementById('startBtn').textContent = "START"; }
+            else {
                 timerId = setInterval(() => {
                     timeLeft--;
-                    updateDisplay();
-                    if (timeLeft <= 0) {
-                        clearInterval(timerId);
-                        alert("Session complete!");
-                    }
+                    const m = Math.floor(timeLeft/60); const s = timeLeft%60;
+                    document.getElementById('display').textContent = `${m}:${s < 10 ? '0'+s : s}`;
                 }, 1000);
-                btn.textContent = "PAUSE";
+                document.getElementById('startBtn').textContent = "PAUSE";
             }
-            isRunning = !isRunning;
         }
 
-        function resetTimer() {
-            clearInterval(timerId);
-            isRunning = false;
-            timeLeft = 25 * 60;
-            updateDisplay();
-            document.getElementById('startBtn').textContent = "START SESSION";
-        }
+        function saveData() { localStorage.setItem('proVaultData', JSON.stringify(vaultData)); }
 
-        // --- PERSISTENT TASK LOGIC ---
-        const taskInput = document.getElementById('taskInput');
-        const taskList = document.getElementById('taskList');
-
-        // Load tasks on startup
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedTasks = JSON.parse(localStorage.getItem('studyVaultTasks')) || [];
-            savedTasks.forEach(task => renderTask(task.text, task.completed));
-        });
-
-        function addTask() {
-            const text = taskInput.value.trim();
-            if (text === "") return;
-            renderTask(text, false);
-            saveTasks();
-            taskInput.value = "";
-        }
-
-        function renderTask(text, completed) {
-            const li = document.createElement('li');
-            li.className = `list-item ${completed ? 'done' : ''}`;
-            li.innerHTML = `
-                <input type="checkbox" ${completed ? 'checked' : ''} onchange="toggleDone(this)">
-                <span>${text}</span>
-                <button class="delete-btn" onclick="deleteTask(this)">×</button>
-            `;
-            taskList.appendChild(li);
-        }
-
-        function toggleDone(el) {
-            el.parentElement.classList.toggle('done');
-            saveTasks();
-        }
-
-        function deleteTask(el) {
-            el.parentElement.remove();
-            saveTasks();
-        }
-
-        function saveTasks() {
-            const tasks = [];
-            document.querySelectorAll('#taskList .list-item').forEach(li => {
-                tasks.push({
-                    text: li.querySelector('span').textContent,
-                    completed: li.querySelector('input').checked
-                });
-            });
-            localStorage.setItem('studyVaultTasks', JSON.stringify(tasks));
-        }
-
-        // Enter key to add task
-        taskInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') addTask();
-        });
+        // Init
+        loadLegend();
+        renderCalendar();
+        renderTasks();
     </script>
 </body>
 </html>

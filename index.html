@@ -176,7 +176,7 @@
 
         .subject-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
             gap: 25px; 
             margin-top: 20px;
         }
@@ -234,8 +234,9 @@
 
         /* --- CHANNELS SECTION --- */
         .channel-box {
-            margin-top: auto;
-            padding-top: 20px;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .channel-title {
@@ -243,24 +244,38 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: var(--subtext);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-weight: 700;
+            display: block;
         }
 
-        .channel-tags {
+        .channel-btn-list {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             gap: 8px;
         }
 
-        .channel-tags span {
-            font-size: 0.75rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(188, 19, 254, 0.4);
-            padding: 4px 10px;
-            border-radius: 6px;
+        .channel-btn {
+            text-decoration: none;
             color: #fff;
+            background: rgba(188, 19, 254, 0.05);
+            border: 1px solid rgba(188, 19, 254, 0.3);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
         }
+
+        .channel-btn:hover {
+            background: rgba(188, 19, 254, 0.2);
+            border-color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .channel-btn span { font-size: 0.9rem; }
 
         /* --- COMMUNITY SECTION --- */
         .community-section {
@@ -431,10 +446,10 @@
                 <a href="https://drive.google.com/drive/folders/1K_8t8Flup5AwcCUtdIWUvciybrsaCn0d?usp=sharing" target="_blank">Books <span>📚</span></a>
             </div>
             <div class="channel-box">
-                <p class="channel-title">Top Channels</p>
-                <div class="channel-tags">
-                    <span>The English Academy</span>
-                    <span>SkH-English</span>
+                <span class="channel-title">YouTube Learning</span>
+                <div class="channel-btn-list">
+                    <a href="#" class="channel-btn">The English Academy <span>📺</span></a>
+                    <a href="#" class="channel-btn">SkH-English <span>📺</span></a>
                 </div>
             </div>
         </div>
@@ -447,10 +462,10 @@
                 <a href="#">Books <span>📚</span></a>
             </div>
             <div class="channel-box">
-                <p class="channel-title">Top Channels</p>
-                <div class="channel-tags">
-                    <span>History with Yusra</span>
-                    <span>The Pak Studies Guru</span>
+                <span class="channel-title">YouTube Learning</span>
+                <div class="channel-btn-list">
+                    <a href="#" class="channel-btn">History with Yusra <span>📺</span></a>
+                    <a href="#" class="channel-btn">The Pak Studies Guru <span>📺</span></a>
                 </div>
             </div>
         </div>
@@ -463,10 +478,10 @@
                 <a href="#">Books <span>📚</span></a>
             </div>
             <div class="channel-box">
-                <p class="channel-title">Top Channels</p>
-                <div class="channel-tags">
-                    <span>Sir Muzammil</span>
-                    <span>Islamic Studies Academy</span>
+                <span class="channel-title">YouTube Learning</span>
+                <div class="channel-btn-list">
+                    <a href="#" class="channel-btn">Sir Muzammil <span>📺</span></a>
+                    <a href="#" class="channel-btn">Islamic Studies Academy <span>📺</span></a>
                 </div>
             </div>
         </div>
@@ -479,11 +494,11 @@
                 <a href="#">Books <span>📚</span></a>
             </div>
             <div class="channel-box">
-                <p class="channel-title">Top Channels</p>
-                <div class="channel-tags">
-                    <span>Zainematics</span>
-                    <span>D Math Academy</span>
-                    <span>Mathlete Saad</span>
+                <span class="channel-title">YouTube Learning</span>
+                <div class="channel-btn-list">
+                    <a href="#" class="channel-btn">Zainematics <span>📺</span></a>
+                    <a href="#" class="channel-btn">D Math Academy <span>📺</span></a>
+                    <a href="#" class="channel-btn">Mathlete Saad <span>📺</span></a>
                 </div>
             </div>
         </div>
@@ -496,10 +511,10 @@
                 <a href="https://drive.google.com/drive/folders/10tHaHHjHJe4y7FXm-j2It0ge7qLbTzcI?usp=sharing" target="_blank">Books <span>📚</span></a>
             </div>
             <div class="channel-box">
-                <p class="channel-title">Top Channels</p>
-                <div class="channel-tags">
-                    <span>Science with Hazel</span>
-                    <span>Biology with Dr. NS</span>
+                <span class="channel-title">YouTube Learning</span>
+                <div class="channel-btn-list">
+                    <a href="#" class="channel-btn">Science with Hazel <span>📺</span></a>
+                    <a href="#" class="channel-btn">Biology with Dr. NS <span>📺</span></a>
                 </div>
             </div>
         </div>
@@ -512,10 +527,10 @@
                 <a href="#">Books <span>📚</span></a>
             </div>
             <div class="channel-box">
-                <p class="channel-title">Top Channels</p>
-                <div class="channel-tags">
-                    <span>Chem with Bilal</span>
-                    <span>Cognito</span>
+                <span class="channel-title">YouTube Learning</span>
+                <div class="channel-btn-list">
+                    <a href="#" class="channel-btn">Chem with Bilal <span>📺</span></a>
+                    <a href="#" class="channel-btn">Cognito <span>📺</span></a>
                 </div>
             </div>
         </div>
@@ -528,10 +543,10 @@
                 <a href="#">Books <span>📚</span></a>
             </div>
             <div class="channel-box">
-                <p class="channel-title">Top Channels</p>
-                <div class="channel-tags">
-                    <span>Physics with Talha</span>
-                    <span>Prosperity Academy</span>
+                <span class="channel-title">YouTube Learning</span>
+                <div class="channel-btn-list">
+                    <a href="#" class="channel-btn">Physics with Talha <span>📺</span></a>
+                    <a href="#" class="channel-btn">Prosperity Academy <span>📺</span></a>
                 </div>
             </div>
         </div>

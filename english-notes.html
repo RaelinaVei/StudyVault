@@ -3,95 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English Notes | StudyVault</title>
+    <title>English Vault | StudyVault</title>
     <style>
         :root {
             --primary: #bc13fe; 
             --text: #ffffff;
             --subtext: #cbd5e1;
             --bg-image: url('https://w0.peakpx.com/wallpaper/700/152/HD-wallpaper-mountains-in-dark-night-background-dark.jpg');
-            --card-bg: rgba(255, 255, 255, 0.07); 
-            --glow: 0 0 15px rgba(188, 19, 254, 0.8);
+            --card-bg: rgba(255, 255, 255, 0.05); 
+            --glow: 0 0 20px rgba(188, 19, 254, 0.6);
         }
-        [data-theme="dark"] { --primary: #df16ff; --card-bg: rgba(0, 0, 0, 0.5); }
-        #starfield { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+
+        [data-theme="dark"] {
+            --primary: #df16ff;
+            --card-bg: rgba(0, 0, 0, 0.4);
+        }
+
+        #starfield {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; pointer-events: none;
+        }
+
         body { 
-            font-family: 'Segoe UI', sans-serif; color: var(--text); margin: 0; padding: 20px; min-height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), var(--bg-image);
-            background-size: cover; background-position: center; background-attachment: fixed; transition: all 0.4s ease;
+            font-family: 'Segoe UI', sans-serif; 
+            color: var(--text); 
+            margin: 0; padding: 20px; 
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), var(--bg-image);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            transition: all 0.4s ease;
+            overflow-x: hidden;
         }
+
         .container { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
-        header { text-align: center; padding: 60px 0 40px 0; }
-        h1 { margin: 0; font-size: 3.5rem; color: var(--primary); text-transform: uppercase; letter-spacing: 4px; text-shadow: var(--glow); }
-        .subtitle { color: var(--subtext); margin-top: 10px; font-size: 1.2rem; font-weight: 600; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
-        .nav-buttons { position: fixed; top: 20px; right: 20px; display: flex; gap: 10px; z-index: 1000; }
-        .btn { background: var(--primary); color: white; border: none; padding: 12px 20px; border-radius: 30px; cursor: pointer; font-weight: bold; box-shadow: var(--glow); text-decoration: none; font-size: 14px; transition: 0.3s; }
-        .btn:hover { transform: scale(1.05); filter: brightness(1.2); }
-        .teacher-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
-        .teacher-card { background: var(--card-bg); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 30px; text-align: center; transition: 0.3s; }
-        .teacher-card:hover { border-color: var(--primary); box-shadow: var(--glow); transform: translateY(-8px); }
-        .avatar { width: 60px; height: 60px; background: linear-gradient(45deg, var(--primary), #4facfe); border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; box-shadow: var(--glow); }
-        .teacher-card h2 { margin: 10px 0; font-size: 1.4rem; color: var(--primary); text-shadow: var(--glow); }
-        .access-btn { display: block; width: 100%; text-decoration: none; color: white; background: rgba(188, 19, 254, 0.2); border: 1px solid var(--primary); padding: 12px; border-radius: 12px; font-weight: bold; transition: 0.3s; margin-top: 15px; }
-        .access-btn:hover { background: var(--primary); color: white; box-shadow: var(--glow); }
-        footer { text-align: center; margin-top: 60px; color: var(--subtext); padding-bottom: 40px; }
+
+        header { text-align: center; padding: 20px 0 40px 0; }
+        
+        .back-nav { margin-bottom: 30px; }
+        .back-btn { 
+            text-decoration: none; color: white; background: rgba(0,0,0,0.3); 
+            padding: 8px 24px; border-radius: 20px; font-size: 0.85rem; 
+            border: 1px solid rgba(255,255,255,0.4); transition: 0.3s;
+        }
+        .back-btn:hover { border-color: var(--primary); box-shadow: var(--glow); }
+
+        h1 { 
+            margin: 10px 0; font-size: 3.8rem; 
+            color: var(--primary); 
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: var(--glow);
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: #fff;
+            text-align: center;
+            margin: 50px 0 30px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            padding-bottom: 10px;
+            width: 100%;
+        }
+
+        .divider {
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            margin: 60px 0;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        .theme-toggle {
+            position: fixed; top: 20px; right: 20px;
+            background: var(--primary); color: white;
+            border: none; padding: 10px 18px; border-radius: 30px;
+            cursor: pointer; font-weight: bold;
+            box-shadow: var(--glow); z-index: 1000;
+        }
+
+        .teacher-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
+        }
+
+        .teacher-card { 
+            background: var(--card-bg); 
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 45px 30px; 
+            border-radius: 25px; 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: 0.4s ease;
+        }
+
+        .teacher-card:hover { 
+            transform: translateY(-12px); 
+            border-color: var(--primary);
+            box-shadow: var(--glow);
+        }
+
+        .avatar { 
+            width: 70px; height: 70px; 
+            background: rgba(188, 19, 254, 0.15); 
+            border: 2px solid var(--primary);
+            border-radius: 50%; margin: 0 auto 25px; 
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; font-weight: bold; color: var(--primary);
+            box-shadow: var(--glow);
+        }
+
+        .teacher-card h2 { margin: 15px 0; font-size: 1.7rem; color: var(--primary); text-shadow: var(--glow); }
+        .teacher-card p { font-size: 0.95rem; color: var(--subtext); line-height: 1.6; margin-bottom: 30px; }
+
+        .access-btn {
+            display: block; text-decoration: none; color: white;
+            background: rgba(188, 19, 254, 0.2); border: 1px solid var(--primary);
+            padding: 14px; border-radius: 12px; font-weight: bold; transition: 0.3s;
+        }
+
+        .access-btn:hover { background: var(--primary); box-shadow: var(--glow); color: #fff; }
+
+        footer { text-align: center; margin-top: 80px; color: var(--subtext); padding-bottom: 40px; }
     </style>
 </head>
 <body>
+
 <canvas id="starfield"></canvas>
-<div class="nav-buttons">
-    <a href="index.html" class="btn">🏠 Dashboard</a>
-    <button class="btn" onclick="toggleTheme()" id="themeBtn">🌙 Dark Mode</button>
-</div>
+
+<button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark Mode</button>
+
 <div class="container">
     <header>
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">← Back to Dashboard</a>
+        </div>
         <h1>English Vault 📖</h1>
-        <p class="subtitle">Notes, And More!</p>
     </header>
+
+    <h2 class="section-title">🖋️ Paper 1: Writing</h2>
     <div class="teacher-grid">
-        <div class="teacher-card"><div class="avatar">L</div><h2>Lorem Ipsum</h2><a href="#" class="access-btn">Access Notes</a></div>
-        <div class="teacher-card"><div class="avatar">D</div><h2>Dolor Sit</h2><a href="#" class="access-btn">Access Notes</a></div>
-        <div class="teacher-card"><div class="avatar">A</div><h2>Amet Consectetur</h2><a href="#" class="access-btn">Access Notes</a></div>
-        <div class="teacher-card"><div class="avatar">E</div><h2>Elit Adipiscing</h2><a href="#" class="access-btn">Access Notes</a></div>
-        <div class="teacher-card"><div class="avatar">S</div><h2>Sed Eiusmod</h2><a href="#" class="access-btn">Access Notes</a></div>
-        <div class="teacher-card"><div class="avatar">T</div><h2>Tempor Incididunt</h2><a href="#" class="access-btn">Access Notes</a></div>
-        <div class="teacher-card"><div class="avatar">M</div><h2>Magna Aliqua</h2><a href="#" class="access-btn">Access Notes</a></div>
-        <div class="teacher-card"><div class="avatar">U</div><h2>Ut Enim</h2><a href="#" class="access-btn">Access Notes</a></div>
-        <div class="teacher-card"><div class="avatar">V</div><h2>Veniam Quis</h2><a href="#" class="access-btn">Access Notes</a></div>
-        <div class="teacher-card"><div class="avatar">N</div><h2>Nostrud Exercit</h2><a href="#" class="access-btn">Access Notes</a></div>
+        <div class="teacher-card"><div class="avatar">1</div><h2>Directed Writing</h2><p>Letters, reports, and speech formats.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">2</div><h2>Narrative Writing</h2><p>Storytelling, character arcs, and tension.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">3</div><h2>Descriptive Writing</h2><p>Sensory details and vivid imagery.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">4</div><h2>Argumentative</h2><p>Structuring debates and persuasive essays.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">5</div><h2>Grammar Guide</h2><p>Punctuation, tenses, and complex syntax.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">6</div><h2>Vocabulary List</h2><p>High-tier words for better expression.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">7</div><h2>P1 Formats</h2><p>Quick reference for all layout types.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">8</div><h2>Model Essays</h2><p>A* grade examples for analysis.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">9</div><h2>Writing Prompts</h2><p>Practice topics for daily writing.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">10</div><h2>P1 Checklist</h2><p>Final review before submitting.</p><a href="#" class="access-btn">Access</a></div>
     </div>
-    <footer><p>Stay Bright. Study Hard. ⚡</p></footer>
+
+    <div class="divider"></div>
+
+    <h2 class="section-title">🔍 Paper 2: Reading</h2>
+    <div class="teacher-grid">
+        <div class="teacher-card"><div class="avatar">1</div><h2>Comprehension</h2><p>Text analysis and explicit meaning.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">2</div><h2>Summary Skills</h2><p>Word count management and point picking.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">3</div><h2>Implicit Meaning</h2><p>Inference and reading between the lines.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">4</div><h2>Writer's Effect</h2><p>Analyzing language, tone, and style.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">5</div><h2>Contextual Clues</h2><p>Vocabulary building through reading.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">6</div><h2>Critical Analysis</h2><p>Evaluating perspectives in a text.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">7</div><h2>Past Passages</h2><p>Practice reading inserts and texts.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">8</div><h2>P2 Techniques</h2><p>Time management for the reading paper.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">9</div><h2>Scanning Skills</h2><p>Finding information quickly in long texts.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">10</div><h2>P2 Final Tips</h2><p>Common mistakes to avoid in reading.</p><a href="#" class="access-btn">Access</a></div>
+    </div>
+
+    <footer>
+        <p>Stay Bright. Study Hard. ⚡</p>
+    </footer>
 </div>
+
 <script>
     function toggleTheme() {
         const body = document.documentElement;
         const btn = document.getElementById('themeBtn');
-        if (body.getAttribute('data-theme') === 'dark') { body.removeAttribute('data-theme'); btn.innerHTML = "🌙 Dark Mode"; }
-        else { body.setAttribute('data-theme', 'dark'); btn.innerHTML = "☀️ Light Mode"; }
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.removeAttribute('data-theme');
+            localStorage.setItem('studyvault-theme', 'light');
+            btn.innerHTML = "🌙 Dark Mode";
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            localStorage.setItem('studyvault-theme', 'dark');
+            btn.innerHTML = "☀️ Light Mode";
+        }
     }
+
+    if (localStorage.getItem('studyvault-theme') === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.getElementById('themeBtn').innerHTML = "☀️ Light Mode";
+    }
+
     const canvas = document.getElementById('starfield');
     const ctx = canvas.getContext('2d');
     let width, height, stars = [];
+
     function init() {
-        width = window.innerWidth; height = window.innerHeight;
-        canvas.width = width; canvas.height = height;
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
         stars = [];
-        for (let i = 0; i < 400; i++) { stars.push({ x: Math.random() * width - width / 2, y: Math.random() * height - height / 2, z: Math.random() * width, opacity: Math.random() }); }
+        for (let i = 0; i < 400; i++) {
+            stars.push({
+                x: Math.random() * width - width / 2,
+                y: Math.random() * height - height / 2,
+                z: Math.random() * width,
+                opacity: Math.random()
+            });
+        }
     }
+
     function draw() {
         ctx.clearRect(0, 0, width, height);
         for (let i = 0; i < 400; i++) {
-            let star = stars[i]; star.z -= 1.2;
+            let star = stars[i];
+            star.z -= 1.2;
             if (star.z <= 0) star.z = width;
             const sx = (star.x / star.z) * (width / 2) + width / 2;
             const sy = (star.y / star.z) * (height / 2) + height / 2;
             const size = (1 - star.z / width) * 2.5;
-            ctx.beginPath(); ctx.fillStyle = `rgba(188, 19, 254, ${star.opacity})`;
-            ctx.arc(sx, sy, size, 0, Math.PI * 2); ctx.fill();
+            ctx.beginPath();
+            ctx.fillStyle = `rgba(188, 19, 254, ${star.opacity})`;
+            ctx.arc(sx, sy, size, 0, Math.PI * 2);
+            ctx.fill();
         }
         requestAnimationFrame(draw);
     }
-    window.addEventListener('resize', init); init(); draw();
+
+    window.addEventListener('resize', init);
+    init();
+    draw();
 </script>
+
 </body>
 </html>

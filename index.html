@@ -13,12 +13,14 @@
             --card-bg: rgba(255, 255, 255, 0.07); 
             --link-bg: rgba(255, 255, 255, 0.1);
             --glow: 0 0 15px rgba(188, 19, 254, 0.8);
+            --pomo-bg: rgba(255, 255, 255, 0.03);
         }
 
         [data-theme="dark"] {
             --primary: #df16ff;
-            --card-bg: rgba(0, 0, 0, 0.5);
+            --card-bg: rgba(0, 0, 0, 0.6);
             --link-bg: rgba(255, 255, 255, 0.05);
+            --pomo-bg: rgba(0, 0, 0, 0.7); /* Darker background for Pomodoro in Dark Mode */
         }
 
         #starfield {
@@ -43,25 +45,25 @@
             overflow-x: hidden;
         }
 
-        /* --- NAVIGATION PANEL --- */
+        /* --- UPDATED NAVIGATION PANEL --- */
         .nav-panel {
             position: fixed;
-            top: 32px;
-            right: 170px; /* Offset from Dark Mode button */
+            top: 34px;
+            right: 190px; /* Moved further away from Dark Mode button */
             z-index: 1000;
             display: flex;
-            gap: 20px;
+            gap: 25px;
         }
 
         .nav-link {
             color: var(--text);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.75rem; /* Made slightly smaller */
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1.2px;
             transition: 0.3s;
-            opacity: 0.8;
+            opacity: 0.7;
         }
 
         .nav-link:hover {
@@ -258,14 +260,16 @@
             letter-spacing: 4px; font-weight: 900;
         }
 
+        /* --- UPDATED POMODORO DARK MODE COMPATIBILITY --- */
         .pomodoro-container {
             max-width: 450px; margin: 0 auto 40px auto;
-            background: rgba(255, 255, 255, 0.03);
+            background: var(--pomo-bg); /* Use theme variable */
             backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 30px; padding: 40px; text-align: center;
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
             position: relative; overflow: hidden;
+            transition: background 0.4s ease;
         }
 
         .pomo-header {
@@ -296,14 +300,13 @@
 
         .pomo-btn:hover { background: var(--primary); box-shadow: var(--glow); transform: translateY(-3px); }
 
-        /* --- STYLED CUSTOM TIMER LINK --- */
         .pomo-link {
             display: inline-block;
             margin-top: 30px;
             color: var(--primary);
             text-decoration: none;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-shadow: 0 0 10px rgba(188, 19, 254, 0.3);
             transition: 0.3s;
         }
@@ -428,7 +431,7 @@
                 <a href="#">Books <span>📚</span></a>
             </div>
         </div>
-        </div>
+    </div>
 
     <div class="section-divider"></div>
 
@@ -456,7 +459,7 @@
 </div>
 
 <script>
-    // Logic remains exactly as provided in your original script
+    // Logic remains identical to previous version to maintain stability
     function initGreeting() {
         const greetingElement = document.getElementById('dynamicGreeting');
         const hour = new Date().getHours();

@@ -43,113 +43,47 @@
             overflow-x: hidden;
         }
 
+        /* --- NAVIGATION & LOGO --- */
         .logo-box {
             position: fixed;
-            top: 25px;
-            left: 25px;
+            top: 25px; left: 25px;
             z-index: 1000;
             display: flex;
             align-items: center;
             gap: 10px;
-            cursor: pointer;
             text-decoration: none;
         }
 
-        .flash-icon {
-            font-size: 1.8rem;
-            text-shadow: var(--glow);
-            filter: drop-shadow(0 0 5px var(--primary));
-            transition: transform 0.3s ease;
-        }
+        .flash-icon { font-size: 1.8rem; text-shadow: var(--glow); filter: drop-shadow(0 0 5px var(--primary)); }
+        .logo-text { font-weight: 800; letter-spacing: 2px; font-size: 1.1rem; color: white; text-transform: uppercase; }
 
-        .logo-box:hover .flash-icon {
-            transform: scale(1.2) rotate(10deg);
-        }
-
-        .logo-text {
-            font-weight: 800;
-            letter-spacing: 2px;
-            font-size: 1.1rem;
-            color: white;
-            text-transform: uppercase;
-        }
-
-        .container { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
-
-        header { text-align: center; padding: 60px 0 20px 0; }
-        
-        h1 { 
-            margin: 0; 
-            font-size: 3.5rem; 
-            color: var(--primary); 
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            text-shadow: var(--glow), 0 0 30px rgba(188, 19, 254, 0.4);
-        }
-
-        .greeting-container {
-            margin-top: 10px;
-            min-height: 30px;
-        }
-
-        #dynamicGreeting {
-            font-size: 1.3rem;
-            font-weight: 300;
-            color: var(--subtext);
-            letter-spacing: 1.5px;
-            font-style: italic;
-        }
-
-        .cursor {
-            display: inline-block;
-            width: 3px;
-            background-color: var(--primary);
-            margin-left: 5px;
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        .search-wrapper {
-            margin: 30px auto;
-            max-width: 500px;
-        }
-
-        #subjectSearch {
-            width: 100%;
-            padding: 15px 25px;
-            border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            color: white;
-            font-size: 1.1rem;
-            outline: none;
-            transition: all 0.3s ease;
-            box-sizing: border-box;
-            text-align: center;
-        }
-
-        #subjectSearch:focus {
-            border-color: var(--primary);
-            box-shadow: var(--glow);
-        }
-
-        #noResults {
-            display: none;
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--subtext);
-            margin-top: 50px;
-            padding: 40px;
-            background: var(--card-bg);
-            border-radius: 20px;
+        .top-nav {
+            position: fixed;
+            top: 25px;
+            right: 180px; /* Offset to stay away from dark mode button */
+            display: flex;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
+            padding: 8px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            align-items: center;
         }
+
+        .nav-link {
+            color: var(--subtext);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-link:hover { color: var(--primary); text-shadow: var(--glow); }
 
         .theme-toggle {
             position: fixed; top: 25px; right: 25px;
@@ -160,232 +94,68 @@
             font-size: 0.9rem;
         }
 
-        .subject-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 25px; 
-            margin-top: 20px;
-        }
+        /* --- MAIN CONTENT --- */
+        .container { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+        header { text-align: center; padding: 80px 0 20px 0; }
+        h1 { margin: 0; font-size: 3.5rem; color: var(--primary); text-transform: uppercase; letter-spacing: 5px; text-shadow: var(--glow), 0 0 30px rgba(188, 19, 254, 0.4); }
+        
+        .greeting-container { margin-top: 10px; min-height: 30px; }
+        #dynamicGreeting { font-size: 1.3rem; font-weight: 300; color: var(--subtext); letter-spacing: 1.5px; font-style: italic; }
+        .cursor { display: inline-block; width: 3px; background-color: var(--primary); margin-left: 5px; animation: blink 1s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-        .subject-card { 
-            background: var(--card-bg); 
-            backdrop-filter: blur(15px);
-            padding: 25px; 
-            border-radius: 20px; 
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
-            transition: all 0.3s ease;
+        .search-wrapper { margin: 30px auto; max-width: 500px; }
+        #subjectSearch {
+            width: 100%; padding: 15px 25px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); color: white; font-size: 1.1rem; outline: none; transition: 0.3s; text-align: center;
         }
+        #subjectSearch:focus { border-color: var(--primary); box-shadow: var(--glow); }
 
-        .subject-card.hidden { display: none; }
-
-        .subject-card:hover { 
-            transform: translateY(-10px); 
-            border-color: var(--primary);
-            box-shadow: var(--glow);
-        }
-
-        .subject-card h2 { 
-            margin-top: 0; color: var(--primary); 
-            font-size: 1.4rem; text-shadow: var(--glow);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
-            padding-bottom: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .subject-code {
-            font-size: 0.85rem;
-            background: rgba(188, 19, 254, 0.15);
-            padding: 4px 10px;
-            border-radius: 8px;
-            color: #fff;
-            border: 1px solid var(--primary);
-        }
+        .subject-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 20px; }
+        .subject-card { background: var(--card-bg); backdrop-filter: blur(15px); padding: 25px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.15); transition: 0.3s; }
+        .subject-card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: var(--glow); }
+        .subject-card h2 { margin-top: 0; color: var(--primary); font-size: 1.4rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 12px; display: flex; justify-content: space-between; }
+        .subject-code { font-size: 0.85rem; background: rgba(188, 19, 254, 0.15); padding: 4px 10px; border-radius: 8px; border: 1px solid var(--primary); }
 
         .links { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
-        
-        .links a { 
-            text-decoration: none; color: white; 
-            background: var(--link-bg); 
-            padding: 12px 15px; border-radius: 10px; 
-            font-weight: 500; display: flex; justify-content: space-between;
-            transition: 0.3s;
+        .links a { text-decoration: none; color: white; background: var(--link-bg); padding: 12px 15px; border-radius: 10px; display: flex; justify-content: space-between; transition: 0.3s; }
+        .links a:hover { background: var(--primary); }
+
+        .section-divider { height: 1px; width: 100%; background: linear-gradient(90deg, transparent, var(--primary), transparent); margin: 60px 0; position: relative; }
+        .section-divider::after { content: 'LIVE FOCUS SESSION'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #0d0d0d; padding: 0 15px; color: var(--primary); font-size: 0.7rem; letter-spacing: 4px; }
+
+        /* --- POMODORO --- */
+        .pomodoro-container { max-width: 450px; margin: 0 auto 40px auto; background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(25px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 30px; padding: 40px; text-align: center; scroll-margin-top: 100px; }
+        .pomo-time { font-size: 4.5rem; font-weight: 800; margin: 15px 0; text-shadow: var(--glow); }
+        .pomo-btn { background: transparent; border: 1.5px solid var(--primary); color: white; padding: 12px 35px; border-radius: 15px; cursor: pointer; transition: 0.3s; }
+        .pomo-btn:hover { background: var(--primary); box-shadow: var(--glow); }
+
+        /* --- AI ASSISTANT --- */
+        .ai-fab {
+            position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
+            background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; box-shadow: var(--glow); z-index: 2000; font-size: 1.5rem; transition: 0.3s;
+        }
+        .ai-fab:hover { transform: scale(1.1) rotate(5deg); }
+
+        .ai-panel {
+            position: fixed; bottom: 100px; right: 30px; width: 350px; height: 450px;
+            background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(20px); border: 1px solid var(--primary);
+            border-radius: 20px; display: none; flex-direction: column; z-index: 2000; overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
         }
 
-        .links a:hover { background: var(--primary); box-shadow: var(--glow); }
+        .ai-header { background: var(--primary); padding: 15px; font-weight: bold; display: flex; justify-content: space-between; font-size: 0.9rem; }
+        .ai-messages { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; }
+        .msg { padding: 8px 12px; border-radius: 12px; max-width: 80%; line-height: 1.4; }
+        .bot { background: rgba(188, 19, 254, 0.2); align-self: flex-start; border-left: 3px solid var(--primary); }
+        .user { background: rgba(255, 255, 255, 0.1); align-self: flex-end; }
+        .ai-input-wrap { padding: 15px; display: flex; gap: 10px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .ai-input-wrap input { flex: 1; background: transparent; border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; color: white; padding: 8px; outline: none; }
 
-        .section-divider {
-            height: 1px; width: 100%;
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
-            margin: 60px 0; opacity: 0.6; box-shadow: var(--glow); position: relative;
-        }
-
-        .section-divider::after {
-            content: 'LIVE FOCUS SESSION';
-            position: absolute; top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            background: #0d0d0d; padding: 0 15px;
-            color: var(--primary); font-size: 0.7rem;
-            letter-spacing: 4px; font-weight: 900;
-        }
-
-        .pomodoro-container {
-            max-width: 450px; margin: 0 auto 40px auto;
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px; padding: 40px; text-align: center;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            position: relative; overflow: hidden;
-        }
-
-        .pomo-header {
-            font-size: 1.2rem; font-weight: 700;
-            color: var(--primary); text-transform: uppercase;
-            letter-spacing: 4px; margin-bottom: 20px; text-shadow: var(--glow);
-        }
-
-        .pomo-time {
-            font-size: 4.5rem; font-weight: 800; color: #ffffff;
-            margin: 15px 0; text-shadow: var(--glow);
-        }
-
-        .pomo-btn {
-            background: transparent; border: 1.5px solid var(--primary);
-            color: white; padding: 12px 35px; border-radius: 15px;
-            cursor: pointer; font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .pomo-btn:hover { background: var(--primary); box-shadow: var(--glow); transform: translateY(-3px); }
-
-        /* --- AI ASSISTANT STYLES --- */
-        #ai-toggle {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: var(--glow);
-            z-index: 2000;
-            font-size: 1.8rem;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        #ai-toggle:hover { transform: scale(1.1) rotate(10deg); }
-
-        #ai-panel {
-            position: fixed;
-            bottom: 100px;
-            right: 30px;
-            width: 350px;
-            height: 500px;
-            background: rgba(15, 15, 15, 0.85);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--primary);
-            border-radius: 20px;
-            display: none;
-            flex-direction: column;
-            z-index: 2000;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
-            overflow: hidden;
-            animation: slideUp 0.4s ease forwards;
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .ai-header {
-            background: var(--primary);
-            padding: 15px;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        #ai-chat-body {
-            flex: 1;
-            padding: 15px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            scrollbar-width: thin;
-            scrollbar-color: var(--primary) transparent;
-        }
-
-        .ai-msg {
-            padding: 10px 14px;
-            border-radius: 15px;
-            max-width: 85%;
-            font-size: 0.9rem;
-            line-height: 1.4;
-            word-wrap: break-word;
-        }
-
-        .bot-msg { background: rgba(188, 19, 254, 0.2); align-self: flex-start; border-bottom-left-radius: 2px; border: 1px solid rgba(188, 19, 254, 0.3); }
-        .user-msg { background: rgba(255, 255, 255, 0.1); align-self: flex-end; border-bottom-right-radius: 2px; }
-
-        .ai-input-area {
-            padding: 15px;
-            display: flex;
-            gap: 8px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            background: rgba(0,0,0,0.2);
-        }
-
-        #ai-input {
-            flex: 1;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 8px;
-            color: white;
-            padding: 10px;
-            outline: none;
-        }
-
-        #ai-input:focus { border-color: var(--primary); }
-
-        .ai-send-btn {
-            background: var(--primary);
-            border: none;
-            color: white;
-            border-radius: 8px;
-            padding: 0 15px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .ai-send-btn:hover { filter: brightness(1.2); }
-
-        footer { text-align: center; margin-top: 20px; padding-bottom: 40px; }
-
-        .scrolling-banner {
-            width: 100%; background: var(--primary); padding: 15px 0;
-            overflow: hidden; border-radius: 12px; display: flex;
-        }
-
-        .scrolling-text {
-            display: inline-block; white-space: nowrap; font-weight: 800;
-            text-transform: uppercase; letter-spacing: 5px; color: white;
-            animation: marquee 20s linear infinite;
-        }
-
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); } 
-        }
+        .scrolling-banner { width: 100%; background: var(--primary); padding: 15px 0; overflow: hidden; border-radius: 12px; margin-top: 40px; }
+        .scrolling-text { display: inline-block; white-space: nowrap; font-weight: 800; text-transform: uppercase; letter-spacing: 5px; animation: marquee 20s linear infinite; }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     </style>
 </head>
 <body>
@@ -397,6 +167,12 @@
     <span class="logo-text">StudyVault</span>
 </div>
 
+<nav class="top-nav">
+    <a href="#timer-anchor" class="nav-link">Pomodoro</a>
+    <a href="#timer-anchor" class="nav-link">Accountability</a>
+    <span class="nav-link" onclick="toggleAI()">AI</span>
+</nav>
+
 <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark Mode</button>
 
 <div class="container">
@@ -405,220 +181,119 @@
         <div class="greeting-container">
             <span id="dynamicGreeting"></span><span class="cursor">|</span>
         </div>
-        
         <div class="search-wrapper">
-            <input type="text" id="subjectSearch" placeholder="Search by name or code (e.g. 5054)..." onkeyup="filterSubjects()">
+            <input type="text" id="subjectSearch" placeholder="Search code or subject..." onkeyup="filterSubjects()">
         </div>
     </header>
 
-    <div id="noResults">
-        <span style="font-size: 3rem;">🕵️‍♂️</span>
-        <p>No subjects found. Try searching for a different code!</p>
-    </div>
-
     <div class="subject-grid" id="subjectGrid">
-        <div class="subject-card">
-            <h2>English <span class="subject-code">1123</span></h2>
-            <div class="links">
-                <a href="english-notes.html">Notes <span>📖</span></a>
-                <a href="#">Syllabus <span>📋</span></a>
-                <a href="#">Books <span>📚</span></a>
-            </div>
-        </div>
-        <div class="subject-card">
-            <h2>Mathematics <span class="subject-code">4024</span></h2>
-            <div class="links">
-                <a href="maths-notes.html">Notes <span>📖</span></a>
-                <a href="#">Syllabus <span>📋</span></a>
-                <a href="#">Books <span>📚</span></a>
-            </div>
-        </div>
-        <div class="subject-card">
-            <h2>Physics <span class="subject-code">5054</span></h2>
-            <div class="links">
-                <a href="physics-notes.html">Notes <span>📖</span></a>
-                <a href="#">Syllabus <span>📋</span></a>
-                <a href="#">Books <span>📚</span></a>
-            </div>
-        </div>
-        </div>
+        <div class="subject-card"><h2>English <span class="subject-code">1123</span></h2><div class="links"><a href="#">Notes <span>📖</span></a><a href="#">Syllabus <span>📋</span></a></div></div>
+        <div class="subject-card"><h2>Pak Studies <span class="subject-code">2059</span></h2><div class="links"><a href="#">Notes <span>📖</span></a><a href="#">Books <span>📚</span></a></div></div>
+        <div class="subject-card"><h2>Islamiat <span class="subject-code">2058</span></h2><div class="links"><a href="#">Notes <span>📖</span></a><a href="#">Syllabus <span>📋</span></a></div></div>
+        <div class="subject-card"><h2>Mathematics <span class="subject-code">4024</span></h2><div class="links"><a href="#">Notes <span>📖</span></a><a href="#">Syllabus <span>📋</span></a></div></div>
+        <div class="subject-card"><h2>Biology <span class="subject-code">5090</span></h2><div class="links"><a href="#">Notes <span>📖</span></a><a href="#">Syllabus <span>📋</span></a></div></div>
+        <div class="subject-card"><h2>Chemistry <span class="subject-code">5070</span></h2><div class="links"><a href="#">Notes <span>📖</span></a><a href="#">Syllabus <span>📋</span></a></div></div>
+        <div class="subject-card"><h2>Physics <span class="subject-code">5054</span></h2><div class="links"><a href="#">Notes <span>📖</span></a><a href="#">Syllabus <span>📋</span></a></div></div>
+    </div>
 
     <div class="section-divider"></div>
 
-    <div class="pomodoro-container">
+    <div class="pomodoro-container" id="timer-anchor">
         <div class="pomo-header">Pomodoro Timer</div>
-        <div class="pomo-label" id="pomoStatus">Focus Session</div>
         <div class="pomo-time" id="timerDisplay">25:00</div>
         <div class="pomo-controls">
             <button class="pomo-btn" onclick="toggleTimer()" id="pomoToggle">Start</button>
-            <button class="pomo-btn reset" onclick="resetTimer()">Reset</button>
+            <button class="pomo-btn" onclick="resetTimer()">Reset</button>
         </div>
     </div>
 
     <footer>
         <div class="scrolling-banner">
-            <div class="scrolling-text">
-                FREE NOTES AND RESOURCES &nbsp;&nbsp; • &nbsp;&nbsp; 
-                FREE NOTES AND RESOURCES &nbsp;&nbsp; • &nbsp;&nbsp; 
-            </div>
+            <div class="scrolling-text">FREE NOTES AND RESOURCES • NEON STUDY VIBES • </div>
         </div>
     </footer>
 </div>
 
-<div id="ai-toggle" onclick="toggleAI()">🤖</div>
-<div id="ai-panel">
-    <div class="ai-header">
-        <span>Vault AI Assistant</span>
-        <span style="cursor:pointer; font-size: 1.5rem;" onclick="toggleAI()">×</span>
+<div class="ai-fab" onclick="toggleAI()">✨</div>
+<div class="ai-panel" id="aiPanel">
+    <div class="ai-header"><span>Vault Intelligence</span><span onclick="toggleAI()" style="cursor:pointer">×</span></div>
+    <div class="ai-messages" id="aiChat">
+        <div class="msg bot">Hello! I'm your StudyVault assistant. How can I help you conquer your goals today?</div>
     </div>
-    <div id="ai-chat-body">
-        </div>
-    <div class="ai-input-area">
-        <input type="text" id="ai-input" placeholder="Ask about O-Levels..." onkeypress="handleKeyPress(event)">
-        <button class="ai-send-btn" onclick="sendMessage()">➤</button>
+    <div class="ai-input-wrap">
+        <input type="text" id="aiInput" placeholder="Ask a question..." onkeypress="if(event.key=='Enter') sendAiMsg()">
+        <button onclick="sendAiMsg()" style="background:var(--primary); border:none; color:white; border-radius:8px; cursor:pointer; padding: 0 10px;">➤</button>
     </div>
 </div>
 
 <script>
-    // --- AI LOGIC WITH HISTORY ---
-    const chatBody = document.getElementById('ai-chat-body');
-    const aiInput = document.getElementById('ai-input');
-    const aiPanel = document.getElementById('ai-panel');
-
+    // AI Logic
     function toggleAI() {
-        aiPanel.style.display = (aiPanel.style.display === 'flex') ? 'none' : 'flex';
-        if(aiPanel.style.display === 'flex') {
-            loadChatHistory();
-            aiInput.focus();
-        }
+        const panel = document.getElementById('aiPanel');
+        panel.style.display = (panel.style.display === 'flex') ? 'none' : 'flex';
     }
 
-    function handleKeyPress(e) {
-        if (e.key === 'Enter') sendMessage();
-    }
+    function sendAiMsg() {
+        const input = document.getElementById('aiInput');
+        const chat = document.getElementById('aiChat');
+        if(!input.value.trim()) return;
 
-    function sendMessage() {
-        const text = aiInput.value.trim();
-        if (!text) return;
-
-        addMessage(text, 'user-msg');
-        saveMessage(text, 'user-msg');
-        aiInput.value = '';
-
-        // Simulate AI Thinking
+        chat.innerHTML += `<div class="msg user">${input.value}</div>`;
+        const val = input.value;
+        input.value = '';
+        
         setTimeout(() => {
-            const response = generateAIResponse(text);
-            addMessage(response, 'bot-msg');
-            saveMessage(response, 'bot-msg');
-        }, 800);
+            chat.innerHTML += `<div class="msg bot">I'm analyzing that for you... Let's keep focusing on your 5054 Physics or 4024 Math practice!</div>`;
+            chat.scrollTop = chat.scrollHeight;
+        }, 600);
     }
 
-    function generateAIResponse(input) {
-        input = input.toLowerCase();
-        if (input.includes("physics")) return "For Physics 5054, make sure you master 'Moments' and 'Circuit Diagrams'—they appear in almost every P2!";
-        if (input.includes("math")) return "Mathematics 4024 tip: Always double-check your 'Probability' tree diagrams and 'Trigonometry' bearins.";
-        if (input.includes("hi") || input.includes("hello")) return "Hello, Scholar! Ready to crush some past papers today?";
-        return "That's a great question. Keep focusing on your weak areas and you'll ace your exams! 🚀";
-    }
-
-    function addMessage(text, type) {
-        const msgDiv = document.createElement('div');
-        msgDiv.className = `ai-msg ${type}`;
-        msgDiv.innerText = text;
-        chatBody.appendChild(msgDiv);
-        chatBody.scrollTop = chatBody.scrollHeight;
-    }
-
-    function saveMessage(text, type) {
-        let history = JSON.parse(localStorage.getItem('studyVaultChat')) || [];
-        history.push({text, type});
-        localStorage.setItem('studyVaultChat', JSON.stringify(history));
-    }
-
-    function loadChatHistory() {
-        chatBody.innerHTML = '';
-        let history = JSON.parse(localStorage.getItem('studyVaultChat')) || [];
-        if (history.length === 0) {
-            addMessage("Hello! I am your StudyVault AI. Ask me anything about your subjects!", 'bot-msg');
-        } else {
-            history.forEach(msg => addMessage(msg.text, msg.type));
-        }
-    }
-
-    // --- EXISTING LOGIC (Greeting, Timer, Search, Stars) ---
+    // Typewriter Greeting
     function initGreeting() {
-        const greetingElement = document.getElementById('dynamicGreeting');
-        const hour = new Date().getHours();
-        let message = "Ready to conquer your goals? 🚀";
-        if (hour >= 5 && hour < 11) message = "Rise and Grind, Student. ☕";
-        else if (hour >= 23 || hour < 3) message = "Burning the midnight oil? 🌙";
+        const msg = "Evening focus mode activated. ⚡";
+        const el = document.getElementById('dynamicGreeting');
         let i = 0;
-        function typeWriter() {
-            if (i < message.length) {
-                greetingElement.innerHTML += message.charAt(i);
-                i++;
-                setTimeout(typeWriter, 80);
-            }
-        }
-        typeWriter();
+        function type() { if(i < msg.length) { el.innerHTML += msg.charAt(i); i++; setTimeout(type, 80); } }
+        type();
     }
 
-    window.addEventListener('DOMContentLoaded', () => {
-        initGreeting();
-        loadChatHistory(); // Load AI history on start
-    });
-
-    // ... (Filter, Theme, and Starfield logic remain same as your provided code) ...
+    // Search
     function filterSubjects() {
         let input = document.getElementById('subjectSearch').value.toLowerCase();
         let cards = document.getElementsByClassName('subject-card');
-        let visibleCount = 0;
-        for (let i = 0; i < cards.length; i++) {
-            let titleText = cards[i].innerText.toLowerCase();
-            if (titleText.includes(input)) {
-                cards[i].classList.remove('hidden');
-                visibleCount++;
-            } else {
-                cards[i].classList.add('hidden');
-            }
+        for (let card of cards) {
+            card.style.display = card.innerText.toLowerCase().includes(input) ? "block" : "none";
         }
-        document.getElementById('noResults').style.display = (visibleCount === 0) ? 'block' : 'none';
     }
 
-    function toggleTheme() {
-        const body = document.documentElement;
-        if (body.getAttribute('data-theme') === 'dark') {
-            body.removeAttribute('data-theme');
-            document.getElementById('themeBtn').innerHTML = "🌙 Dark Mode";
-        } else {
-            body.setAttribute('data-theme', 'dark');
-            document.getElementById('themeBtn').innerHTML = "☀️ Light Mode";
-        }
+    // Timer logic
+    let timeLeft = 1500;
+    let timerId = null;
+    function updateDisplay() {
+        const m = Math.floor(timeLeft / 60);
+        const s = timeLeft % 60;
+        document.getElementById('timerDisplay').textContent = `${m}:${s < 10 ? '0' : ''}${s}`;
     }
+    function toggleTimer() {
+        if (timerId) { clearInterval(timerId); timerId = null; document.getElementById('pomoToggle').textContent = "Start"; }
+        else { timerId = setInterval(() => { timeLeft--; updateDisplay(); if(timeLeft<=0) clearInterval(timerId); }, 1000); document.getElementById('pomoToggle').textContent = "Pause"; }
+    }
+    function resetTimer() { timeLeft = 1500; updateDisplay(); clearInterval(timerId); timerId = null; document.getElementById('pomoToggle').textContent = "Start"; }
 
     // Starfield
     const canvas = document.getElementById('starfield');
     const ctx = canvas.getContext('2d');
-    let width, height, stars = [];
-    function init() {
-        width = window.innerWidth; height = window.innerHeight;
-        canvas.width = width; canvas.height = height;
-        stars = [];
-        for (let i = 0; i < 400; i++) stars.push({x: Math.random()*width-width/2, y: Math.random()*height-height/2, z: Math.random()*width, opacity: Math.random()});
-    }
-    function draw() {
-        ctx.clearRect(0, 0, width, height);
-        for (let i = 0; i < 400; i++) {
-            let s = stars[i]; s.z -= 1.2; if (s.z <= 0) s.z = width;
-            const sx = (s.x / s.z) * (width / 2) + width / 2;
-            const sy = (s.y / s.z) * (height / 2) + height / 2;
-            ctx.beginPath(); ctx.fillStyle = `rgba(188, 19, 254, ${s.opacity})`;
-            ctx.arc(sx, sy, (1 - s.z / width) * 2.5, 0, Math.PI * 2); ctx.fill();
+    function drawStars() {
+        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+        ctx.fillStyle = "#bc13fe";
+        for(let i=0; i<150; i++) {
+            ctx.beginPath();
+            ctx.arc(Math.random()*canvas.width, Math.random()*canvas.height, Math.random()*2, 0, Math.PI*2);
+            ctx.fill();
         }
-        requestAnimationFrame(draw);
     }
-    window.addEventListener('resize', init);
-    init(); draw();
+
+    window.onload = () => { initGreeting(); drawStars(); };
 </script>
 
 </body>

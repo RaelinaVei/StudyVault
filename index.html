@@ -6,7 +6,7 @@
     <title>StudyVault | Neon Mountains</title>
     <style>
         :root {
-            --primary: #bc13fe; /* Neon Purple */
+            --primary: #bc13fe; 
             --text: #ffffff;
             --subtext: #cbd5e1;
             --bg-image: url('https://w0.peakpx.com/wallpaper/700/152/HD-wallpaper-mountains-in-dark-night-background-dark.jpg');
@@ -21,13 +21,10 @@
             --link-bg: rgba(255, 255, 255, 0.05);
         }
 
-        /* LIVE BACKGROUND CANVAS */
         #starfield {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             z-index: -1;
             pointer-events: none;
         }
@@ -48,7 +45,8 @@
 
         .container { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
 
-        header { text-align: center; padding: 60px 0 40px 0; }
+        /* CLEAN HEADER - NO SUBTITLE */
+        header { text-align: center; padding: 80px 0 50px 0; }
         
         h1 { 
             margin: 0; 
@@ -123,7 +121,6 @@
             padding-bottom: 40px; 
         }
 
-        /* --- SCROLLING RECTANGLE BANNER --- */
         .scrolling-banner {
             width: 100%;
             background: var(--primary);
@@ -163,7 +160,7 @@
 <div class="container">
     <header>
         <h1>⚡ StudyVault</h1>
-    </header>
+        </header>
 
     <div class="subject-grid">
         <div class="subject-card">

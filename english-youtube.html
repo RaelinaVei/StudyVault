@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English 1123 | YouTube Channels</title>
+    <style>
+        :root {
+            --primary: #bc13fe; 
+            --text: #ffffff;
+            --subtext: #cbd5e1;
+            --bg-image: url('https://w0.peakpx.com/wallpaper/700/152/HD-wallpaper-mountains-in-dark-night-background-dark.jpg');
+            --card-bg: rgba(255, 255, 255, 0.07); 
+            --link-bg: rgba(255, 255, 255, 0.1);
+            --glow: 0 0 15px rgba(188, 19, 254, 0.8);
+        }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            color: var(--text); 
+            margin: 0; 
+            padding: 20px; 
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), var(--bg-image);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .back-nav {
+            width: 100%;
+            max-width: 1100px;
+            margin-bottom: 40px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: white;
+            background: var(--card-bg);
+            padding: 10px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.2);
+            font-weight: 700;
+            transition: 0.3s;
+            backdrop-filter: blur(10px);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .back-btn:hover {
+            border-color: var(--primary);
+            box-shadow: var(--glow);
+            transform: translateX(-5px);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: var(--glow);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--subtext);
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        .channel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .channel-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .channel-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: var(--glow);
+        }
+
+        .channel-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 10px var(--primary));
+        }
+
+        .channel-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .channel-tags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            background: rgba(188, 19, 254, 0.2);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--primary);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .channel-desc {
+            font-size: 0.95rem;
+            color: var(--subtext);
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .visit-btn {
+            text-decoration: none;
+            color: white;
+            background: var(--primary);
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            box-shadow: var(--glow);
+        }
+
+        .visit-btn:hover {
+            transform: scale(1.05);
+            filter: brightness(1.2);
+        }
+
+        .section-divider {
+            height: 1px; width: 80%;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            margin: 60px 0; opacity: 0.4;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="back-nav">
+        <a href="index.html" class="back-btn">⚡ Back to Vault</a>
+    </nav>
+
+    <header>
+        <h1>English 1123</h1>
+        <p class="subtitle">Best YouTube Channels for Paper 1 & Paper 2</p>
+    </header>
+
+    <div class="channel-grid">
+        <div class="channel-card">
+            <div>
+                <div class="channel-icon">🎬</div>
+                <div class="channel-name">Skilled Resources</div>
+                <div class="channel-tags">
+                    <span class="tag">Paper 1</span>
+                    <span class="tag">Paper 2</span>
+                </div>
+                <p class="channel-desc">The "gold standard" for 1123. Excellent breakdowns of Directed Writing, Composition, and Comprehension strategies.</p>
+            </div>
+            <a href="https://www.youtube.com/@SkilledResources" target="_blank" class="visit-link visit-btn">Visit Channel</a>
+        </div>
+
+        <div class="channel-card">
+            <div>
+                <div class="channel-icon">✍️</div>
+                <div class="channel-name">English with Saira</div>
+                <div class="channel-tags">
+                    <span class="tag">Grammar</span>
+                    <span class="tag">Past Papers</span>
+                </div>
+                <p class="channel-desc">Great for bilingual students. Provides clear explanations of tricky grammar points and paper walkthroughs.</p>
+            </div>
+            <a href="https://www.youtube.com/@EnglishwithSaira" target="_blank" class="visit-link visit-btn">Visit Channel</a>
+        </div>
+
+        <div class="channel-card">
+            <div>
+                <div class="channel-icon">💡</div>
+                <div class="channel-name">Cambridge English</div>
+                <div class="channel-tags">
+                    <span class="tag">Skills</span>
+                    <span class="tag">Exam Tips</span>
+                </div>
+                <p class="channel-desc">Focused on the technical requirements of the Cambridge syllabus, specifically summary writing and P2 techniques.</p>
+            </div>
+            <a href="#" target="_blank" class="visit-link visit-btn">Visit Channel</a>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <p style="color: var(--subtext); font-size: 0.8rem; opacity: 0.6;">More resources being added soon...</p>
+
+</body>
+</html>

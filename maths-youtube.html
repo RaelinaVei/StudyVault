@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mathematics 4024 | YouTube Channels</title>
+    <title>Mathematics 4024 | Master Vault</title>
     <style>
         :root {
             --primary: #bc13fe; 
@@ -11,169 +11,54 @@
             --subtext: #cbd5e1;
             --bg-image: url('https://w0.peakpx.com/wallpaper/700/152/HD-wallpaper-mountains-in-dark-night-background-dark.jpg');
             --card-bg: rgba(255, 255, 255, 0.07); 
-            --link-bg: rgba(255, 255, 255, 0.1);
             --glow: 0 0 15px rgba(188, 19, 254, 0.8);
         }
 
         body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            font-family: 'Segoe UI', sans-serif; 
             color: var(--text); 
-            margin: 0; 
-            padding: 20px; 
-            min-height: 100vh;
+            margin: 0; padding: 20px; 
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), var(--bg-image);
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            background-size: cover; background-attachment: fixed;
+            display: flex; flex-direction: column; align-items: center;
         }
 
-        .back-nav {
-            width: 100%;
-            max-width: 1100px;
-            margin-bottom: 40px;
-        }
-
+        .back-nav { width: 100%; max-width: 1200px; margin-bottom: 30px; }
         .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: white;
-            background: rgba(255, 255, 255, 0.05); 
-            padding: 12px 28px;
-            border-radius: 50px; 
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            font-weight: 600;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 1.5px;
+            text-decoration: none; color: white; background: rgba(255, 255, 255, 0.05); 
+            padding: 10px 20px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.15);
+            font-size: 0.8rem; letter-spacing: 1px; transition: 0.3s;
         }
+        .back-btn:hover { background: rgba(188, 19, 254, 0.2); border-color: var(--primary); box-shadow: var(--glow); }
 
-        .back-btn:hover {
-            background: rgba(188, 19, 254, 0.1);
-            border-color: var(--primary);
-            box-shadow: var(--glow);
-            transform: translateY(-2px);
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            text-shadow: var(--glow);
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            color: var(--subtext);
-            font-style: italic;
-            letter-spacing: 1px;
-        }
+        h1 { font-size: 3rem; color: var(--primary); text-transform: uppercase; text-shadow: var(--glow); margin-bottom: 5px; }
+        .subtitle { color: var(--subtext); margin-bottom: 40px; font-style: italic; }
 
         .channel-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-            width: 100%;
-            max-width: 1100px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px; width: 100%; max-width: 1200px;
         }
 
         .channel-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(15px);
-            padding: 30px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            transition: 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            background: var(--card-bg); backdrop-filter: blur(10px);
+            padding: 25px; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between;
         }
+        .channel-card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: var(--glow); }
 
-        .channel-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            box-shadow: var(--glow);
-        }
-
-        .channel-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            filter: drop-shadow(0 0 10px var(--primary));
-        }
-
-        .channel-name {
-            font-size: 1.4rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            color: white;
-            min-height: 3.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .channel-tags {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .tag {
-            font-size: 0.65rem;
-            background: rgba(188, 19, 254, 0.2);
-            color: var(--primary);
-            padding: 4px 12px;
-            border-radius: 20px;
-            border: 1px solid var(--primary);
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .channel-desc {
-            font-size: 0.9rem;
-            color: var(--subtext);
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-
+        .icon { font-size: 2.5rem; margin-bottom: 10px; }
+        .name { font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; }
+        .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; margin-bottom: 15px; }
+        .tag { font-size: 0.6rem; background: rgba(188, 19, 254, 0.2); color: var(--primary); padding: 3px 8px; border-radius: 10px; font-weight: bold; }
+        .desc { font-size: 0.85rem; color: var(--subtext); line-height: 1.5; margin-bottom: 20px; flex-grow: 1; }
+        
         .visit-btn {
-            text-decoration: none;
-            color: white;
-            background: var(--primary);
-            padding: 12px 20px;
-            border-radius: 12px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
-            box-shadow: var(--glow);
+            text-decoration: none; color: white; background: var(--primary);
+            padding: 10px; border-radius: 8px; font-weight: bold; font-size: 0.9rem;
+            transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
-
-        .visit-btn:hover {
-            transform: scale(1.05);
-            filter: brightness(1.2);
-        }
-
-        .section-divider {
-            height: 1px; width: 80%;
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
-            margin: 60px 0; opacity: 0.4;
-        }
+        .visit-btn:hover { filter: brightness(1.2); transform: scale(1.02); }
     </style>
 </head>
 <body>
@@ -182,93 +67,111 @@
         <a href="index.html" class="back-btn">← Back to Dashboard</a>
     </nav>
 
-    <header>
-        <h1>Mathematics 4024</h1>
-        <p class="subtitle">Top YouTube Channels for O Level Mathematics D</p>
-    </header>
+    <h1>Mathematics 4024</h1>
+    <p class="subtitle">Complete Learning & Resource Collection</p>
 
     <div class="channel-grid">
         <div class="channel-card">
             <div>
-                <div class="channel-icon">📐</div>
-                <div class="channel-name">Zainematics</div>
-                <div class="channel-tags">
-                    <span class="tag">Concept King</span>
-                    <span class="tag">Top Rated</span>
-                </div>
-                <p class="channel-desc">Famous for making complex topics like Trigonometry and Calculus incredibly easy. A must-watch for O/A Level students.</p>
+                <div class="icon">👑</div>
+                <div class="name">Zainematics</div>
+                <div class="tags"><span class="tag">Urdu/Hindi</span><span class="tag">Concept King</span></div>
+                <p class="desc">The gold standard for students who understand Urdu/Hindi. Deep conceptual clarity for O & A Levels.</p>
             </div>
             <a href="https://www.youtube.com/@Zainematics" target="_blank" class="visit-btn">Visit Channel</a>
         </div>
 
         <div class="channel-card">
             <div>
-                <div class="channel-icon">🔢</div>
-                <div class="channel-name">Mathlete by Saad Amer</div>
-                <div class="channel-tags">
-                    <span class="tag">Past Papers</span>
-                    <span class="tag">Detailed</span>
-                </div>
-                <p class="channel-desc">Extensive solved past paper marathons and topic-wise explanations specifically for Syllabus D 4024.</p>
+                <div class="icon">🏃</div>
+                <div class="name">Mathlete by Saad Amer</div>
+                <div class="tags"><span class="tag">Past Papers</span><span class="tag">Marathons</span></div>
+                <p class="desc">Best for intensive past paper practice and solving sessions specifically for 4024.</p>
             </div>
             <a href="https://www.youtube.com/@MathletebySaadAmer" target="_blank" class="visit-btn">Visit Channel</a>
         </div>
 
         <div class="channel-card">
             <div>
-                <div class="channel-icon">✏️</div>
-                <div class="channel-name">D Math Academy</div>
-                <div class="channel-tags">
-                    <span class="tag">Syllabus D</span>
-                    <span class="tag">Textbook Help</span>
-                </div>
-                <p class="channel-desc">Perfect if you are following the D1, D2, or D3 textbooks. Covers almost every exercise question.</p>
-            </div>
-            <a href="https://www.youtube.com/@dmathacademy" target="_blank" class="visit-btn">Visit Channel</a>
-        </div>
-
-        <div class="channel-card">
-            <div>
-                <div class="channel-icon">🦊</div>
-                <div class="channel-name">Ginger Mathematician</div>
-                <div class="channel-tags">
-                    <span class="tag">Exam Hacks</span>
-                    <span class="tag">IGCSE/O Level</span>
-                </div>
-                <p class="channel-desc">Great for quick revision, calculator hacks, and understanding how to maximize marks in Paper 1 and 2.</p>
-            </div>
-            <a href="https://www.youtube.com/@GingerMathematician" target="_blank" class="visit-btn">Visit Channel</a>
-        </div>
-
-        <div class="channel-card">
-            <div>
-                <div class="channel-icon">💡</div>
-                <div class="channel-name">Cognito</div>
-                <div class="channel-tags">
-                    <span class="tag">Visuals</span>
-                    <span class="tag">Foundation</span>
-                </div>
-                <p class="channel-desc">Incredible animations that help you visualize geometric and algebraic concepts before you tackle the papers.</p>
+                <div class="icon">💡</div>
+                <div class="name">Cognito</div>
+                <div class="tags"><span class="tag">Animations</span><span class="tag">Visuals</span></div>
+                <p class="desc">Bite-sized, high-quality animated videos that help you visualize complex math and science topics.</p>
             </div>
             <a href="https://www.youtube.com/@CognitoEdu" target="_blank" class="visit-btn">Visit Channel</a>
         </div>
 
         <div class="channel-card">
             <div>
-                <div class="channel-icon">🏛️</div>
-                <div class="channel-name">My Online School</div>
-                <div class="channel-tags">
-                    <span class="tag">Clear Tutorials</span>
-                </div>
-                <p class="channel-desc">Simple, slow-paced tutorials for students who find certain mathematical steps hard to follow.</p>
+                <div class="icon">🥇</div>
+                <div class="name">1st Class Maths</div>
+                <div class="tags"><span class="tag">IGCSE</span><span class="tag">Exam Questions</span></div>
+                <p class="desc">High-quality tutorials focusing on specific exam question types and predicted papers.</p>
             </div>
-            <a href="https://www.youtube.com/@myonlineschool" target="_blank" class="visit-btn">Visit Channel</a>
+            <a href="https://www.youtube.com/@1stclassmaths" target="_blank" class="visit-btn">Visit Channel</a>
+        </div>
+
+        <div class="channel-card">
+            <div>
+                <div class="icon">🦊</div>
+                <div class="name">Ginger Mathematician</div>
+                <div class="tags"><span class="tag">Exam Hacks</span><span class="tag">Calculator Tips</span></div>
+                <p class="desc">Expert strategies, calculator hacks, and revision shortcuts for IGCSE/O Level success.</p>
+            </div>
+            <a href="https://www.youtube.com/@GingerMathematician" target="_blank" class="visit-btn">Visit Channel</a>
+        </div>
+
+        <div class="channel-card">
+            <div>
+                <div class="icon">📚</div>
+                <div class="name">Learn Today IGCSE</div>
+                <div class="tags"><span class="tag">Revision</span><span class="tag">Syllabus Guide</span></div>
+                <p class="desc">Concise revision videos designed to cover syllabus requirements efficiently.</p>
+            </div>
+            <a href="https://www.youtube.com/@LearnTodayIGCSE" target="_blank" class="visit-btn">Visit Channel</a>
+        </div>
+
+        <div class="channel-card">
+            <div>
+                <div class="icon">🖋️</div>
+                <div class="name">D. Math Academy</div>
+                <div class="tags"><span class="tag">Textbook Solutions</span><span class="tag">Step-by-Step</span></div>
+                <p class="desc">Specializes in step-by-step solutions for the New Syllabus Mathematics (D1-D4) series.</p>
+            </div>
+            <a href="https://www.youtube.com/@dmathacademy" target="_blank" class="visit-btn">Visit Channel</a>
+        </div>
+
+        <div class="channel-card">
+            <div>
+                <div class="icon">📝</div>
+                <div class="name">Science and Math Papers</div>
+                <div class="tags"><span class="tag">Past Papers</span><span class="tag">Full Solutions</span></div>
+                <p class="desc">Pure past paper walkthroughs. Excellent for seeing how to structure answers in real-time.</p>
+            </div>
+            <a href="https://www.youtube.com/@ScienceandMathsPapers" target="_blank" class="visit-btn">Visit Channel</a>
+        </div>
+
+        <div class="channel-card">
+            <div>
+                <div class="icon">🧪</div>
+                <div class="name">The Organic Chemistry Tutor</div>
+                <div class="tags"><span class="tag">Global Standard</span><span class="tag">Algebra/Trig</span></div>
+                <p class="desc">While the name says chemistry, his math tutorials (Algebra, Trig, Calculus) are world-class.</p>
+            </div>
+            <a href="https://www.youtube.com/@TheOrganicChemistryTutor" target="_blank" class="visit-btn">Visit Channel</a>
+        </div>
+
+        <div class="channel-card">
+            <div>
+                <div class="icon">📄</div>
+                <div class="name">Corbettmaths</div>
+                <div class="tags"><span class="tag">Worksheets</span><span class="tag">Practice</span></div>
+                <p class="desc">The ultimate resource for "5-a-day" practice and endless topic-based worksheets.</p>
+            </div>
+            <a href="https://www.youtube.com/@corbettmaths" target="_blank" class="visit-btn">Visit Channel</a>
         </div>
     </div>
 
-    <div class="section-divider"></div>
-
-    <p style="color: var(--subtext); font-size: 0.8rem; opacity: 0.6;">Solving for Success in 4024.</p>
-
+    <div style="height: 50px;"></div>
 </body>
 </html>

@@ -12,6 +12,8 @@
             --bg-image: url('https://w0.peakpx.com/wallpaper/700/152/HD-wallpaper-mountains-in-dark-night-background-dark.jpg');
             --card-bg: rgba(255, 255, 255, 0.05); 
             --glow: 0 0 20px rgba(188, 19, 254, 0.6);
+            --highlight: #ffd700; /* Yellow/Gold for specific boxes */
+            --highlight-glow: 0 0 25px rgba(255, 215, 0, 0.4);
         }
 
         [data-theme="dark"] {
@@ -106,10 +108,33 @@
             justify-content: space-between;
         }
 
+        /* HIGHLIGHT CLASS */
+        .highlight-card {
+            border: 2px solid var(--highlight) !important;
+            background: rgba(255, 215, 0, 0.08) !important;
+            box-shadow: var(--highlight-glow);
+        }
+        
+        .highlight-card .avatar {
+            border-color: var(--highlight) !important;
+            color: var(--highlight) !important;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .highlight-card h2 {
+            color: var(--highlight) !important;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3) !important;
+        }
+
         .teacher-card:hover { 
             transform: translateY(-10px); 
             border-color: var(--primary);
             box-shadow: var(--glow);
+        }
+
+        .highlight-card:hover {
+            border-color: #fff !important;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6) !important;
         }
 
         .avatar { 
@@ -132,7 +157,13 @@
             margin-top: auto;
         }
 
+        .highlight-card .access-btn {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: var(--highlight);
+        }
+
         .access-btn:hover { background: var(--primary); box-shadow: var(--glow); color: #fff; }
+        .highlight-card .access-btn:hover { background: var(--highlight); color: #000; }
 
         footer { text-align: center; margin-top: 80px; color: var(--subtext); padding-bottom: 40px; }
     </style>
@@ -155,10 +186,10 @@
     <div class="teacher-grid">
         <div class="teacher-card"><div class="avatar">!</div><h2>Definition Lists</h2><p>Folder containing essential chemistry terms.</p><a href="https://drive.google.com/drive/folders/13A-MOwRsp7JVBoAJwP_r2ZrVvWiZC90b?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
         <div class="teacher-card"><div class="avatar">!</div><h2>Color Changes</h2><p>Guide to indicators and reaction colors.</p><a href="https://drive.google.com/drive/folders/1bQQxuFfOD8NkB9sL9Znp_1VUUbnl14xL?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">!</div><h2>PMT Mindmaps</h2><p>Visual summaries for quick revision.</p><a href="https://drive.google.com/drive/folders/14NY2medcYZMWY-dKNAzOcWvyjX7X4Q3S?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card highlight-card"><div class="avatar">!</div><h2>PMT Mindmaps</h2><p>Visual summaries for quick revision.</p><a href="https://drive.google.com/drive/folders/14NY2medcYZMWY-dKNAzOcWvyjX7X4Q3S?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
         <div class="teacher-card"><div class="avatar">!</div><h2>Qualitative Analysis</h2><p>Notes for practical analysis tests.</p><a href="https://drive.google.com/file/d/1OXyZ39QmdRwKs6W4A24bn8RfQIT_IY5Y/view?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
         <div class="teacher-card"><div class="avatar">!</div><h2>Electrolysis Flowchart</h2><p>Step-by-step electrolysis logic.</p><a href="https://drive.google.com/file/d/1ACaGyLZG4ywgVWOglIDHEwhRS01ptJ29/view?usp=sharing" target="_blank" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">!</div><h2>Chem Cheatsheet</h2><p>Consolidated high-yield chemistry facts.</p><a href="https://drive.google.com/file/d/1-kPesi8v6p1tU6RyVOM3bNSyAKkrhSt3/view?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card highlight-card"><div class="avatar">!</div><h2>Chem Cheatsheet</h2><p>Consolidated high-yield chemistry facts.</p><a href="https://drive.google.com/file/d/1-kPesi8v6p1tU6RyVOM3bNSyAKkrhSt3/view?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
         <div class="teacher-card"><div class="avatar">!</div><h2>Definition Sheet</h2><p>Syllabus-aligned key definitions.</p><a href="https://drive.google.com/file/d/1wuWbZcODADPc3kLfujjIsugNAtz_xIHA/view?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
         <div class="teacher-card"><div class="avatar">!</div><h2>MS Definitions (M. Gamal)</h2><p>Precise marking scheme wording.</p><a href="https://drive.google.com/file/d/1YAUyghUU2rIkZSGrxXDAOFxy5TirLFiF/view?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
         <div class="teacher-card"><div class="avatar">!</div><h2>MS Definitions #2</h2><p>Alternative marking scheme glossary.</p><a href="https://drive.google.com/file/d/1J0VtlsWCtW3w-JacrflL7AKZYuZj6aDP/view?usp=sharing" target="_blank" class="access-btn">Access</a></div>
@@ -175,17 +206,17 @@
         <div class="teacher-card"><div class="avatar">3</div><h2>Magic Book P2</h2><p>SOS Revision Guide Part 2.</p><a href="https://www.chemistrybysos.com/notes.php?level=O&id=16UL5q1NAOgTiEjtSrVnppqFY2ydpku-E" target="_blank" class="access-btn">Access</a></div>
         <div class="teacher-card"><div class="avatar">4</div><h2>R/igcse Notes</h2><p>Comprehensive r/igcse resources.</p><a href="https://www.r-igcse.com/sciences/chemistry" target="_blank" class="access-btn">Access</a></div>
         <div class="teacher-card"><div class="avatar">5</div><h2>Organic Random</h2><p>Collection of organic chemistry topics.</p><a href="https://drive.google.com/file/d/1bY_3PxkWYoy_glK1rQhqTn9FgdVfVFyt/view?usp=sharing" target="_blank" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">6</div><h2>Cosmic Tail</h2><p>Detailed notes by Cosmic Tail.</p><a href="https://drive.google.com/file/d/1mHCLRJfBliEq8-jsQP2xT3Xp9ZF52UUk/view?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">7</div><h2>Veda Notes</h2><p>Topical chemistry summaries.</p><a href="https://drive.google.com/file/d/18AK7sXngB9jqXhw6lXjBH5-T5XuWBWm2/view?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card highlight-card"><div class="avatar">6</div><h2>Cosmic Tail</h2><p>Detailed notes by Cosmic Tail.</p><a href="https://drive.google.com/file/d/1mHCLRJfBliEq8-jsQP2xT3Xp9ZF52UUk/view?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card highlight-card"><div class="avatar">7</div><h2>Veda Notes</h2><p>Topical chemistry summaries.</p><a href="https://drive.google.com/file/d/18AK7sXngB9jqXhw6lXjBH5-T5XuWBWm2/view?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
         <div class="teacher-card"><div class="avatar">8</div><h2>Last Minute Guide</h2><p>Quick revision before the exam.</p><a href="https://drive.google.com/file/d/1OmpEN0H3jdMgsDV5smZBAwy297vpbcHj/view?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
         <div class="teacher-card"><div class="avatar">9</div><h2>Organic (Gabriel)</h2><p>Specialized organic chemistry notes.</p><a href="https://drive.google.com/file/d/1aZHnsfw_Tup0GW0zkCpOnpPZnDcdKiey/view?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
         <div class="teacher-card"><div class="avatar">10</div><h2>Handwritten Notes</h2><p>Detailed handwritten chemistry summaries.</p><a href="https://drive.google.com/drive/folders/18b15LzQqPBrflyQ3XZi6RgVvral-oNz_?usp=sharing" target="_blank" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">11</div><h2>Moosa Khan</h2><p>Moosa Khan's complete chemistry folder.</p><a href="https://drive.google.com/drive/folders/13_pDSDSZ5GRjMeEqIAL2AYJi3kKRzFQn?usp=sharing" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card highlight-card"><div class="avatar">11</div><h2>Moosa Khan</h2><p>Moosa Khan's complete chemistry folder.</p><a href="https://drive.google.com/drive/folders/13_pDSDSZ5GRjMeEqIAL2AYJi3kKRzFQn?usp=sharing" target="_blank" class="access-btn">Access</a></div>
         <div class="teacher-card"><div class="avatar">12</div><h2>Overmugged</h2><p>Exam-oriented O-Level resources.</p><a href="https://www.overmugged.com/olevelschemistry" target="_blank" class="access-btn">Access</a></div>
         <div class="teacher-card"><div class="avatar">13</div><h2>Student Base</h2><p>Collaborative student study notes.</p><a href="https://studentbase.app/caie/o-level/chemistry" target="_blank" class="access-btn">Access</a></div>
         <div class="teacher-card"><div class="avatar">14</div><h2>Megalecture</h2><p>Notes and topical worksheets.</p><a href="https://megalecture.com/o-level-chemistry-notes-worksheets/" target="_blank" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">15</div><h2>PMT Notes</h2><p>Physics & Maths Tutor Chemistry revision.</p><a href="https://www.physicsandmathstutor.com/chemistry-revision/igcse-cie/" target="_blank" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">16</div><h2>Chembridge</h2><p>IGCSE/O-Level chemistry notes.</p><a href="https://chembridge.org/igcse-o-level/notes/" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card highlight-card"><div class="avatar">15</div><h2>PMT Notes</h2><p>Physics & Maths Tutor Chemistry revision.</p><a href="https://www.physicsandmathstutor.com/chemistry-revision/igcse-cie/" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card highlight-card"><div class="avatar">16</div><h2>Chembridge</h2><p>IGCSE/O-Level chemistry notes.</p><a href="https://chembridge.org/igcse-o-level/notes/" target="_blank" class="access-btn">Access</a></div>
     </div>
 
     <div class="divider"></div>
@@ -193,7 +224,7 @@
     <h2 class="section-title">🔬 ATP Specialist Notes</h2>
     <div class="teacher-grid">
         <div class="teacher-card"><div class="avatar">A</div><h2>SOS ATP Notes</h2><p>Experimental chemistry essentials.</p><a href="https://www.chemistrybysos.com/notes.php?level=O&id=1FwdUn1K5atXh6Nj8hKuM_CCSNsFTLqiG" target="_blank" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">B</div><h2>r/igcse ATP Notes</h2><p>Multiple notes collection for ATP.</p><a href="https://drive.google.com/drive/folders/1cT26Aoc2gIgCj3JahSbLmoFBDaHcKCc5?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card highlight-card"><div class="avatar">B</div><h2>r/igcse Collection</h2><p>Multiple notes collection for ATP.</p><a href="https://drive.google.com/drive/folders/1cT26Aoc2gIgCj3JahSbLmoFBDaHcKCc5?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
         <div class="teacher-card"><div class="avatar">C</div><h2>Experimental Tips</h2><p>Crucial tips for Paper 4/6 exams.</p><a href="https://drive.google.com/file/d/1L-A22J2s1Jh4SMUgh3Tcj6Hrz9uB0nbF/view?usp=sharing" target="_blank" class="access-btn">Access</a></div>
         <div class="teacher-card"><div class="avatar">D</div><h2>Chem ATP Guide</h2><p>General guide for chemistry practicals.</p><a href="https://drive.google.com/file/d/1fUpLqSzMM6_9VrtVe_VgnE5DB7Txh1hU/view?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
     </div>
@@ -202,9 +233,9 @@
 
     <h2 class="section-title">📑 Past Paper Practice</h2>
     <div class="teacher-grid">
-        <div class="teacher-card"><div class="avatar">P</div><h2>PMT Topicals</h2><p>Topic-wise past paper questions.</p><a href="https://www.physicsandmathstutor.com/chemistry-revision/igcse-cie/" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card highlight-card"><div class="avatar">P</div><h2>PMT Topicals</h2><p>Topic-wise past paper questions.</p><a href="https://www.physicsandmathstutor.com/chemistry-revision/igcse-cie/" target="_blank" class="access-btn">Access</a></div>
         <div class="teacher-card"><div class="avatar">P</div><h2>SOS ATP Practice</h2><p>Targeted practical exam practice.</p><a href="https://www.chemistrybysos.com/notes.php?level=O&id=1FwdUn1K5atXh6Nj8hKuM_CCSNsFTLqiG" target="_blank" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">P</div><h2>R/igcse Collection</h2><p>Drive folder for community practice papers.</p><a href="https://drive.google.com/drive/folders/1cT26Aoc2gIgCj3JahSbLmoFBDaHcKCc5?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card highlight-card"><div class="avatar">P</div><h2>R/igcse Collection</h2><p>Drive folder for community practice papers.</p><a href="https://drive.google.com/drive/folders/1cT26Aoc2gIgCj3JahSbLmoFBDaHcKCc5?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
         <div class="teacher-card"><div class="avatar">P</div><h2>Experimental Tips</h2><p>Quick-reference tips for paper solving.</p><a href="https://drive.google.com/file/d/1L-A22J2s1Jh4SMUgh3Tcj6Hrz9uB0nbF/view?usp=sharing" target="_blank" class="access-btn">Access</a></div>
         <div class="teacher-card"><div class="avatar">P</div><h2>Chem ATP Mastery</h2><p>Final revision for experimental papers.</p><a href="https://drive.google.com/file/d/1fUpLqSzMM6_9VrtVe_VgnE5DB7Txh1hU/view?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
     </div>

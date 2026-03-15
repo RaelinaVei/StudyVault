@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mathematics 4024 | Master Vault</title>
+    <title>Biology & Science | Master Vault</title>
     <style>
         :root {
-            --primary: #bc13fe; 
+            --primary: #2ecc71; /* Biology Green */
+            --highlight: #f1c40f; /* Yellow for special channels */
             --text: #ffffff;
             --subtext: #cbd5e1;
             --bg-image: url('https://w0.peakpx.com/wallpaper/700/152/HD-wallpaper-mountains-in-dark-night-background-dark.jpg');
             --card-bg: rgba(255, 255, 255, 0.07); 
-            --glow: 0 0 15px rgba(188, 19, 254, 0.8);
+            --glow: 0 0 15px rgba(46, 204, 113, 0.6);
+            --yellow-glow: 0 0 20px rgba(241, 196, 15, 0.5);
         }
 
         body { 
@@ -32,7 +34,7 @@
             font-weight: 600; transition: all 0.3s ease; backdrop-filter: blur(8px);
             text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1.5px;
         }
-        .back-btn:hover { background: rgba(188, 19, 254, 0.1); border-color: var(--primary); box-shadow: var(--glow); transform: translateY(-2px); }
+        .back-btn:hover { background: rgba(46, 204, 113, 0.1); border-color: var(--primary); box-shadow: var(--glow); transform: translateY(-2px); }
 
         header { text-align: center; margin-bottom: 50px; }
         h1 { font-size: 3.5rem; color: var(--primary); text-transform: uppercase; letter-spacing: 4px; text-shadow: var(--glow); margin: 0; }
@@ -50,13 +52,24 @@
             text-align: center; transition: 0.3s ease;
             display: flex; flex-direction: column; justify-content: space-between;
         }
-        .channel-card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: var(--glow); }
 
-        .icon { font-size: 3rem; margin-bottom: 15px; filter: drop-shadow(0 0 10px var(--primary)); }
+        /* Yellow Highlight Style */
+        .special-card {
+            border: 2px solid var(--highlight) !important;
+            box-shadow: var(--yellow-glow);
+        }
+        .special-card .name { color: var(--highlight) !important; }
+        .special-card .tag { background: rgba(241, 196, 15, 0.2); color: var(--highlight); border-color: var(--highlight); }
+        .special-card .visit-btn { background: var(--highlight); color: #000; }
+
+        .channel-card:hover { transform: translateY(-10px); box-shadow: var(--glow); }
+        .special-card:hover { box-shadow: 0 0 30px rgba(241, 196, 15, 0.7); }
+
+        .icon { font-size: 3rem; margin-bottom: 15px; }
         .name { font-size: 1.4rem; font-weight: 800; margin-bottom: 15px; color: white; min-height: 3.5rem; display: flex; align-items: center; justify-content: center; }
         
         .tags { display: flex; justify-content: center; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
-        .tag { font-size: 0.65rem; background: rgba(188, 19, 254, 0.2); color: var(--primary); padding: 4px 12px; border-radius: 20px; border: 1px solid var(--primary); font-weight: bold; text-transform: uppercase; }
+        .tag { font-size: 0.65rem; background: rgba(46, 204, 113, 0.2); color: var(--primary); padding: 4px 12px; border-radius: 20px; border: 1px solid var(--primary); font-weight: bold; text-transform: uppercase; }
         
         .desc { font-size: 0.9rem; color: var(--subtext); line-height: 1.6; margin-bottom: 25px; flex-grow: 1; }
         
@@ -64,7 +77,6 @@
             text-decoration: none; color: white; background: var(--primary);
             padding: 12px 20px; border-radius: 12px; font-weight: 800;
             text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
-            box-shadow: var(--glow);
         }
         .visit-btn:hover { transform: scale(1.05); filter: brightness(1.2); }
 
@@ -78,109 +90,139 @@
     </nav>
 
     <header>
-        <h1>Mathematics 4024</h1>
-        <p class="subtitle">The Ultimate Resource Vault for O/A Level Success</p>
+        <h1>Biology & Science</h1>
+        <p class="subtitle">Premium Resources for IGCSE & O-Level Sciences</p>
     </header>
 
     <div class="channel-grid">
-        <div class="channel-card">
+        <div class="channel-card special-card">
             <div>
-                <div class="icon">👑</div>
-                <div class="name">Zainematics</div>
-                <div class="tags"><span class="tag">Urdu/Hindi</span><span class="tag">Concept King</span></div>
-                <p class="desc">Deep conceptual clarity for students who understand Urdu/Hindi. The go-to channel for mastering O & A Level foundations.</p>
+                <div class="icon">🤝</div>
+                <div class="name">IGCSE Study Buddy</div>
+                <div class="tags"><span class="tag">Visual Notes</span><span class="tag">Syllabus Guide</span></div>
+                <p class="desc">Simplified visual explanations and complete syllabus notes tailored for IGCSE success.</p>
             </div>
-            <a href="https://www.youtube.com/@Zainematics" target="_blank" class="visit-btn">Visit Channel</a>
+            <a href="https://www.youtube.com/@IGSsolver" target="_blank" class="visit-btn">Visit Channel</a>
         </div>
 
-        <div class="channel-card">
+        <div class="channel-card special-card">
             <div>
-                <div class="icon">🏃</div>
-                <div class="name">Mathlete by Saad</div>
-                <div class="tags"><span class="tag">Past Papers</span><span class="tag">Marathons</span></div>
-                <p class="desc">Intensive past paper practice and live solving marathons. Perfect for exam season preparation for 4024.</p>
+                <div class="icon">👩‍⚕️</div>
+                <div class="name">Dr Saira Biology</div>
+                <div class="tags"><span class="tag">Paper Solving</span><span class="tag">Expert</span></div>
+                <p class="desc">Detailed past paper walkthroughs and exam techniques from a medical perspective.</p>
             </div>
-            <a href="https://www.youtube.com/@MathletebySaad" target="_blank" class="visit-btn">Visit Channel</a>
+            <a href="https://www.youtube.com/@docsaira" target="_blank" class="visit-btn">Visit Channel</a>
         </div>
 
-        <div class="channel-card">
+        <div class="channel-card special-card">
             <div>
                 <div class="icon">💡</div>
                 <div class="name">Cognito</div>
-                <div class="tags"><span class="tag">Animations</span><span class="tag">Visual Learning</span></div>
-                <p class="desc">Incredible high-quality animations that make visualizing mathematical and scientific concepts effortless.</p>
+                <div class="tags"><span class="tag">Animations</span><span class="tag">Interactive</span></div>
+                <p class="desc">World-class animated science lessons that make complex biology and chemistry easy to visualize.</p>
             </div>
             <a href="https://www.youtube.com/@CognitoEdu" target="_blank" class="visit-btn">Visit Channel</a>
         </div>
 
-        <div class="channel-card">
+        <div class="channel-card special-card">
             <div>
-                <div class="icon">🥇</div>
-                <div class="name">1st Class Maths</div>
-                <div class="tags"><span class="tag">IGCSE</span><span class="tag">Question Focus</span></div>
-                <p class="desc">Clear tutorials focusing on specific exam question styles and predicted papers to boost grade performance.</p>
+                <div class="icon">⚡</div>
+                <div class="name">Science Shorts</div>
+                <div class="tags"><span class="tag">Last Minute</span><span class="tag">Revision</span></div>
+                <p class="desc">The ultimate "night before" resource. Condensed revision of entire topics in minutes.</p>
             </div>
-            <a href="https://www.youtube.com/@1stclassmaths" target="_blank" class="visit-btn">Visit Channel</a>
-        </div>
-
-        <div class="channel-card">
-            <div>
-                <div class="icon">🦊</div>
-                <div class="name">Ginger Mathematician</div>
-                <div class="tags"><span class="tag">Exam Hacks</span><span class="tag">Tips & Tricks</span></div>
-                <p class="desc">Practical revision shortcuts, calculator hacks, and top-tier strategies for conquering IGCSE and O Level exams.</p>
-            </div>
-            <a href="https://www.youtube.com/@GingerMathematician" target="_blank" class="visit-btn">Visit Channel</a>
-        </div>
-
-        <div class="channel-card">
-            <div>
-                <div class="icon">📚</div>
-                <div class="name">Learn Today IGCSE</div>
-                <div class="tags"><span class="tag">Revision</span><span class="tag">Syllabus Guide</span></div>
-                <p class="desc">Efficient and concise revision videos designed to cover the entire syllabus with speed and accuracy.</p>
-            </div>
-            <a href="https://www.youtube.com/@LearnTodayIGCSE" target="_blank" class="visit-btn">Visit Channel</a>
-        </div>
-
-        <div class="channel-card">
-            <div>
-                <div class="icon">🖋️</div>
-                <div class="name">D. Math Academy</div>
-                <div class="tags"><span class="tag">Textbook Help</span><span class="tag">Step-by-Step</span></div>
-                <p class="desc">Specialized step-by-step guidance for the New Syllabus Mathematics (D1-D4) series and topical questions.</p>
-            </div>
-            <a href="https://www.youtube.com/@dmathacademy" target="_blank" class="visit-btn">Visit Channel</a>
-        </div>
-
-        <div class="channel-card">
-            <div>
-                <div class="icon">📝</div>
-                <div class="name">Science and Math Papers</div>
-                <div class="tags"><span class="tag">Paper Solving</span><span class="tag">Full Solutions</span></div>
-                <p class="desc">Pure past paper walkthroughs for Science and Maths. Learn exactly how to structure your answers for max marks.</p>
-            </div>
-            <a href="https://www.youtube.com/@scienceandmathpapers" target="_blank" class="visit-btn">Visit Channel</a>
+            <a href="https://www.youtube.com/c/ScienceShorts" target="_blank" class="visit-btn">Visit Channel</a>
         </div>
 
         <div class="channel-card">
             <div>
                 <div class="icon">🧪</div>
-                <div class="name">Organic Chemistry Tutor</div>
-                <div class="tags"><span class="tag">Global Tutorial</span><span class="tag">Math Basics</span></div>
-                <p class="desc">Universal masterclass for Algebra, Trig, and Calculus. His step-by-step logic is legendary for clearing doubts.</p>
+                <div class="name">Chem Bio by Hosni</div>
+                <div class="tags"><span class="tag">Predictions</span><span class="tag">IGCSE</span></div>
+                <p class="desc">Excellent for exam predictions and deep dives into the 0610 and 0620 marking schemes.</p>
             </div>
-            <a href="https://www.youtube.com/@TheOrganicChemistryTutor" target="_blank" class="visit-btn">Visit Channel</a>
+            <a href="https://www.youtube.com/@chembio" target="_blank" class="visit-btn">Visit Channel</a>
         </div>
 
         <div class="channel-card">
             <div>
-                <div class="icon">📄</div>
-                <div class="name">Corbettmaths</div>
-                <div class="tags"><span class="tag">Worksheets</span><span class="tag">Daily Practice</span></div>
-                <p class="desc">The ultimate resource for "5-a-day" practice and a massive collection of topic-based worksheets.</p>
+                <div class="icon">👨‍🏫</div>
+                <div class="name">FreeScienceLessons</div>
+                <div class="tags"><span class="tag">Concise</span><span class="tag">Essential</span></div>
+                <p class="desc">The legendary "man in the suit." No fluff, just the facts you need for your exams.</p>
             </div>
-            <a href="https://www.youtube.com/@corbettmaths" target="_blank" class="visit-btn">Visit Channel</a>
+            <a href="https://www.youtube.com/@freesciencelessons" target="_blank" class="visit-btn">Visit Channel</a>
+        </div>
+
+        <div class="channel-card">
+            <div>
+                <div class="icon">🧬</div>
+                <div class="name">IGBioComplete</div>
+                <div class="tags"><span class="tag">Full Course</span><span class="tag">Topical</span></div>
+                <p class="desc">A comprehensive resource covering every single point of the IGCSE Biology syllabus.</p>
+            </div>
+            <a href="https://www.youtube.com/@igbiocomplete" target="_blank" class="visit-btn">Visit Channel</a>
+        </div>
+
+        <div class="channel-card">
+            <div>
+                <div class="icon">🔬</div>
+                <div class="name">Biology by Zhan Xuan</div>
+                <div class="tags"><span class="tag">Cambridge</span><span class="tag">0610 Focus</span></div>
+                <p class="desc">Highly targeted lessons specifically for the CAIE Biology 0610 curriculum.</p>
+            </div>
+            <a href="https://www.youtube.com/@biologybyzhanxuan" target="_blank" class="visit-btn">Visit Channel</a>
+        </div>
+
+        <div class="channel-card">
+            <div>
+                <div class="icon">⏱️</div>
+                <div class="name">Cambridge in 5 Minutes</div>
+                <div class="tags"><span class="tag">Quick Prep</span><span class="tag">High Yield</span></div>
+                <p class="desc">Fast-paced summaries of critical topics to maximize your study efficiency.</p>
+            </div>
+            <a href="https://www.youtube.com/c/Cambridgein5minutes" target="_blank" class="visit-btn">Visit Channel</a>
+        </div>
+
+        <div class="channel-card">
+            <div>
+                <div class="icon">🌿</div>
+                <div class="name">Science with Hazel</div>
+                <div class="tags"><span class="tag">Detailed</span><span class="tag">All-in-One</span></div>
+                <p class="desc">In-depth "Everything you need to know" videos covering Biology, Chemistry, and Physics.</p>
+            </div>
+            <a href="https://www.youtube.com/c/SciencewithHazel" target="_blank" class="visit-btn">Visit Channel</a>
+        </div>
+
+        <div class="channel-card">
+            <div>
+                <div class="icon">🥫</div>
+                <div class="name">Science Sauce</div>
+                <div class="tags"><span class="tag">Short Clips</span><span class="tag">Tricky Topics</span></div>
+                <p class="desc">Engaging and short explanations for those specific topics that always confuse students.</p>
+            </div>
+            <a href="https://www.youtube.com/c/ScienceSauce" target="_blank" class="visit-btn">Visit Channel</a>
+        </div>
+
+        <div class="channel-card">
+            <div>
+                <div class="icon">📱</div>
+                <div class="name">KayScience</div>
+                <div class="tags"><span class="tag">Exam Questions</span><span class="tag">GCSE/IGCSE</span></div>
+                <p class="desc">Thousands of videos covering every topic with built-in exam question practice.</p>
+            </div>
+            <a href="https://www.youtube.com/c/KayScience" target="_blank" class="visit-btn">Visit Channel</a>
+        </div>
+
+        <div class="channel-card">
+            <div>
+                <div class="icon">👨‍🔬</div>
+                <div class="name">Organic Chemistry Tutor</div>
+                <div class="tags"><span class="tag">Universal</span><span class="tag">Foundation</span></div>
+                <p class="desc">The king of step-by-step tutorials for Chemistry and Biology basics.</p>
+            </div>
+            <a href="https://www.youtube.com/@TheOrganicChemistryTutor" target="_blank" class="visit-btn">Visit Channel</a>
         </div>
     </div>
 

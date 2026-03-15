@@ -54,7 +54,6 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            cursor: pointer;
             text-decoration: none;
         }
 
@@ -62,7 +61,6 @@
             font-size: 1.8rem;
             text-shadow: var(--glow);
             filter: drop-shadow(0 0 5px var(--primary));
-            transition: transform 0.3s ease;
         }
 
         .logo-text {
@@ -76,7 +74,7 @@
         .nav-panel {
             position: absolute;
             top: 34px;
-            right: 180px; 
+            right: 170px; 
             z-index: 1000;
             display: flex;
             gap: 20px;
@@ -89,8 +87,8 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1.2px;
-            transition: 0.3s;
             opacity: 0.7;
+            transition: 0.3s;
         }
 
         .nav-link:hover { color: var(--primary); opacity: 1; text-shadow: var(--glow); }
@@ -104,7 +102,7 @@
             font-size: 0.8rem;
         }
 
-        /* --- MAIN LAYOUT --- */
+        /* --- CONTAINER --- */
         .container { 
             max-width: 1100px; 
             margin: 0 auto; 
@@ -118,120 +116,98 @@
         
         h1 { 
             margin: 0; 
-            font-size: clamp(2rem, 8vw, 3.5rem); /* Scales font based on screen size */
+            font-size: clamp(2.5rem, 10vw, 3.5rem); 
             color: var(--primary); 
             text-transform: uppercase;
             letter-spacing: 5px;
             text-shadow: var(--glow), 0 0 30px rgba(188, 19, 254, 0.4);
         }
 
-        .search-wrapper { margin: 30px auto; max-width: 500px; width: 100%; }
+        .greeting-container { margin-top: 10px; min-height: 30px; }
+        #dynamicGreeting { font-size: 1.2rem; color: var(--subtext); font-style: italic; }
 
+        .search-wrapper { margin: 30px auto; max-width: 500px; width: 100%; }
         #subjectSearch {
-            width: 100%;
-            padding: 15px 25px;
-            border-radius: 50px;
+            width: 100%; padding: 15px 25px; border-radius: 50px;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(12px);
-            color: white;
-            font-size: 1.1rem;
-            outline: none;
-            box-sizing: border-box;
-            text-align: center;
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px);
+            color: white; font-size: 1.1rem; outline: none; box-sizing: border-box; text-align: center;
         }
 
-        /* --- GRID SYSTEM --- */
+        /* --- SUBJECT GRID --- */
         .subject-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 25px; 
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 25px; margin-top: 20px;
         }
 
         .subject-card { 
-            background: var(--card-bg); 
-            backdrop-filter: blur(15px);
-            padding: 25px; 
-            border-radius: 20px; 
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            transition: all 0.3s ease;
+            background: var(--card-bg); backdrop-filter: blur(15px);
+            padding: 25px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: 0.3s; display: flex; flex-direction: column;
         }
+        .subject-card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: var(--glow); }
 
         .subject-card h2 { 
-            margin-top: 0; color: var(--primary); 
-            font-size: 1.4rem; 
+            margin: 0; color: var(--primary); font-size: 1.4rem; 
             display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 12px;
         }
+
+        .subject-code { font-size: 0.85rem; background: rgba(188, 19, 254, 0.15); padding: 4px 10px; border-radius: 8px; border: 1px solid var(--primary); }
 
         .links { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
         .links a { 
-            text-decoration: none; color: white; 
-            background: var(--link-bg); 
-            padding: 12px 15px; border-radius: 10px; 
-            display: flex; justify-content: space-between;
-            transition: 0.3s;
+            text-decoration: none; color: white; background: var(--link-bg); 
+            padding: 12px 15px; border-radius: 10px; display: flex; justify-content: space-between; transition: 0.3s;
         }
         .links a:hover { background: var(--primary); }
 
-        /* --- POMODORO --- */
-        .pomodoro-container {
-            max-width: 450px; width: 100%; margin: 40px auto;
-            background: var(--pomo-bg);
-            backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px; padding: 30px; text-align: center;
-            box-sizing: border-box;
+        /* --- COMMUNITY SECTION --- */
+        .section-divider {
+            height: 1px; width: 100%; background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            margin: 60px 0; position: relative;
+        }
+        .section-divider::after {
+            content: attr(data-label); position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%); background: #0d0d0d; padding: 0 15px;
+            color: var(--primary); font-size: 0.7rem; letter-spacing: 4px; font-weight: 900;
         }
 
+        .community-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+        .community-card {
+            background: var(--card-bg); padding: 15px; border-radius: 15px;
+            display: flex; align-items: center; gap: 15px; text-decoration: none; color: white; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s;
+        }
+        .community-card:hover { border-color: var(--primary); transform: scale(1.02); }
+
+        /* --- POMODORO --- */
+        .pomodoro-container {
+            max-width: 450px; width: 100%; margin: 0 auto 40px auto;
+            background: var(--pomo-bg); backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 30px; padding: 40px; text-align: center; box-sizing: border-box;
+        }
         .pomo-time { font-size: 4rem; font-weight: 800; margin: 15px 0; text-shadow: var(--glow); }
         .pomo-btn {
-            background: transparent; border: 1.5px solid var(--primary);
-            color: white; padding: 12px 25px; border-radius: 15px;
-            cursor: pointer; transition: 0.3s;
+            background: transparent; border: 1.5px solid var(--primary); color: white;
+            padding: 12px 35px; border-radius: 15px; cursor: pointer; transition: 0.3s;
         }
         .pomo-btn:hover { background: var(--primary); box-shadow: var(--glow); }
 
-        /* --- COMMUNITY GRID --- */
-        .community-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
-        }
-
-        .community-card {
-            background: var(--card-bg);
-            padding: 15px;
-            border-radius: 15px;
-            display: flex; align-items: center; gap: 15px;
-            text-decoration: none; color: white; border: 1px solid rgba(255,255,255,0.1);
-        }
-
         /* --- BANNER --- */
-        .scrolling-banner {
-            width: 100%; background: var(--primary); padding: 15px 0;
-            overflow: hidden; border-radius: 12px; margin-top: 40px;
-        }
-        .scrolling-text {
-            display: inline-block; white-space: nowrap; font-weight: 800;
-            text-transform: uppercase; color: white;
-            animation: marquee 20s linear infinite;
-        }
-
+        .scrolling-banner { width: 100%; background: var(--primary); padding: 15px 0; overflow: hidden; border-radius: 12px; margin-top: 20px; }
+        .scrolling-text { display: inline-block; white-space: nowrap; font-weight: 800; text-transform: uppercase; color: white; animation: marquee 20s linear infinite; }
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* =============================================
-           MOBILE FIXES (MEDIA QUERIES)
-           ============================================= */
-
-        @media (max-width: 850px) {
-            .nav-panel { right: 25px; top: 75px; } /* Move nav below logo/theme */
+        /* --- MOBILE ADAPTATIONS --- */
+        @media (max-width: 900px) {
+            .nav-panel { right: 25px; top: 75px; }
             header { padding-top: 130px; }
         }
 
         @media (max-width: 600px) {
             .logo-box { left: 50%; transform: translateX(-50%); top: 15px; }
-            .theme-toggle { top: 60px; right: 50%; transform: translateX(50%); width: 140px; }
+            .theme-toggle { top: 60px; right: 50%; transform: translateX(50%); }
             .nav-panel { top: 110px; right: 0; left: 0; justify-content: center; gap: 10px; }
             header { padding-top: 160px; }
             .subject-grid { grid-template-columns: 1fr; }
@@ -273,8 +249,28 @@
             <div class="links">
                 <a href="english-notes.html">Notes <span>📖</span></a>
                 <a href="https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-o-level-english-language-1123/" target="_blank">Syllabus <span>📋</span></a>
+                <a href="https://drive.google.com/drive/folders/1K_8t8Flup5AwcCUtdIWUvciybrsaCn0d?usp=sharing" target="_blank">Books <span>📚</span></a>
+                <a href="english-youtube.html">YouTube Channels <span>🎬</span></a>
+            </div>
+        </div>
+
+        <div class="subject-card">
+            <h2>Pak Studies <span class="subject-code">2059</span></h2>
+            <div class="links">
+                <a href="pakstudies-notes.html">Notes <span>📖</span></a>
+                <a href="#">Syllabus <span>📋</span></a>
                 <a href="#">Books <span>📚</span></a>
-                <a href="english-youtube.html">YouTube <span>🎬</span></a>
+                <a href="pakstudies-youtube.html">YouTube Channels <span>🎬</span></a>
+            </div>
+        </div>
+
+        <div class="subject-card">
+            <h2>Islamiat <span class="subject-code">2058</span></h2>
+            <div class="links">
+                <a href="islamiat-notes.html">Notes <span>📖</span></a>
+                <a href="#">Syllabus <span>📋</span></a>
+                <a href="#">Books <span>📚</span></a>
+                <a href="islamiat-youtube.html">YouTube Channels <span>🎬</span></a>
             </div>
         </div>
 
@@ -284,7 +280,17 @@
                 <a href="maths-notes.html">Notes <span>📖</span></a>
                 <a href="#">Syllabus <span>📋</span></a>
                 <a href="#">Books <span>📚</span></a>
-                <a href="maths-youtube.html">YouTube <span>🎬</span></a>
+                <a href="maths-youtube.html">YouTube Channels <span>🎬</span></a>
+            </div>
+        </div>
+
+        <div class="subject-card">
+            <h2>Biology <span class="subject-code">5090</span></h2>
+            <div class="links">
+                <a href="biology-notes.html">Notes <span>📖</span></a>
+                <a href="#">Syllabus <span>📋</span></a>
+                <a href="#">Books <span>📚</span></a>
+                <a href="biology-youtube.html">YouTube Channels <span>🎬</span></a>
             </div>
         </div>
 
@@ -294,23 +300,41 @@
                 <a href="chemistry-notes.html">Notes <span>📖</span></a>
                 <a href="#">Syllabus <span>📋</span></a>
                 <a href="#">Books <span>📚</span></a>
-                <a href="chemistry-youtube.html">YouTube <span>🎬</span></a>
+                <a href="chemistry-youtube.html">YouTube Channels <span>🎬</span></a>
             </div>
         </div>
-        
+
         <div class="subject-card">
             <h2>Physics <span class="subject-code">5054</span></h2>
             <div class="links">
                 <a href="physics-notes.html">Notes <span>📖</span></a>
                 <a href="#">Syllabus <span>📋</span></a>
                 <a href="#">Books <span>📚</span></a>
-                <a href="physics-youtube.html">YouTube <span>🎬</span></a>
+                <a href="physics-youtube.html">YouTube Channels <span>🎬</span></a>
             </div>
         </div>
     </div>
 
+    <div class="section-divider" data-label="DISCORD SERVERS"></div>
+
+    <div class="community-grid">
+        <a href="https://discord.gg/igcse" target="_blank" class="community-card">
+            <span style="font-size: 1.5rem;">🌍</span>
+            <div class="comm-info"><strong>r/IGCSE</strong><br><span style="font-size: 0.7rem; color: var(--subtext);">Global hub</span></div>
+        </a>
+        <a href="https://discord.gg/ywpVAEbUsE" target="_blank" class="community-card">
+            <span style="font-size: 1.5rem;">📝</span>
+            <div class="comm-info"><strong>ZNotes</strong><br><span style="font-size: 0.7rem; color: var(--subtext);">Resources</span></div>
+        </a>
+        <a href="https://discord.gg/jmrwGQCWjQ" target="_blank" class="community-card">
+            <span style="font-size: 1.5rem;">☕</span>
+            <div class="comm-info"><strong>Nerd Cafe</strong><br><span style="font-size: 0.7rem; color: var(--subtext);">Study Rooms</span></div>
+        </a>
+    </div>
+
+    <div class="section-divider" data-label="LIVE FOCUS SESSION"></div>
+
     <div class="pomodoro-container">
-        <div class="pomo-header" style="color: var(--primary); letter-spacing: 3px; font-weight: bold;">FOCUS TIMER</div>
         <div class="pomo-time" id="timerDisplay">25:00</div>
         <div class="pomo-controls">
             <button class="pomo-btn" onclick="toggleTimer()" id="pomoToggle">Start</button>
@@ -328,14 +352,16 @@
 </div>
 
 <script>
-    // Logic for Greeting
+    // Typing Effect
     function initGreeting() {
         const greetingElement = document.getElementById('dynamicGreeting');
         const hour = new Date().getHours();
         let message = "Ready to conquer your goals? 🚀";
         if (hour >= 5 && hour < 11) message = "Rise and Grind, Student. ☕";
-        else if (hour >= 23 || hour < 3) message = "Burning the midnight oil? 🌙";
-        
+        else if (hour >= 11 && hour < 17) message = "Making progress, one page at a time. 📖";
+        else if (hour >= 17 && hour < 23) message = "Evening focus mode activated. ⚡";
+        else message = "Burning the midnight oil? 🌙";
+
         let i = 0;
         function typeWriter() {
             if (i < message.length) {
@@ -348,17 +374,17 @@
     }
     window.addEventListener('DOMContentLoaded', initGreeting);
 
-    // Search Logic
+    // Search
     function filterSubjects() {
         let input = document.getElementById('subjectSearch').value.toLowerCase();
         let cards = document.getElementsByClassName('subject-card');
         for (let card of cards) {
-            let title = card.querySelector('h2').innerText.toLowerCase();
-            card.style.display = title.includes(input) ? "block" : "none";
+            let text = card.querySelector('h2').innerText.toLowerCase();
+            card.style.display = text.includes(input) ? "flex" : "none";
         }
     }
 
-    // Theme Toggle
+    // Theme
     function toggleTheme() {
         const body = document.documentElement;
         const btn = document.getElementById('themeBtn');
@@ -371,10 +397,10 @@
         }
     }
 
-    // Pomodoro Logic
+    // Timer
     let timeLeft = 25 * 60;
     let timerRunning = false;
-    let timerId = null;
+    let timerInterval;
 
     function updateDisplay() {
         const m = Math.floor(timeLeft / 60);
@@ -383,33 +409,31 @@
     }
 
     function toggleTimer() {
+        const btn = document.getElementById('pomoToggle');
         if (!timerRunning) {
             timerRunning = true;
-            document.getElementById('pomoToggle').textContent = "Pause";
-            timerId = setInterval(() => {
+            btn.textContent = "Pause";
+            timerInterval = setInterval(() => {
                 timeLeft--;
                 updateDisplay();
-                if (timeLeft <= 0) {
-                    clearInterval(timerId);
-                    alert("Time's up!");
-                }
+                if (timeLeft <= 0) { clearInterval(timerInterval); alert("Session complete!"); }
             }, 1000);
         } else {
             timerRunning = false;
-            document.getElementById('pomoToggle').textContent = "Start";
-            clearInterval(timerId);
+            btn.textContent = "Start";
+            clearInterval(timerInterval);
         }
     }
 
     function resetTimer() {
-        clearInterval(timerId);
+        clearInterval(timerInterval);
         timerRunning = false;
         timeLeft = 25 * 60;
         updateDisplay();
         document.getElementById('pomoToggle').textContent = "Start";
     }
 
-    // Starfield Background
+    // Background
     const canvas = document.getElementById('starfield');
     const ctx = canvas.getContext('2d');
     let width, height, stars = [];
@@ -417,15 +441,15 @@
     function initStars() {
         width = window.innerWidth; height = window.innerHeight;
         canvas.width = width; canvas.height = height;
-        stars = Array.from({length: 200}, () => ({
+        stars = Array.from({length: 150}, () => ({
             x: Math.random() * width, y: Math.random() * height,
-            r: Math.random() * 1.5, d: Math.random() * 0.5 + 0.5
+            r: Math.random() * 1.5, d: Math.random() * 0.5 + 0.2
         }));
     }
 
     function drawStars() {
         ctx.clearRect(0, 0, width, height);
-        ctx.fillStyle = "rgba(188, 19, 254, 0.8)";
+        ctx.fillStyle = "rgba(188, 19, 254, 0.6)";
         stars.forEach(s => {
             ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI*2); ctx.fill();
             s.y += s.d; if (s.y > height) s.y = 0;

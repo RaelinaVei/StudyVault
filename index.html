@@ -23,6 +23,7 @@
             --pomo-bg: rgba(0, 0, 0, 0.7);
         }
 
+        /* Essential Reset for Responsiveness */
         * { box-sizing: border-box; }
 
         #starfield {
@@ -47,25 +48,16 @@
             overflow-x: hidden;
         }
 
-        /* --- HEADER NAVIGATION STRUCTURE --- */
-        .top-nav {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
+        /* --- NAVIGATION --- */
         .logo-box {
+            position: absolute; /* Changed from fixed for better scrolling on mobile */
+            top: 25px;
+            left: 25px;
+            z-index: 1000;
             display: flex;
             align-items: center;
             gap: 10px;
+            cursor: pointer;
             text-decoration: none;
         }
 
@@ -86,14 +78,11 @@
             text-transform: uppercase;
         }
 
-        /* Grouping Links and Toggle to prevent overlap */
-        .nav-controls {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .nav-links-group {
+        .nav-panel {
+            position: absolute;
+            top: 34px;
+            right: 170px; 
+            z-index: 1000;
             display: flex;
             gap: 20px;
         }
@@ -117,16 +106,12 @@
         }
 
         .theme-toggle {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: bold;
-            box-shadow: var(--glow);
+            position: absolute; top: 25px; right: 25px;
+            background: var(--primary); color: white;
+            border: none; padding: 10px 20px; border-radius: 30px;
+            cursor: pointer; font-weight: bold;
+            box-shadow: var(--glow); z-index: 1000;
             font-size: 0.8rem;
-            white-space: nowrap;
         }
 
         /* --- CONTAINER --- */
@@ -138,7 +123,7 @@
             padding: 0 20px;
         }
 
-        header { text-align: center; padding: 140px 0 20px 0; }
+        header { text-align: center; padding: 120px 0 20px 0; }
         
         h1 { 
             margin: 0; 
@@ -361,12 +346,24 @@
 
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- MOBILE REFINEMENTS --- */
-        @media (max-width: 768px) {
-            .top-nav { flex-direction: column; text-align: center; }
-            .nav-controls { flex-direction: column; gap: 15px; }
-            header { padding-top: 20px; } /* Less padding because nav moved above */
+        /* =============================================
+           MOBILE & TABLET RESPONSIVENESS
+           ============================================= */
+        
+        @media (max-width: 900px) {
+            .nav-panel { right: 25px; top: 75px; }
+            header { padding-top: 130px; }
+        }
+
+        @media (max-width: 600px) {
+            .logo-box { position: relative; top: 20px; left: 0; justify-content: center; width: 100%; margin-bottom: 20px; }
+            .theme-toggle { position: relative; top: 10px; right: 0; margin: 0 auto; display: block; width: 160px; }
+            .nav-panel { position: relative; top: 30px; right: 0; justify-content: center; width: 100%; flex-wrap: wrap; gap: 10px; }
+            header { padding-top: 60px; }
             .subject-grid { grid-template-columns: 1fr; }
+            .pomo-time { font-size: 3.5rem; }
+            .pomo-btn { padding: 12px 20px; }
+            .section-divider::after { font-size: 0.6rem; letter-spacing: 2px; }
         }
     </style>
 </head>
@@ -374,21 +371,18 @@
 
 <canvas id="starfield"></canvas>
 
-<div class="top-nav">
-    <a href="index.html" class="logo-box">
-        <span class="flash-icon">⚡</span>
-        <span class="logo-text">StudyVault</span>
-    </a>
+<a href="index.html" class="logo-box">
+    <span class="flash-icon">⚡</span>
+    <span class="logo-text">StudyVault</span>
+</a>
 
-    <div class="nav-controls">
-        <div class="nav-links-group">
-            <a href="timers.html" class="nav-link">Pomodoro</a>
-            <a href="timers.html" class="nav-link">Accountability</a>
-            <a href="https://forms.gle/iPRKKd7RhLfhzDoX7" class="nav-link" target="_blank">Contact</a>
-        </div>
-        <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark Mode</button>
-    </div>
+<div class="nav-panel">
+    <a href="timers.html" class="nav-link">Pomodoro</a>
+    <a href="timers.html" class="nav-link">Accountability</a>
+    <a href="https://forms.gle/iPRKKd7RhLfhzDoX7" class="nav-link" target="_blank">Contact</a>
 </div>
+
+<button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark Mode</button>
 
 <div class="container">
     <header>

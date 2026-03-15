@@ -38,7 +38,7 @@
             overflow-x: hidden;
         }
 
-        .container { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+        .container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
 
         header { text-align: center; padding: 20px 0 40px 0; }
         
@@ -62,13 +62,13 @@
             font-size: 2.2rem;
             color: #fff;
             text-align: center;
-            margin: 50px 0 30px 0;
+            margin: 60px 0 30px 0;
             text-transform: uppercase;
             letter-spacing: 2px;
             border-bottom: 2px solid rgba(255, 255, 255, 0.2);
             display: inline-block;
-            padding-bottom: 10px;
             width: 100%;
+            padding-bottom: 10px;
         }
 
         .divider {
@@ -88,44 +88,48 @@
 
         .teacher-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 30px; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 25px; 
         }
 
         .teacher-card { 
             background: var(--card-bg); 
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            padding: 45px 30px; 
+            padding: 35px 25px; 
             border-radius: 25px; 
             border: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
             transition: 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .teacher-card:hover { 
-            transform: translateY(-12px); 
+            transform: translateY(-10px); 
             border-color: var(--primary);
             box-shadow: var(--glow);
         }
 
         .avatar { 
-            width: 70px; height: 70px; 
+            width: 60px; height: 60px; 
             background: rgba(188, 19, 254, 0.15); 
             border: 2px solid var(--primary);
-            border-radius: 50%; margin: 0 auto 25px; 
+            border-radius: 50%; margin: 0 auto 20px; 
             display: flex; align-items: center; justify-content: center;
-            font-size: 2rem; font-weight: bold; color: var(--primary);
+            font-size: 1.5rem; font-weight: bold; color: var(--primary);
             box-shadow: var(--glow);
         }
 
-        .teacher-card h2 { margin: 15px 0; font-size: 1.7rem; color: var(--primary); text-shadow: var(--glow); }
-        .teacher-card p { font-size: 0.95rem; color: var(--subtext); line-height: 1.6; margin-bottom: 30px; }
+        .teacher-card h2 { margin: 10px 0; font-size: 1.4rem; color: var(--primary); text-shadow: var(--glow); }
+        .teacher-card p { font-size: 0.9rem; color: var(--subtext); line-height: 1.5; margin-bottom: 20px; }
 
         .access-btn {
             display: block; text-decoration: none; color: white;
             background: rgba(188, 19, 254, 0.2); border: 1px solid var(--primary);
-            padding: 14px; border-radius: 12px; font-weight: bold; transition: 0.3s;
+            padding: 12px; border-radius: 12px; font-weight: bold; transition: 0.3s;
+            margin-top: auto;
         }
 
         .access-btn:hover { background: var(--primary); box-shadow: var(--glow); color: #fff; }
@@ -147,34 +151,58 @@
         <h1>Chemistry Vault 🧪</h1>
     </header>
 
-    <h2 class="section-title">⚗️ Physical & Inorganic</h2>
+    <h2 class="section-title">⭐ Important Resources</h2>
     <div class="teacher-grid">
-        <div class="teacher-card"><div class="avatar">1</div><h2>Atomic Structure</h2><p>Notes on subatomic particles and bonding.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">2</div><h2>Stoichiometry</h2><p>Moles, equations, and yield calculations.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">3</div><h2>Electrochemistry</h2><p>Electrolysis and redox reactions.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">4</div><h2>Energy Changes</h2><p>Exothermic and endothermic reactions.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">5</div><h2>Kinetics</h2><p>Rates of reaction and catalysts.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">6</div><h2>Chemical Equilibria</h2><p>Reversible reactions and Le Chatelier.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">7</div><h2>Acids & Bases</h2><p>pH scale, salts, and titrations.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">8</div><h2>The Periodic Table</h2><p>Groups, trends, and transition metals.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">9</div><h2>Metals</h2><p>Extraction and reactivity series.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">10</div><h2>Chemistry of Air</h2><p>Atmosphere, pollution, and water.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">A</div><h2>Definition Lists</h2><p>Comprehensive Google Drive folder for chemistry terms.</p><a href="https://drive.google.com/drive/folders/13A-MOwRsp7JVBoAJwP_r2ZrVvWiZC90b?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">B</div><h2>Color Changes</h2><p>Essential guide to indicators and reaction colors.</p><a href="https://drive.google.com/drive/folders/1bQQxuFfOD8NkB9sL9Znp_1VUUbnl14xL?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">C</div><h2>PMT Mindmaps</h2><p>Visual summaries for all key topics.</p><a href="https://drive.google.com/drive/folders/14NY2medcYZMWY-dKNAzOcWvyjX7X4Q3S?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">D</div><h2>Qualitative Analysis</h2><p>Specialized notes for ion testing and analysis.</p><a href="https://drive.google.com/file/d/1OXyZ39QmdRwKs6W4A24bn8RfQIT_IY5Y/view?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">E</div><h2>Electrolysis Flowchart</h2><p>Simplified logic for electrolytic cells.</p><a href="https://drive.google.com/file/d/1ACaGyLZG4ywgVWOglIDHEwhRS01ptJ29/view?usp=sharing" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">F</div><h2>Chem Cheatsheet</h2><p>One-page wonders for last minute revision.</p><a href="https://drive.google.com/file/d/1-kPesi8v6p1tU6RyVOM3bNSyAKkrhSt3/view?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">G</div><h2>Definition Sheet</h2><p>Focused sheet for core syllabus definitions.</p><a href="https://drive.google.com/file/d/1wuWbZcODADPc3kLfujjIsugNAtz_xIHA/view?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">H</div><h2>MS Definitions (M. Gamal)</h2><p>Marking scheme based definitions for accuracy.</p><a href="https://drive.google.com/file/d/1YAUyghUU2rIkZSGrxXDAOFxy5TirLFiF/view?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">I</div><h2>MS Definitions #2</h2><p>Additional marking scheme set for practice.</p><a href="https://drive.google.com/file/d/1J0VtlsWCtW3w-JacrflL7AKZYuZj6aDP/view?usp=sharing" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">J</div><h2>Reactivity Series</h2><p>Full breakdown of metal reactivity and trends.</p><a href="https://drive.google.com/file/d/1Sc4fL80kHhQXwEf-s_X7mRT2Son4mA3t/view?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">K</div><h2>Air Pollutants</h2><p>Atmospheric chemistry cheatsheet.</p><a href="https://drive.google.com/file/d/1gNOc97kUX85K9qyWMRGRRb5mJmsy3Uc1/view?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
     </div>
 
     <div class="divider"></div>
 
-    <h2 class="section-title">🌿 Organic Chemistry</h2>
+    <h2 class="section-title">📝 Teacher & Community Notes</h2>
     <div class="teacher-grid">
-        <div class="teacher-card"><div class="avatar">1</div><h2>Hydrocarbons</h2><p>Alkanes and Alkenes breakdown.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">2</div><h2>Alcohols</h2><p>Ethanol production and reactions.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">3</div><h2>Carboxylic Acids</h2><p>Properties and Esters.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">4</div><h2>Polymers</h2><p>Addition and condensation polymerization.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">5</div><h2>Organic Overview</h2><p>General formulas and nomenclature.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">6</div><h2>Functional Groups</h2><p>Identification and testing.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">7</div><h2>Resource Pack</h2><p>Topical questions and notes.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">8</div><h2>Resource Pack</h2><p>Topical questions and notes.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">9</div><h2>Resource Pack</h2><p>Topical questions and notes.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">10</div><h2>Resource Pack</h2><p>Topical questions and notes.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">1</div><h2>SOS Notes</h2><p>Complete O-Level chemistry syllabus notes.</p><a href="https://www.chemistrybysos.com/notes.php?level=O&id=12fgMBYT7pR-iExFBVUmzfUMSBXwBu4dJ" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">2</div><h2>Magic Book P1</h2><p>SOS Chemistry revision guide Part 1.</p><a href="https://www.chemistrybysos.com/notes.php?level=O&id=1PJgK-TmwwyXdvLbhsO2ptqpEf4j4SiLh" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">3</div><h2>Magic Book P2</h2><p>SOS Chemistry revision guide Part 2.</p><a href="https://www.chemistrybysos.com/notes.php?level=O&id=16UL5q1NAOgTiEjtSrVnppqFY2ydpku-E" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">4</div><h2>R/igcse Notes</h2><p>Community vetted science resources.</p><a href="https://www.r-igcse.com/sciences/chemistry" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">5</div><h2>Organic Random</h2><p>Scattered but vital organic chem notes.</p><a href="https://drive.google.com/file/d/1bY_3PxkWYoy_glK1rQhqTn9FgdVfVFyt/view?usp=sharing" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">6</div><h2>Cosmic Tail</h2><p>Visually aesthetic and accurate chemistry notes.</p><a href="https://drive.google.com/file/d/1mHCLRJfBliEq8-jsQP2xT3Xp9ZF52UUk/view?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">7</div><h2>Veda Notes</h2><p>Structured topical breakdown for Chem.</p><a href="https://drive.google.com/file/d/18AK7sXngB9jqXhw6lXjBH5-T5XuWBWm2/view?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">8</div><h2>Last Minute Guide</h2><p>High-yield facts for the night before exams.</p><a href="https://drive.google.com/file/d/1OmpEN0H3jdMgsDV5smZBAwy297vpbcHj/view?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">9</div><h2>Organic (Gabriel)</h2><p>Specialized organic breakdown from r/igcse.</p><a href="https://drive.google.com/file/d/1aZHnsfw_Tup0GW0zkCpOnpPZnDcdKiey/view?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">10</div><h2>Handwritten Notes</h2><p>Personalized student-made summary notes.</p><a href="https://drive.google.com/drive/folders/18b15LzQqPBrflyQ3XZi6RgVvral-oNz_?usp=sharing" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">11</div><h2>Moosa Khan</h2><p>Comprehensive folder by Moosa Khan.</p><a href="https://drive.google.com/drive/folders/13_pDSDSZ5GRjMeEqIAL2AYJi3kKRzFQn?usp=sharing" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">12</div><h2>Overmugged</h2><p>Topical revision resources and tips.</p><a href="https://www.overmugged.com/olevelschemistry" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">13</div><h2>Student Base</h2><p>O-Level Chemistry curated materials.</p><a href="https://studentbase.app/caie/o-level/chemistry" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">14</div><h2>Megalecture</h2><p>Worksheets and comprehensive notes.</p><a href="https://megalecture.com/o-level-chemistry-notes-worksheets/" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">15</div><h2>Chembridge</h2><p>Solid foundation notes for IGCSE/O-Level.</p><a href="https://chembridge.org/igcse-o-level/notes/" target="_blank" class="access-btn">Access</a></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h2 class="section-title">🧪 ATP (Paper 4/6) Notes</h2>
+    <div class="teacher-grid">
+        <div class="teacher-card"><div class="avatar">P</div><h2>SOS ATP</h2><p>Experimental chemistry and lab notes.</p><a href="https://www.chemistrybysos.com/notes.php?level=O&id=1FwdUn1K5atXh6Nj8hKuM_CCSNsFTLqiG" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">Q</div><h2>r/igcse ATP Folder</h2><p>Collection of community ATP guides.</p><a href="https://drive.google.com/drive/folders/1cT26Aoc2gIgCj3JahSbLmoFBDaHcKCc5?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">R</div><h2>Experimental Tips</h2><p>Crucial tips for answering ATP questions.</p><a href="https://drive.google.com/file/d/1L-A22J2s1Jh4SMUgh3Tcj6Hrz9uB0nbF/view?usp=sharing" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">S</div><h2>Chem ATP Guide</h2><p>Full breakdown of experiments and apparatus.</p><a href="https://drive.google.com/file/d/1fUpLqSzMM6_9VrtVe_VgnE5DB7Txh1hU/view?usp=drive_link" target="_blank" class="access-btn">Access</a></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h2 class="section-title">📝 Past Paper Practice</h2>
+    <div class="teacher-grid">
+        <div class="teacher-card"><div class="avatar">T</div><h2>PMT Topicals</h2><p>Topic-wise questions for focused practice.</p><a href="https://www.physicsandmathstutor.com/chemistry-revision/igcse-cie/" target="_blank" class="access-btn">Access</a></div>
+        <div class="teacher-card"><div class="avatar">U</div><h2>SOS Practice</h2><p>More practice materials for ATP and Theory.</p><a href="https://www.chemistrybysos.com/notes.php?level=O&id=1FwdUn1K5atXh6Nj8hKuM_CCSNsFTLqiG" target="_blank" class="access-btn">Access</a></div>
     </div>
 
     <footer>

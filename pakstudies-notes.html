@@ -9,11 +9,10 @@
             --primary: #bc13fe; 
             --text: #ffffff;
             --subtext: #cbd5e1;
-            --highlight: #f1c40f; /* Yellow for special cards */
+            --yellow: #f1c40f;
             --bg-image: url('https://w0.peakpx.com/wallpaper/700/152/HD-wallpaper-mountains-in-dark-night-background-dark.jpg');
             --card-bg: rgba(255, 255, 255, 0.05); 
             --glow: 0 0 20px rgba(188, 19, 254, 0.6);
-            --yellow-glow: 0 0 25px rgba(241, 196, 15, 0.5);
         }
 
         [data-theme="dark"] {
@@ -83,6 +82,21 @@
             font-weight: 800;
         }
 
+        .divider {
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            margin: 60px 0;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        .theme-toggle {
+            position: fixed; top: 20px; right: 20px;
+            background: var(--primary); color: white;
+            border: none; padding: 10px 18px; border-radius: 30px;
+            cursor: pointer; font-weight: bold;
+            box-shadow: var(--glow); z-index: 1000;
+        }
+
         .teacher-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
@@ -108,15 +122,24 @@
             box-shadow: var(--glow);
         }
 
-        /* Yellow Highlight Style */
-        .special-card {
-            border: 2px solid var(--highlight) !important;
-            box-shadow: var(--yellow-glow);
+        /* Yellow Box Styles */
+        .yellow-card {
+            border: 2px solid var(--yellow) !important;
+            box-shadow: 0 0 20px rgba(241, 196, 15, 0.4);
         }
-        .special-card .avatar { border-color: var(--highlight); color: var(--highlight); }
-        .special-card h2 { color: var(--highlight); text-shadow: 0 0 10px rgba(241, 196, 15, 0.5); }
-        .special-card .access-btn { border-color: var(--highlight); background: rgba(241, 196, 15, 0.1); }
-        .special-card .access-btn:hover { background: var(--highlight); color: #000; }
+        .yellow-card .avatar {
+            border-color: var(--yellow) !important;
+            color: var(--yellow) !important;
+        }
+        .yellow-card h2 { color: var(--yellow) !important; }
+        .yellow-card .access-btn {
+            border-color: var(--yellow) !important;
+            color: var(--yellow) !important;
+        }
+        .yellow-card .access-btn:hover {
+            background: var(--yellow) !important;
+            color: #000 !important;
+        }
 
         .avatar { 
             width: 60px; height: 60px; 
@@ -163,107 +186,162 @@
     <div class="teacher-grid">
         <div class="teacher-card">
             <div class="avatar">📅</div>
-            <h2>History Study Plan</h2>
-            <p>Official MYM study plan to organize your journey toward an A*.</p>
-            <a href="https://drive.google.com/file/d/1-RITCcfalXZMGlw3c0ub3VmmzzzOnl0N/view?usp=sharing" target="_blank" class="access-btn">View Plan</a>
-        </div>
-        <div class="teacher-card">
-            <div class="avatar">⏳</div>
-            <h2>MYM History Timeline</h2>
-            <p>The definitive chronological breakdown of the Pakistan Movement.</p>
-            <a href="https://docs.google.com/document/d/1-RFmr9neoC2KjggPtODsbLTC92mNiS4W/edit?usp=sharing" target="_blank" class="access-btn">Open Doc</a>
-        </div>
-        <div class="teacher-card">
-            <div class="avatar">⏱️</div>
-            <h2>Revision Timetable</h2>
-            <p>A structured daily timetable to manage History & Geography revision.</p>
+            <h2>History Timetable</h2>
+            <p>Structured schedule to manage your history revision effectively.</p>
             <a href="https://drive.google.com/file/d/1MDwVSEWAUnIA864pOWqEB69PUPiDPCZv/view?usp=sharing" target="_blank" class="access-btn">View Timetable</a>
         </div>
         <div class="teacher-card">
-            <div class="avatar">📑</div>
+            <div class="avatar">🎯</div>
+            <h2>MYM Study Plan</h2>
+            <p>Comprehensive study strategy for mastering the History syllabus.</p>
+            <a href="https://drive.google.com/file/d/1-RITCcfalXZMGlw3c0ub3VmmzzzOnl0N/view?usp=sharing" target="_blank" class="access-btn">View Plan</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">🕒</div>
+            <h2>MYM Timeline</h2>
+            <p>Complete chronological breakdown of events by MYM.</p>
+            <a href="https://docs.google.com/document/d/1-RFmr9neoC2KjggPtODsbLTC92mNiS4W/edit?usp=sharing" target="_blank" class="access-btn">View Timeline</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">⏳</div>
             <h2>SOT Zaidi Timeline</h2>
-            <p>Short notes and quick-recall timeline for rapid coverage.</p>
+            <p>Crucial timeline and short revision notes for rapid syllabus coverage.</p>
             <a href="https://drive.google.com/file/d/1hfvP1E5BRpcpPFjhDg7mHD_adbVuvAon/view?usp=sharing" target="_blank" class="access-btn">View Notes</a>
         </div>
         <div class="teacher-card">
             <div class="avatar">📄</div>
             <h2>History in 40 Pages</h2>
-            <p>Condensed revision guide covering the entire syllabus.</p>
+            <p>The ultimate condensed revision guide covering the entire history syllabus.</p>
             <a href="https://drive.google.com/file/d/1UaOoVIcuDhFVSJNTyBsWhO1B9NvAvzSZ/view?usp=sharing" target="_blank" class="access-btn">Open PDF</a>
         </div>
     </div>
 
-    <div class="sub-header" style="margin-top: 60px;">📝 Past Papers & Topicals</div>
+    <div class="sub-header">📝 Past Papers & Topicals</div>
     <div class="teacher-grid">
         <div class="teacher-card">
-            <div class="avatar">🖋️</div>
-            <h2>Topicals with Comments</h2>
-            <p>Past paper questions categorized by topic with examiner insights.</p>
-            <a href="https://drive.google.com/file/d/1jJmfoo7Tx__cjmD6c47bhoOd23cRc-Qt/view?usp=sharing" target="_blank" class="access-btn">Access PDF</a>
+            <div class="avatar">💬</div>
+            <h2>Topicals + Comments</h2>
+            <p>History topical questions with examiner comments and insights.</p>
+            <a href="https://drive.google.com/file/d/1jJmfoo7Tx__cjmD6c47bhoOd23cRc-Qt/view?usp=sharing" target="_blank" class="access-btn">Open PDF</a>
         </div>
         <div class="teacher-card">
-            <div class="avatar">📂</div>
-            <h2>Usman Hameed Topicals</h2>
-            <p>Extensive folder of topical questions by Sir Usman Hameed.</p>
+            <div class="avatar">📚</div>
+            <h2>Archive (2004-2017)</h2>
+            <p>A massive collection of history topicals over 13 years.</p>
+            <a href="https://drive.google.com/file/d/1rE9wl0e01fM2sxxGky12PofpYdf4wLgd/view?usp=sharing" target="_blank" class="access-btn">View Archive</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">🔍</div>
+            <h2>Source Questions</h2>
+            <p>Dedicated resources for mastering source-based questions.</p>
+            <a href="https://drive.google.com/file/d/1yhRGT5xJAWzoCUyypPwSvNinq6FRa0Yt/view?usp=sharing" target="_blank" class="access-btn">View Guide</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">👨‍🏫</div>
+            <h2>Usman Hameed</h2>
+            <p>Sir Usman Hameed's topical question collection.</p>
             <a href="https://drive.google.com/drive/folders/19tlqSJkNi_RRNqo4xHNInJzeRHD3UCOv?usp=sharing" target="_blank" class="access-btn">Open Folder</a>
         </div>
         <div class="teacher-card">
-            <div class="avatar">📋</div>
+            <div class="avatar">📦</div>
             <h2>MYM Topicals</h2>
-            <p>Amir Saleem's collection of topical past papers for Paper 1.</p>
+            <p>Categorized topical questions by MYM for focused practice.</p>
             <a href="https://drive.google.com/drive/folders/1-qoHzybuxAZsjmBwJNsEkvtVjJCyZilx?usp=sharing" target="_blank" class="access-btn">Open Folder</a>
         </div>
         <div class="teacher-card">
-            <div class="avatar">✅</div>
-            <h2>Solved Questions</h2>
-            <p>Solved past paper questions and answers by Mega Lecture.</p>
-            <a href="https://drive.google.com/drive/folders/1WeouiuVDOmanpp0rGMcMQ4mLkdxePV74?usp=sharing" target="_blank" class="access-btn">Access Solved</a>
+            <div class="avatar">💡</div>
+            <h2>Solved Topicals</h2>
+            <p>Megalecture's collection of solved history questions.</p>
+            <a href="https://drive.google.com/drive/folders/1WeouiuVDOmanpp0rGMcMQ4mLkdxePV74?usp=sharing" target="_blank" class="access-btn">Open Folder</a>
         </div>
         <div class="teacher-card">
-            <div class="avatar">📗</div>
-            <h2>Haris Rehman Topicals</h2>
-            <p>Topical questions compiled by Haris Rehman.</p>
-            <a href="https://drive.google.com/file/d/192K_h76_pyV7KeNVRhrhViW-8jvGPBDD/view?usp=sharing" target="_blank" class="access-btn">Open PDF</a>
-        </div>
-        <div class="teacher-card">
-            <div class="avatar">🏛️</div>
-            <h2>Topicals (2004-2017)</h2>
-            <p>A massive collection of topicals spanning over a decade.</p>
-            <a href="https://drive.google.com/file/d/1rE9wl0e01fM2sxxGky12PofpYdf4wLgd/view?usp=sharing" target="_blank" class="access-btn">Access Archive</a>
-        </div>
-        <div class="teacher-card">
-            <div class="avatar">🕵️</div>
-            <h2>Source Based (Section A)</h2>
-            <p>Dedicated guide for tackling the 2059/01 source questions.</p>
-            <a href="https://drive.google.com/file/d/1yhRGT5xJAWzoCUyypPwSvNinq6FRa0Yt/view?usp=sharing" target="_blank" class="access-btn">View Guide</a>
+            <div class="avatar">✍️</div>
+            <h2>Haris Rehman</h2>
+            <p>History topicals compiled by Haris Rehman.</p>
+            <a href="https://drive.google.com/file/d/192K_h76_pyV7KeNVRhrhViW-8jvGPBDD/view?usp=sharing" target="_blank" class="access-btn">View PDF</a>
         </div>
     </div>
 
-    <div class="sub-header" style="margin-top: 60px;">👨‍🏫 Teacher's Notes</div>
+    <div class="sub-header">👨‍🏫 Teacher's Notes</div>
     <div class="teacher-grid">
-        <div class="teacher-card special-card">
+        <div class="teacher-card yellow-card">
             <div class="avatar">⭐</div>
-            <h2>MYM HISTORY - ALL STUFF</h2>
-            <p>The complete mega-drive containing every MYM resource for History.</p>
-            <a href="https://drive.google.com/drive/folders/1-BAoWzlk3O43e1YVAbhe2BuN9BQ7achy?usp=sharing" target="_blank" class="access-btn">Access Everything</a>
+            <h2>MYM HISTORY ALL STUFF</h2>
+            <p>The complete mega-resource folder containing all MYM history materials.</p>
+            <a href="https://drive.google.com/drive/folders/1-BAoWzlk3O43e1YVAbhe2BuN9BQ7achy?usp=sharing" target="_blank" class="access-btn">Access All Stuff</a>
         </div>
+
         <div class="teacher-card">
             <div class="avatar">🏛️</div>
             <h2>COALI Notes</h2>
-            <p>Community-driven resources for History and Culture.</p>
+            <p>Comprehensive community-driven resources for History and Culture.</p>
             <a href="https://coali.org/Resources/O%20Level/Pakistan%20Studies/History%20and%20Culture" target="_blank" class="access-btn">Open Site</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">MYM</div>
+            <h2>MYM Notes</h2>
+            <p>Comprehensive History notes folder for deep study.</p>
+            <a href="https://drive.google.com/drive/folders/1hBZONb0bJj7X6Vj9IszWUk6irJS1_pew?usp=sharing" target="_blank" class="access-btn">Open Folder</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">ML</div>
+            <h2>Mega Lecture</h2>
+            <p>Structured online notes and chapter-wise breakdowns.</p>
+            <a href="https://megalecture.com/o-level-history-notes/" target="_blank" class="access-btn">Visit Website</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">PK</div>
+            <h2>PakStudies.pk</h2>
+            <p>Skill book and high-quality sample answers for Paper 1.</p>
+            <a href="https://pakistanstudies.pk/skill-book/skill-book-history-2059-01/sample-answers/" target="_blank" class="access-btn">View Answers</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">MJ</div>
+            <h2>Mozja Notes</h2>
+            <p>Cleanly categorized notes and resources for History.</p>
+            <a href="https://drive.google.com/drive/folders/1RGgYljw2Uhg1_1luz3jsMk3He5lI57Bt?usp=sharing" target="_blank" class="access-btn">Open Folder</a>
         </div>
         <div class="teacher-card">
             <div class="avatar">FH</div>
             <h2>Sir Fahad Hameed</h2>
             <p>Extensive resource drive for history preparation.</p>
-            <a href="https://drive.google.com/drive/folders/1mc5Pp6jXcly5YGK8yLjqtDzPTNmE50de?usp=sharing" target="_blank" class="access-btn">Access Drive</a>
+            <a href="https://drive.google.com/drive/folders/1mc5Pp6jXcly5YGK8yLjqtDzPTNmE50de?usp=drive_link" target="_blank" class="access-btn">Access Drive</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">☀️</div>
+            <h2>Noon Academy</h2>
+            <p>Exclusive examination tips and tricks folder.</p>
+            <a href="https://drive.google.com/drive/folders/1TMKVGRomlTTRf3sng4FaCgYNaIrFmxpE?usp=sharing" target="_blank" class="access-btn">View Tips</a>
         </div>
         <div class="teacher-card">
             <div class="avatar">IH</div>
             <h2>Sir Iftikhar-ul-Haq</h2>
-            <p>Trusted notes specifically designed for Paper 1 success.</p>
+            <p>Widely used and trusted notes for O-Level History.</p>
             <a href="https://drive.google.com/drive/folders/1d0qK8JL25sZmkwy0_KLl-phfYR-98lJe?usp=sharing" target="_blank" class="access-btn">Access Drive</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">UK</div>
+            <h2>Sir Umar Khan</h2>
+            <p>Detailed teacher notes by Umar Khan Dawar.</p>
+            <a href="https://drive.google.com/drive/folders/1cNuvZS6OolszrPmH7PKJ8-eKGiirCsJU?usp=drive_link" target="_blank" class="access-btn">Access Drive</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">🏛️</div>
+            <h2>SMA Workshop</h2>
+            <p>Material from the Grand Workshop session.</p>
+            <a href="https://drive.google.com/file/d/196ajIVgr-WWysjyWWLugj6LCXYW0MbLq/view?usp=sharing" target="_blank" class="access-btn">Open PDF</a>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h2 class="section-title">🌍 Geography (2059/02)</h2>
+    <div class="teacher-grid">
+        <div class="teacher-card">
+            <div class="avatar">📍</div>
+            <h2>Coming Soon</h2>
+            <p>Geography resources and topography guides are being compiled.</p>
+            <a href="#" class="access-btn">Placeholder</a>
         </div>
     </div>
 

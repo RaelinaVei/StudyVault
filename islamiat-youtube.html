@@ -1,1 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamiat | Master Vault</title>
+    <style>
+        :root {
+            --primary: #10b981; /* Islamic Emerald Green */
+            --highlight: #f1c40f; 
+            --text: #ffffff;
+            --subtext: #cbd5e1;
+            --bg-image: url('https://w0.peakpx.com/wallpaper/700/152/HD-wallpaper-mountains-in-dark-night-background-dark.jpg');
+            --card-bg: rgba(255, 255, 255, 0.07); 
+            --glow: 0 0 15px rgba(16, 185, 129, 0.6);
+            --yellow-glow: 0 0 20px rgba(241, 196, 15, 0.5);
+        }
 
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            color: var(--text); 
+            margin: 0; padding: 20px; 
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), var(--bg-image);
+            background-size: cover; background-position: center; background-attachment: fixed;
+            display: flex; flex-direction: column; align-items: center;
+        }
+
+        .back-nav { width: 100%; max-width: 1200px; margin-bottom: 30px; }
+        .back-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            text-decoration: none; color: white; background: rgba(255, 255, 255, 0.05); 
+            padding: 12px 25px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.15);
+            font-weight: 600; transition: all 0.3s ease; backdrop-filter: blur(8px);
+            text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1.5px;
+        }
+        .back-btn:hover { background: rgba(16, 185, 129, 0.1); border-color: var(--primary); box-shadow: var(--glow); transform: translateY(-2px); }
+
+        header { text-align: center; margin-bottom: 50px; }
+        h1 { font-size: 3.5rem; color: var(--primary); text-transform: uppercase; letter-spacing: 4px; text-shadow: var(--glow); margin: 0; }
+        .subtitle { color: var(--subtext); font-style: italic; letter-spacing: 1px; margin-top: 10px; }
+
+        .channel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px; width: 100%; max-width: 1200px;
+        }
+
+        .channel-card {
+            background: var(--card-bg); backdrop-filter: blur(15px);
+            padding: 30px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center; transition: 0.3s ease;
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+
+        .special-card {
+            border: 2px solid var(--highlight) !important;
+            box-shadow: var(--yellow-glow);
+        }
+        .special-card .name { color: var(--highlight) !important; }
+        .special-card .tag { background: rgba(241, 196, 15, 0.2); color: var(--highlight); border-color: var(--highlight); }
+        .special-card .visit-btn { background: var(--highlight); color: #000; }
+
+        .channel-card:hover { transform: translateY(-10px); box-shadow: var(--glow); }
+
+        .icon { font-size: 3rem; margin-bottom: 15px; }
+        .name { font-size: 1.4rem; font-weight: 800; margin-bottom: 15px; color: white; min-height: 3.5rem; display: flex; align-items: center; justify-content: center; }
+        
+        .tags { display: flex; justify-content: center; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+        .tag { font-size: 0.65rem; background: rgba(16, 185, 129, 0.2); color: var(--primary); padding: 4px 12px; border-radius: 20px; border: 1px solid var(--primary); font-weight: bold; text-transform: uppercase; }
+        
+        .desc { font-size: 0.9rem; color: var(--subtext); line-height: 1.6; margin-bottom: 25px; flex-grow: 1; }
+        
+        .visit-btn {
+            text-decoration: none; color: white; background: var(--primary);
+            padding: 12px 20px; border-radius: 12px; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
+        }
+        .visit-btn:hover { transform: scale(1.05); filter: brightness(1.2); }
+
+        .footer-spacer { height: 60px; }
+    </style>
+</head>
+<body>
+
+    <nav class="back-nav">
+        <a href="index.html" class="back-btn">← Back to Dashboard</a>
+    </nav>
+
+    <header>
+        <h1>Islamiat</h1>
+        <p class="subtitle">Top Resources for O-Level (2058) & IGCSE (0493) Islamiat</p>
+    </header>
+
+    <div class="channel-grid">
+        <div class="channel-card special-card">
+            <div>
+                <div class="icon">📖</div>
+                <div class="name">Sir Muzammil Mehmood</div>
+                <div class="tags"><span class="tag">Lectures</span><span class="tag">Comprehensive</span></div>
+                <p class="desc">In-depth explanations of the Seerah and Quranic passages with a focus on core understanding.</p>
+            </div>
+            <a href="https://www.youtube.com/@MuzaammilMehmood/videos" target="_blank" class="visit-btn">Visit Channel</a>
+        </div>
+
+        <div class="channel-card special-card">
+            <div>
+                <div class="icon">🕌</div>
+                <div class="name">Sir Umar Khan</div>
+                <div class="tags"><span class="tag">Exam Tech</span><span class="tag">Notes</span></div>
+                <p class="desc">A favorite for concise notes and clear breakdowns of the CAIE Islamiat syllabus requirements.</p>
+            </div>
+            <a href="https://www.youtube.com/@COUKISL/featured" target="_blank" class="visit-btn">Visit Channel</a>
+        </div>
+
+        <div class="channel-card">
+            <div>
+                <div class="icon">📜</div>
+                <div class="name">Sir Fazal Manya</div>
+                <div class="tags"><span class="tag">Revision</span><span class="tag">Past Papers</span></div>
+                <p class="desc">Expert guidance on answering techniques and structured revision for both Paper 1 and Paper 2.</p>
+            </div>
+            <a href="https://www.youtube.com/playlist?list=PLthJh2cF7jzlMYBXA3zt1hsjZuS7SQUzE" target="_blank" class="visit-btn">Visit Channel</a>
+        </div>
+
+        <div class="channel-card">
+            <div>
+                <div class="icon">✨</div>
+                <div class="name">ALYOTI</div>
+                <div class="tags"><span class="tag">Quick Revision</span><span class="tag">Visuals</span></div>
+                <p class="desc">Engaging resources and playlists designed to make Islamiat revision more accessible and organized.</p>
+            </div>
+            <a href="https://www.youtube.com/playlist?list=PLthJh2cF7jzlvx9NO_Y8qf5MuURppw02l" target="_blank" class="visit-btn">Visit Channel</a>
+        </div>
+    </div>
+
+    <div class="footer-spacer"></div>
+</body>
+</html>

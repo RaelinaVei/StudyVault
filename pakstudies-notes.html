@@ -51,7 +51,7 @@
         .back-btn:hover { border-color: var(--primary); box-shadow: var(--glow); }
 
         h1 { 
-            margin: 10px 0; font-size: 3.8rem; 
+            margin: 10px 0; font-size: clamp(2.5rem, 8vw, 3.8rem); 
             color: var(--primary); 
             text-transform: uppercase;
             letter-spacing: 3px;
@@ -76,8 +76,9 @@
             text-align: center;
             font-size: 1.2rem;
             letter-spacing: 2px;
-            margin: 20px 0;
+            margin: 30px 0 20px 0;
             text-transform: uppercase;
+            font-weight: 800;
         }
 
         .divider {
@@ -98,47 +99,46 @@
         .teacher-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 30px; 
+            gap: 25px; 
         }
 
         .teacher-card { 
             background: var(--card-bg); 
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            padding: 40px 30px; 
+            padding: 35px 25px; 
             border-radius: 25px; 
             border: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
             transition: 0.4s ease;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
         }
 
         .teacher-card:hover { 
-            transform: translateY(-12px); 
+            transform: translateY(-10px); 
             border-color: var(--primary);
             box-shadow: var(--glow);
         }
 
         .avatar { 
-            width: 70px; height: 70px; 
+            width: 60px; height: 60px; 
             background: rgba(188, 19, 254, 0.15); 
             border: 2px solid var(--primary);
-            border-radius: 50%; margin: 0 auto 25px; 
+            border-radius: 50%; margin: 0 auto 20px; 
             display: flex; align-items: center; justify-content: center;
-            font-size: 1.8rem; font-weight: bold; color: var(--primary);
+            font-size: 1.6rem; color: var(--primary);
             box-shadow: var(--glow);
         }
 
-        .teacher-card h2 { margin: 10px 0; font-size: 1.4rem; color: var(--primary); text-shadow: var(--glow); }
-        .teacher-card p { font-size: 0.85rem; color: var(--subtext); line-height: 1.4; margin-bottom: 25px; }
+        .teacher-card h2 { margin: 10px 0; font-size: 1.3rem; color: var(--primary); text-shadow: var(--glow); }
+        .teacher-card p { font-size: 0.85rem; color: var(--subtext); line-height: 1.5; margin-bottom: 25px; flex-grow: 1; }
 
         .access-btn {
             display: block; text-decoration: none; color: white;
             background: rgba(188, 19, 254, 0.1); border: 1px solid var(--primary);
             padding: 12px; border-radius: 12px; font-weight: bold; transition: 0.3s;
-            text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem;
+            text-transform: uppercase; letter-spacing: 1px; font-size: 0.75rem;
         }
 
         .access-btn:hover { background: var(--primary); box-shadow: var(--glow); color: #fff; }
@@ -165,80 +165,86 @@
     <div class="sub-header">⚡ Essential Resources</div>
     <div class="teacher-grid">
         <div class="teacher-card">
+            <div class="avatar">⏳</div>
+            <h2>SOT Zaidi Timeline</h2>
+            <p>Crucial timeline and short revision notes for rapid syllabus coverage.</p>
+            <a href="https://drive.google.com/file/d/1hfvP1E5BRpcpPFjhDg7mHD_adbVuvAon/view?usp=sharing" target="_blank" class="access-btn">View Notes</a>
+        </div>
+        <div class="teacher-card">
             <div class="avatar">📄</div>
             <h2>History in 40 Pages</h2>
-            <p>The ultimate condensed revision guide covering the entire syllabus.</p>
-            <a href="https://drive.google.com/file/d/1UaOoVIcuDhFVSJNTyBsWhO1B9NvAvzSZ/view?usp=sharing" target="_blank" class="access-btn">View PDF</a>
+            <p>The ultimate condensed revision guide covering the entire history syllabus.</p>
+            <a href="https://drive.google.com/file/d/1UaOoVIcuDhFVSJNTyBsWhO1B9NvAvzSZ/view?usp=sharing" target="_blank" class="access-btn">Open PDF</a>
         </div>
         <div class="teacher-card">
             <div class="avatar">❓</div>
-            <h2>Source Based Questions</h2>
-            <p>Expert guidance by Syed Hassan Raza on tackling Section A.</p>
+            <h2>Source Questions</h2>
+            <p>Specific guide by Syed Hassan Raza for mastering source-based questions.</p>
             <a href="https://drive.google.com/file/d/1fq5yl_-bX3-wInDJEDoGq-GHe5zemp6j/view?usp=sharing" target="_blank" class="access-btn">Access Guide</a>
         </div>
         <div class="teacher-card">
             <div class="avatar">💡</div>
-            <h2>Tips & Exam Format</h2>
-            <p>Master the paper structure and time management techniques.</p>
+            <h2>Tips & Format</h2>
+            <p>Official history tips and exam paper formatting guidelines.</p>
             <a href="https://drive.google.com/file/d/1cnc79Oowxfh9nCYqLDYxMwCYhOlED9zS/view?usp=sharing" target="_blank" class="access-btn">View Tips</a>
         </div>
     </div>
 
-    <div class="sub-header" style="margin-top: 60px;">👨‍🏫 Teacher's Notes</div>
+    <div class="sub-header">👨‍🏫 Teacher's Notes</div>
     <div class="teacher-grid">
         <div class="teacher-card">
             <div class="avatar">MYM</div>
             <h2>MYM Notes</h2>
-            <p>Comprehensive notes by Amir Saleem for History prep.</p>
-            <a href="https://drive.google.com/drive/folders/1hBZONb0bJj7X6Vj9IszWUk6irJS1_pew?usp=sharing" target="_blank" class="access-btn">Access Folder</a>
+            <p>Comprehensive History notes folder for deep study.</p>
+            <a href="https://drive.google.com/drive/folders/1hBZONb0bJj7X6Vj9IszWUk6irJS1_pew?usp=sharing" target="_blank" class="access-btn">Open Folder</a>
         </div>
         <div class="teacher-card">
             <div class="avatar">ML</div>
             <h2>Mega Lecture</h2>
-            <p>Detailed chapter-wise notes for O-Level History.</p>
-            <a href="https://megalecture.com/o-level-history-notes/" target="_blank" class="access-btn">Open Site</a>
+            <p>Structured online notes and chapter-wise breakdowns.</p>
+            <a href="https://megalecture.com/o-level-history-notes/" target="_blank" class="access-btn">Visit Website</a>
         </div>
         <div class="teacher-card">
             <div class="avatar">PK</div>
-            <h2>PakistanStudies.pk</h2>
-            <p>Skill book and sample answers for History 2059/01.</p>
+            <h2>PakStudies.pk</h2>
+            <p>Skill book and high-quality sample answers for Paper 1.</p>
             <a href="https://pakistanstudies.pk/skill-book/skill-book-history-2059-01/sample-answers/" target="_blank" class="access-btn">View Answers</a>
         </div>
         <div class="teacher-card">
             <div class="avatar">MJ</div>
             <h2>Mozja Notes</h2>
-            <p>Well-structured resources for quick history revision.</p>
-            <a href="https://drive.google.com/drive/folders/1RGgYljw2Uhg1_1luz3jsMk3He5lI57Bt?usp=sharing" target="_blank" class="access-btn">Access Folder</a>
+            <p>Cleanly categorized notes and resources for History.</p>
+            <a href="https://drive.google.com/drive/folders/1RGgYljw2Uhg1_1luz3jsMk3He5lI57Bt?usp=sharing" target="_blank" class="access-btn">Open Folder</a>
         </div>
         <div class="teacher-card">
             <div class="avatar">FH</div>
             <h2>Sir Fahad Hameed</h2>
-            <p>Premium notes and lecture materials for CAIE students.</p>
-            <a href="https://drive.google.com/drive/folders/1mc5Pp6jXcly5YGK8yLjqtDzPTNmE50de?usp=drive_link" target="_blank" class="access-btn">Access Folder</a>
+            <p>Extensive resource drive for history preparation.</p>
+            <a href="https://drive.google.com/drive/folders/1mc5Pp6jXcly5YGK8yLjqtDzPTNmE50de?usp=drive_link" target="_blank" class="access-btn">Access Drive</a>
         </div>
         <div class="teacher-card">
             <div class="avatar">☀️</div>
             <h2>Noon Academy</h2>
-            <p>Exclusive Tips & Tricks for the Pakistan Studies exam.</p>
+            <p>Exclusive examination tips and tricks folder.</p>
             <a href="https://drive.google.com/drive/folders/1TMKVGRomlTTRf3sng4FaCgYNaIrFmxpE?usp=sharing" target="_blank" class="access-btn">View Tips</a>
         </div>
         <div class="teacher-card">
             <div class="avatar">IH</div>
             <h2>Sir Iftikhar-ul-Haq</h2>
-            <p>Top-tier notes specifically designed for Paper 1 success.</p>
-            <a href="https://drive.google.com/drive/folders/1d0qK8JL25sZmkwy0_KLl-phfYR-98lJe?usp=sharing" target="_blank" class="access-btn">Access Folder</a>
+            <p>Widely used and trusted notes for O-Level History.</p>
+            <a href="https://drive.google.com/drive/folders/1d0qK8JL25sZmkwy0_KLl-phfYR-98lJe?usp=sharing" target="_blank" class="access-btn">Access Drive</a>
         </div>
         <div class="teacher-card">
             <div class="avatar">UK</div>
-            <h2>Sir Umar Khan Dawar</h2>
-            <p>Detailed resources covering History syllabus depth.</p>
-            <a href="https://drive.google.com/drive/folders/1cNuvZS6OolszrPmH7PKJ8-eKGiirCsJU?usp=drive_link" target="_blank" class="access-btn">Access Folder</a>
+            <h2>Sir Umar Khan</h2>
+            <p>Detailed teacher notes by Umar Khan Dawar.</p>
+            <a href="https://drive.google.com/drive/folders/1cNuvZS6OolszrPmH7PKJ8-eKGiirCsJU?usp=drive_link" target="_blank" class="access-btn">Access Drive</a>
         </div>
         <div class="teacher-card">
             <div class="avatar">🏛️</div>
             <h2>SMA Workshop</h2>
-            <p>Grand workshop material for final exam preparation.</p>
-            <a href="https://drive.google.com/file/d/196ajIVgr-WWysjyWWLugj6LCXYW0MbLq/view?usp=sharing" target="_blank" class="access-btn">View Material</a>
+            <p>Material from the Grand Workshop session.</p>
+            <a href="https://drive.google.com/file/d/196ajIVgr-WWysjyWWLugj6LCXYW0MbLq/view?usp=sharing" target="_blank" class="access-btn">Open PDF</a>
         </div>
     </div>
 
@@ -246,8 +252,12 @@
 
     <h2 class="section-title">🌍 Geography (2059/02)</h2>
     <div class="teacher-grid">
-        <div class="teacher-card"><div class="avatar">1</div><h2>Geo Resources</h2><p>Environment and Topography.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">2</div><h2>Geo Resources</h2><p>Environment and Topography.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card">
+            <div class="avatar">📍</div>
+            <h2>Coming Soon</h2>
+            <p>Geography resources and topography guides are being compiled.</p>
+            <a href="#" class="access-btn">Placeholder</a>
+        </div>
     </div>
 
     <footer>
@@ -280,10 +290,8 @@
     let width, height, stars = [];
 
     function init() {
-        width = window.innerWidth;
-        height = window.innerHeight;
-        canvas.width = width;
-        canvas.height = height;
+        width = window.innerWidth; height = window.innerHeight;
+        canvas.width = width; canvas.height = height;
         stars = [];
         for (let i = 0; i < 400; i++) {
             stars.push({
@@ -313,8 +321,7 @@
     }
 
     window.addEventListener('resize', init);
-    init();
-    draw();
+    init(); draw();
 </script>
 
 </body>

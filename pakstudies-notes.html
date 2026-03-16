@@ -71,6 +71,15 @@
             width: 100%;
         }
 
+        .sub-header {
+            color: var(--primary);
+            text-align: center;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            margin: 20px 0;
+            text-transform: uppercase;
+        }
+
         .divider {
             height: 2px;
             background: rgba(255, 255, 255, 0.3);
@@ -96,11 +105,14 @@
             background: var(--card-bg); 
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            padding: 45px 30px; 
+            padding: 40px 30px; 
             border-radius: 25px; 
             border: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
             transition: 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .teacher-card:hover { 
@@ -115,17 +127,18 @@
             border: 2px solid var(--primary);
             border-radius: 50%; margin: 0 auto 25px; 
             display: flex; align-items: center; justify-content: center;
-            font-size: 2rem; font-weight: bold; color: var(--primary);
+            font-size: 1.8rem; font-weight: bold; color: var(--primary);
             box-shadow: var(--glow);
         }
 
-        .teacher-card h2 { margin: 15px 0; font-size: 1.7rem; color: var(--primary); text-shadow: var(--glow); }
-        .teacher-card p { font-size: 0.95rem; color: var(--subtext); line-height: 1.6; margin-bottom: 30px; }
+        .teacher-card h2 { margin: 10px 0; font-size: 1.4rem; color: var(--primary); text-shadow: var(--glow); }
+        .teacher-card p { font-size: 0.85rem; color: var(--subtext); line-height: 1.4; margin-bottom: 25px; }
 
         .access-btn {
             display: block; text-decoration: none; color: white;
-            background: rgba(188, 19, 254, 0.2); border: 1px solid var(--primary);
-            padding: 14px; border-radius: 12px; font-weight: bold; transition: 0.3s;
+            background: rgba(188, 19, 254, 0.1); border: 1px solid var(--primary);
+            padding: 12px; border-radius: 12px; font-weight: bold; transition: 0.3s;
+            text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem;
         }
 
         .access-btn:hover { background: var(--primary); box-shadow: var(--glow); color: #fff; }
@@ -148,17 +161,85 @@
     </header>
 
     <h2 class="section-title">📜 History (2059/01)</h2>
+    
+    <div class="sub-header">⚡ Essential Resources</div>
     <div class="teacher-grid">
-        <div class="teacher-card"><div class="avatar">1</div><h2>Historical Notes</h2><p>Overview of the syllabus.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">2</div><h2>Historical Notes</h2><p>Overview of the syllabus.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">3</div><h2>Historical Notes</h2><p>Overview of the syllabus.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">4</div><h2>Historical Notes</h2><p>Overview of the syllabus.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">5</div><h2>Historical Notes</h2><p>Overview of the syllabus.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">6</div><h2>Historical Notes</h2><p>Overview of the syllabus.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">7</div><h2>Historical Notes</h2><p>Overview of the syllabus.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">8</div><h2>Historical Notes</h2><p>Overview of the syllabus.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">9</div><h2>Historical Notes</h2><p>Overview of the syllabus.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">10</div><h2>Historical Notes</h2><p>Overview of the syllabus.</p><a href="#" class="access-btn">Access</a></div>
+        <div class="teacher-card">
+            <div class="avatar">📄</div>
+            <h2>History in 40 Pages</h2>
+            <p>The ultimate condensed revision guide covering the entire syllabus.</p>
+            <a href="https://drive.google.com/file/d/1UaOoVIcuDhFVSJNTyBsWhO1B9NvAvzSZ/view?usp=sharing" target="_blank" class="access-btn">View PDF</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">❓</div>
+            <h2>Source Based Questions</h2>
+            <p>Expert guidance by Syed Hassan Raza on tackling Section A.</p>
+            <a href="https://drive.google.com/file/d/1fq5yl_-bX3-wInDJEDoGq-GHe5zemp6j/view?usp=sharing" target="_blank" class="access-btn">Access Guide</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">💡</div>
+            <h2>Tips & Exam Format</h2>
+            <p>Master the paper structure and time management techniques.</p>
+            <a href="https://drive.google.com/file/d/1cnc79Oowxfh9nCYqLDYxMwCYhOlED9zS/view?usp=sharing" target="_blank" class="access-btn">View Tips</a>
+        </div>
+    </div>
+
+    <div class="sub-header" style="margin-top: 60px;">👨‍🏫 Teacher's Notes</div>
+    <div class="teacher-grid">
+        <div class="teacher-card">
+            <div class="avatar">MYM</div>
+            <h2>MYM Notes</h2>
+            <p>Comprehensive notes by Amir Saleem for History prep.</p>
+            <a href="https://drive.google.com/drive/folders/1hBZONb0bJj7X6Vj9IszWUk6irJS1_pew?usp=sharing" target="_blank" class="access-btn">Access Folder</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">ML</div>
+            <h2>Mega Lecture</h2>
+            <p>Detailed chapter-wise notes for O-Level History.</p>
+            <a href="https://megalecture.com/o-level-history-notes/" target="_blank" class="access-btn">Open Site</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">PK</div>
+            <h2>PakistanStudies.pk</h2>
+            <p>Skill book and sample answers for History 2059/01.</p>
+            <a href="https://pakistanstudies.pk/skill-book/skill-book-history-2059-01/sample-answers/" target="_blank" class="access-btn">View Answers</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">MJ</div>
+            <h2>Mozja Notes</h2>
+            <p>Well-structured resources for quick history revision.</p>
+            <a href="https://drive.google.com/drive/folders/1RGgYljw2Uhg1_1luz3jsMk3He5lI57Bt?usp=sharing" target="_blank" class="access-btn">Access Folder</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">FH</div>
+            <h2>Sir Fahad Hameed</h2>
+            <p>Premium notes and lecture materials for CAIE students.</p>
+            <a href="https://drive.google.com/drive/folders/1mc5Pp6jXcly5YGK8yLjqtDzPTNmE50de?usp=drive_link" target="_blank" class="access-btn">Access Folder</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">☀️</div>
+            <h2>Noon Academy</h2>
+            <p>Exclusive Tips & Tricks for the Pakistan Studies exam.</p>
+            <a href="https://drive.google.com/drive/folders/1TMKVGRomlTTRf3sng4FaCgYNaIrFmxpE?usp=sharing" target="_blank" class="access-btn">View Tips</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">IH</div>
+            <h2>Sir Iftikhar-ul-Haq</h2>
+            <p>Top-tier notes specifically designed for Paper 1 success.</p>
+            <a href="https://drive.google.com/drive/folders/1d0qK8JL25sZmkwy0_KLl-phfYR-98lJe?usp=sharing" target="_blank" class="access-btn">Access Folder</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">UK</div>
+            <h2>Sir Umar Khan Dawar</h2>
+            <p>Detailed resources covering History syllabus depth.</p>
+            <a href="https://drive.google.com/drive/folders/1cNuvZS6OolszrPmH7PKJ8-eKGiirCsJU?usp=drive_link" target="_blank" class="access-btn">Access Folder</a>
+        </div>
+        <div class="teacher-card">
+            <div class="avatar">🏛️</div>
+            <h2>SMA Workshop</h2>
+            <p>Grand workshop material for final exam preparation.</p>
+            <a href="https://drive.google.com/file/d/196ajIVgr-WWysjyWWLugj6LCXYW0MbLq/view?usp=sharing" target="_blank" class="access-btn">View Material</a>
+        </div>
     </div>
 
     <div class="divider"></div>
@@ -167,14 +248,6 @@
     <div class="teacher-grid">
         <div class="teacher-card"><div class="avatar">1</div><h2>Geo Resources</h2><p>Environment and Topography.</p><a href="#" class="access-btn">Access</a></div>
         <div class="teacher-card"><div class="avatar">2</div><h2>Geo Resources</h2><p>Environment and Topography.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">3</div><h2>Geo Resources</h2><p>Environment and Topography.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">4</div><h2>Geo Resources</h2><p>Environment and Topography.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">5</div><h2>Geo Resources</h2><p>Environment and Topography.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">6</div><h2>Geo Resources</h2><p>Environment and Topography.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">7</div><h2>Geo Resources</h2><p>Environment and Topography.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">8</div><h2>Geo Resources</h2><p>Environment and Topography.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">9</div><h2>Geo Resources</h2><p>Environment and Topography.</p><a href="#" class="access-btn">Access</a></div>
-        <div class="teacher-card"><div class="avatar">10</div><h2>Geo Resources</h2><p>Environment and Topography.</p><a href="#" class="access-btn">Access</a></div>
     </div>
 
     <footer>

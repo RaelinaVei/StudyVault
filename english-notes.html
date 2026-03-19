@@ -8,7 +8,8 @@
         :root {
             --primary: #bc13fe; 
             --accent-gold: #ffb400;
-            --accent-teal: #00f2ff; /* New color for AI tool */
+            --accent-teal: #00f2ff;
+            --accent-blue: #007bff; /* Color for the new Descriptive tool */
             --text: #ffffff;
             --subtext: #cbd5e1;
             --bg-image: url('https://w0.peakpx.com/wallpaper/700/152/HD-wallpaper-mountains-in-dark-night-background-dark.jpg');
@@ -169,6 +170,30 @@
             color: #000 !important;
         }
 
+        /* Blue Description Tool Style */
+        .blue-card {
+            border: 2px solid var(--accent-blue) !important;
+            background: rgba(0, 123, 255, 0.08) !important;
+        }
+        .blue-card:hover {
+            box-shadow: 0 0 30px rgba(0, 123, 255, 0.4) !important;
+            border-color: var(--accent-blue) !important;
+        }
+        .avatar-blue {
+            border-color: var(--accent-blue) !important;
+            color: var(--accent-blue) !important;
+            background: rgba(0, 123, 255, 0.1) !important;
+        }
+        .btn-blue {
+            background: rgba(0, 123, 255, 0.15) !important;
+            border-color: var(--accent-blue) !important;
+            color: var(--accent-blue) !important;
+        }
+        .btn-blue:hover {
+            background: var(--accent-blue) !important;
+            color: #fff !important;
+        }
+
         .teacher-card h2 { margin: 15px 0; font-size: 1.7rem; color: var(--primary); text-shadow: var(--glow); }
         .teacher-card p { font-size: 0.95rem; color: var(--subtext); line-height: 1.6; margin-bottom: 30px; }
 
@@ -210,6 +235,13 @@
             <h2>Synonyms Lists</h2>
             <p>Elevate your diction with these curated high-tier word alternatives.</p>
             <a href="https://drive.google.com/drive/folders/1DBGAR1pgEAFgcA9smQT1Ri87NK_25rK1?usp=drive_link" class="access-btn" target="_blank">Access</a>
+        </div>
+
+        <div class="teacher-card blue-card">
+            <div class="avatar avatar-blue">AI</div>
+            <h2 style="color: var(--accent-blue); text-shadow: 0 0 10px rgba(0, 123, 255, 0.3);">Descriptive Ideas</h2>
+            <p>AI-powered suggestions for descriptive scenes, imagery, and vivid storytelling.</p>
+            <a href="https://www.descriptionari.com/" class="access-btn btn-blue" target="_blank">Get Ideas</a>
         </div>
 
         <div class="teacher-card ai-card">

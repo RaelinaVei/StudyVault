@@ -47,6 +47,9 @@ Have a specific paper request or found a broken link?
 - Or open an **Issue** here on GitHub.
 
 ---
+If there are any issues, or you want to contact the owner, please, use the contact form in the website, or open up an issue here, or text the owner on discord at "raelina_vei"
 
 ### ⚡ Stay Bright. Study Hard.
 Built by [Raelina_vei]
+
+

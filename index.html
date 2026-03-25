@@ -342,7 +342,7 @@
 
         .pomo-btn:hover { background: var(--primary); box-shadow: var(--glow); transform: translateY(-3px); }
 
-        footer { text-align: center; margin-top: 20px; padding-bottom: 40px; width: 100%; overflow: hidden;}
+        footer { text-align: center; margin-top: 20px; padding-bottom: 10px; width: 100%; overflow: hidden;}
 
         .scrolling-banner {
             width: 100%; background: var(--primary); padding: 15px 0;
@@ -357,6 +357,16 @@
         }
 
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* Added credit text style */
+        .credit-text {
+            font-size: 0.6rem;
+            opacity: 0.5;
+            color: var(--subtext);
+            text-align: center;
+            letter-spacing: 1px;
+            padding-bottom: 20px;
+        }
 
         /* =============================================
             MOBILE & TABLET RESPONSIVENESS
@@ -609,6 +619,7 @@
             </div>
         </div>
     </footer>
+    <div class="credit-text">made by Raelina_vei</div>
 </div>
 
 <script>
